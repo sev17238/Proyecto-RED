@@ -12,6 +12,7 @@ public class userFrame2 extends javax.swing.JFrame {
     public static Registro registrouser2;
     public static Menus menuuser2;
     public static Usuario cuenta2;
+    public static Usuario cuenta3;
     /**
      * Creates new form userFrame2
      */
@@ -22,6 +23,7 @@ public class userFrame2 extends javax.swing.JFrame {
         registrouser2 = new Registro();
         menuuser2 = new Menus();
         cuenta2 = new Usuario();
+        cuenta3= new Usuario();
     }
     /**
      * Metodo para colocar la imagen correspondiente de la comida 
