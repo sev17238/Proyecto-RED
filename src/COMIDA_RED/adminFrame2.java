@@ -1,6 +1,7 @@
 
 package COMIDA_RED;
 
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -10,6 +11,10 @@ import javax.swing.JOptionPane;
 public class adminFrame2 extends javax.swing.JFrame {
     public static Registro registroadmin2;
     public static Menus menuadmin2;
+    public static JComboBox<String> comboboxadmin2c;
+    public static JComboBox<String> comboboxadmin2b;
+    public String bebidaNueva;
+    public double precioNuevo;
     /**
      * Creates new form adminFrame2
      */
@@ -19,6 +24,10 @@ public class adminFrame2 extends javax.swing.JFrame {
         
         registroadmin2 = new Registro();
         menuadmin2 = new Menus();
+        comboboxadmin2c = new JComboBox();
+        comboboxadmin2b = new JComboBox();
+        bebidaNueva="";
+        precioNuevo=0;
     }
 
     /**
@@ -224,6 +233,8 @@ public class adminFrame2 extends javax.swing.JFrame {
         this.setVisible(false);
         admin.registroadmin = registroadmin2;
         admin.menuadmin = menuadmin2;
+        admin.comboboxadminc = comboboxadmin2c;
+        admin.comboboxadminb = comboboxadmin2b;
     }//GEN-LAST:event_botonregresarActionPerformed
 
     private void botonordenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonordenesActionPerformed
@@ -240,7 +251,7 @@ public class adminFrame2 extends javax.swing.JFrame {
             String user = orden.getUsuario().getNombre();String carnet = orden.getUsuario().getCarnet();
             double sumaprecios = precioc + preciob;
             ordenes.jTextArea1.append(System.getProperty("line.separator"));
-            ordenes.jTextArea1.append(i+".Usuario: "+user+" Carnet: "+carnet+", pidio el menu: "+comida+" ("+precioc+") y "+bebida+" ("+preciob+"), con precio total de: Q."+sumaprecios);
+            ordenes.jTextArea1.append(i+".Usuario: "+user+" Carnet: "+carnet+", pidio el menu: "+comida+" (Q."+precioc+") y "+bebida+" (Q."+preciob+"), con precio total de: Q."+sumaprecios);
         }
         ordenes.setVisible(true);
     }//GEN-LAST:event_botonordenesActionPerformed
@@ -256,24 +267,32 @@ public class adminFrame2 extends javax.swing.JFrame {
     private void bnewbebidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnewbebidaActionPerformed
         // TODO add your handling code here:
         String precio = tpreciobebida.getText();
+        userFrame2 s= new userFrame2();
         if(precio.length()==0){
             JOptionPane.showMessageDialog(null, "No deje campos vacios.", "", JOptionPane.INFORMATION_MESSAGE);
         }else{
             double preciodb = Double.parseDouble(precio);
             String bebida = cboxbebida1.getSelectedItem().toString();
             menuadmin2.agregarBebidas(bebida, preciodb);
+            comboboxadmin2b.addItem(bebida);
+            bebidaNueva=bebida;
+            precioNuevo=preciodb;
+            s.agregarBebidaNueva(bebida,preciodb);
         }
     }//GEN-LAST:event_bnewbebidaActionPerformed
 
     private void bnewcomidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnewcomidaActionPerformed
         // TODO add your handling code here:
-        String precio = tpreciobebida.getText();
+        String precio = tpreciocomida.getText();
         if(precio.length()==0){
             JOptionPane.showMessageDialog(null, "No deje campos vacios.", "", JOptionPane.INFORMATION_MESSAGE);
         }else{
             double preciodb = Double.parseDouble(precio);
             String comida = cboxcomida1.getSelectedItem().toString();
-            menuadmin2.agregarComidas(comida, preciodb);
+            menuadmin2.agregarComidas(comida, preciodb);            
+            comboboxadmin2c.addItem(comida);
+            
+            
         }
     }//GEN-LAST:event_bnewcomidaActionPerformed
 

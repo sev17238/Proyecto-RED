@@ -1,6 +1,7 @@
 
 package COMIDA_RED;
 
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -10,6 +11,8 @@ import javax.swing.JOptionPane;
 public class adminFrame extends javax.swing.JFrame {
     public static Registro registroadmin;
     public static Menus menuadmin;
+    public static JComboBox<String> comboboxadminc;
+    public static JComboBox<String> comboboxadminb;
     /**
      * Creates new form adminFrame
      */
@@ -19,6 +22,8 @@ public class adminFrame extends javax.swing.JFrame {
         
         registroadmin = new Registro();
         menuadmin = new Menus();
+        comboboxadminc = new JComboBox<String>();
+        comboboxadminb = new JComboBox<String>();
     }
 
     /**
@@ -158,6 +163,8 @@ public class adminFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Bienvenido!", "", JOptionPane.PLAIN_MESSAGE);
                 admin2.registroadmin2 = registroadmin;
                 admin2.menuadmin2 = menuadmin;
+                admin2.comboboxadmin2c = comboboxadminc;
+                admin2.comboboxadmin2b = comboboxadminb;
             }
         }
     }//GEN-LAST:event_botoningresoActionPerformed
@@ -169,7 +176,8 @@ public class adminFrame extends javax.swing.JFrame {
         this.setVisible(false);
         ent.registroent = registroadmin;
         ent.menuent = menuadmin;
-        
+        ent.comboboxentc = comboboxadminc;
+        ent.comboboxentb = comboboxadminb;
     }//GEN-LAST:event_botonregresoActionPerformed
 
     

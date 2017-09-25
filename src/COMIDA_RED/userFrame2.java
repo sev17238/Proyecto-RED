@@ -32,6 +32,10 @@ public class userFrame2 extends javax.swing.JFrame {
         double preciocomida = menuuser2.buscarComida(comida).getPrecio();
         preciocomidas.setText("Q."+preciocomida);
     }
+    public void agregarBebidaNueva(String bebida, double precio){
+        cboxbebidas.addItem(bebida);
+        
+    }
     /**
      * Metodo para colocar la imagen correspondiente de la bebida 
      * @param bebida el nombre de la bebida de la que se quiere obtener el precio y la imagen.
@@ -63,7 +67,6 @@ public class userFrame2 extends javax.swing.JFrame {
         bordenarmenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Comidas"));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -78,13 +81,11 @@ public class userFrame2 extends javax.swing.JFrame {
 
         labelcomida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesComidas/Porcion mediana de pizza.png"))); // NOI18N
         labelcomida.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel3.add(labelcomida, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 65, -1, 158));
+        jPanel3.add(labelcomida, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 65, 210, 158));
 
         preciocomidas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         preciocomidas.setText("Q.12.0");
         jPanel3.add(preciocomidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 229, -1, -1));
-
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 240, 260));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Bebidas"));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -104,15 +105,12 @@ public class userFrame2 extends javax.swing.JFrame {
         preciobebidas.setText("Q.6.0");
         jPanel4.add(preciobebidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 229, -1, -1));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(256, 11, 244, 260));
-
         botonverordenes.setText("Ver ordenes");
         botonverordenes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonverordenesActionPerformed(evt);
             }
         });
-        getContentPane().add(botonverordenes, new org.netbeans.lib.awtextra.AbsoluteConstraints(409, 306, -1, -1));
 
         botonregreso.setText("Regresar");
         botonregreso.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +118,6 @@ public class userFrame2 extends javax.swing.JFrame {
                 botonregresoActionPerformed(evt);
             }
         });
-        getContentPane().add(botonregreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 306, -1, -1));
 
         bordenarmenu.setText("Ordenar");
         bordenarmenu.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +125,39 @@ public class userFrame2 extends javax.swing.JFrame {
                 bordenarmenuActionPerformed(evt);
             }
         });
-        getContentPane().add(bordenarmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 277, -1, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(217, 217, 217)
+                .addComponent(bordenarmenu))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(botonregreso)
+                .addGap(322, 322, 322)
+                .addComponent(botonverordenes))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addComponent(bordenarmenu)
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonregreso)
+                    .addComponent(botonverordenes)))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -169,6 +198,7 @@ public class userFrame2 extends javax.swing.JFrame {
             }
         }
         ordenes.setVisible(true);
+        
     }//GEN-LAST:event_botonverordenesActionPerformed
 
     private void botonregresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonregresoActionPerformed
@@ -179,12 +209,15 @@ public class userFrame2 extends javax.swing.JFrame {
         user.registrouser = registrouser2;
         user.menuuser = menuuser2;
         user.cuenta = cuenta2;
+        user.comboboxuserc = cboxcomidas;
+        user.comboboxuserb = cboxbebidas;
     }//GEN-LAST:event_botonregresoActionPerformed
 
     private void cboxbebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxbebidasActionPerformed
         // TODO add your handling code here:
         String bebida = cboxbebidas.getSelectedItem().toString();
         imagenesLabelBebida(bebida);
+        
     }//GEN-LAST:event_cboxbebidasActionPerformed
 
     
@@ -193,8 +226,8 @@ public class userFrame2 extends javax.swing.JFrame {
     private javax.swing.JButton bordenarmenu;
     private javax.swing.JButton botonregreso;
     private javax.swing.JButton botonverordenes;
-    private javax.swing.JComboBox<String> cboxbebidas;
-    private javax.swing.JComboBox<String> cboxcomidas;
+    public static javax.swing.JComboBox<String> cboxbebidas;
+    public static javax.swing.JComboBox<String> cboxcomidas;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel labelbebida;

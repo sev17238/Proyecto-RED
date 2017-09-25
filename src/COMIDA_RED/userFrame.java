@@ -1,6 +1,7 @@
 
 package COMIDA_RED;
 
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,6 +12,8 @@ public class userFrame extends javax.swing.JFrame {
     public static Registro registrouser;
     public static Menus menuuser;
     public static Usuario cuenta;
+    public static JComboBox<String> comboboxuserc;
+    public static JComboBox<String> comboboxuserb;
     /**
      * Creates new form userFrame
      */
@@ -21,6 +24,8 @@ public class userFrame extends javax.swing.JFrame {
         registrouser = new Registro();
         menuuser = new Menus();
         cuenta = new Usuario();
+        comboboxuserc = new JComboBox<String>();
+        comboboxuserb = new JComboBox<String>();
     }
     
     /**
@@ -261,6 +266,8 @@ public class userFrame extends javax.swing.JFrame {
                 user2.registrouser2 = registrouser;
                 user2.menuuser2 = menuuser;
                 user2.cuenta2 = cuenta;
+                //user2.cboxcomidas = comboboxuserc;
+                //user2.cboxbebidas = comboboxuserb;
             }
         }
     }//GEN-LAST:event_botonloginActionPerformed
@@ -288,7 +295,8 @@ public class userFrame extends javax.swing.JFrame {
         this.setVisible(false);
         ent.registroent = registrouser; 
         ent.menuent = menuuser;
-        
+        ent.comboboxentc = comboboxuserc;
+        ent.comboboxentb = comboboxuserb;
     }//GEN-LAST:event_regresoActionPerformed
 
     

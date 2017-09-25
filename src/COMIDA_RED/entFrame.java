@@ -1,6 +1,7 @@
 
 package COMIDA_RED;
 
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -10,6 +11,8 @@ import javax.swing.JOptionPane;
 public class entFrame extends javax.swing.JFrame {
     public static Registro registroent; //La variable se declara "publica" y "de clase" para poder ser compartida
     public static Menus menuent;        //entre los diferentes JFrames creados.
+    public static JComboBox<String> comboboxentc;
+    public static JComboBox<String> comboboxentb;
     /**
      * Creates new form entFrame
      */
@@ -19,8 +22,11 @@ public class entFrame extends javax.swing.JFrame {
         
         registroent = new Registro();
         menuent = new Menus();
-        
+        comboboxentc = new JComboBox<String>();
+        comboboxentb = new JComboBox<String>();
+                
         menusIniciales();
+        
     }
     /**
      * Metodo que inicializa cuatro comidas en el menu del restaurante.
@@ -35,7 +41,12 @@ public class entFrame extends javax.swing.JFrame {
         menuent.agregarBebidas("Rosa de jamaica", 8.00);
         menuent.agregarBebidas("Horchata con canela", 8.00);
         menuent.agregarBebidas("Coca Cola", 6.00);
+        
+        comboboxentc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Porcion mediana de pizza", "Quesoburquesa", "Pie de queso", "Papas con queso y tocino"}));
+        comboboxentb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seven Up", "Coca Cola", "Rosa de jamaica", "Horchata con canela"}));
     }
+   
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -154,12 +165,16 @@ public class entFrame extends javax.swing.JFrame {
                 user.registrouser = registroent; //Los objetos tipo Registro y Menus del frame del usuario se igualan 
                 user.menuuser = menuent;         //a los objetos respectivos de este Frame para que no se pierdan 
                                                  //los datos al momento de pasar al otro frame. 
+                user.comboboxuserc = comboboxentc;
+                user.comboboxuserb = comboboxentb;
             }else if(rbotonadmin.isSelected()){
                 adminFrame admin = new adminFrame();
                 admin.setVisible(true);
                 this.setVisible(false);               
                 admin.registroadmin = registroent;
                 admin.menuadmin = menuent;
+                admin.comboboxadminc = comboboxentc;
+                admin.comboboxadminb = comboboxentb;
             }
         }else{
             JOptionPane.showMessageDialog(null, "Debe de eligir al menos una opcion!", "", JOptionPane.INFORMATION_MESSAGE);
