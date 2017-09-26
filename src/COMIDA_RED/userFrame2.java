@@ -22,9 +22,21 @@ public class userFrame2 extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         registrouser2 = new Registro();
-        menuuser2 = new Menus();
+        menuuser2 =userFrame.menuuser;
         cuenta2 = new Usuario();
         cuenta3= new Usuario();
+        llenarComboboxes();
+        
+    }
+    public void llenarComboboxes(){
+        String[] a=menuuser2.retornarListaBebidas();
+        for (int i = 0; i < a.length; i++) {
+            cboxbebidas.addItem(a[i]);
+        }
+        String[] b=menuuser2.retornarListaComidas();
+        for (int i = 0; i < b.length; i++) {
+            cboxcomidas.addItem(b[i]);
+        }
     }
     /**
      * Metodo para colocar la imagen correspondiente de la comida 
@@ -74,7 +86,6 @@ public class userFrame2 extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Comidas"));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cboxcomidas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Porcion mediana de pizza", "Quesoburguesa", "Pie de queso", "Papas con queso y tocino" }));
         cboxcomidas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboxcomidasActionPerformed(evt);
@@ -93,7 +104,6 @@ public class userFrame2 extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Bebidas"));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cboxbebidas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seven Up", "Coca Cola", "Rosa de jamaica", "Horchata con canela" }));
         cboxbebidas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboxbebidasActionPerformed(evt);

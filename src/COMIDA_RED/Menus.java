@@ -107,6 +107,36 @@ public class Menus{
 			}
 		}
 		return prueba;
-	}	
+	}
+        
+        /**
+         * Este metodo retorna una lista con las bebidas en esta clase
+         * @return un vector STring con la lista de bebidas
+         */
+        public String[] retornarListaBebidas(){
+            String[] a= new String[menu2.size()];
+            Bebidas b= new Bebidas();
+            int m=0;
+            for (int i = 0; i < menu2.size(); i++) {
+                b=menu2.get(i);
+                a[i]=b.getNombreBebida();
+            }
+            return a;
+        }
+        /**
+         * Este metodo retorna una lista con las comidas en esta clase
+         * @return un vector STring con la lista de comidas
+         */
+        public String[] retornarListaComidas(){
+            String[] a= new String[menu.size()];
+            Comidas b= new Comidas();
+            int m=0;
+            for (int i = 0; i < menu.size(); i++) {
+                b=menu.get(i);
+                a[i]=b.getNombreComida();
+            }
+            return a;
+        }
+
 	 
 }

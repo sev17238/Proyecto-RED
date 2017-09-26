@@ -21,9 +21,9 @@ public class adminFrame extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         registroadmin = new Registro();
-        menuadmin = new Menus();
-        comboboxadminc = new JComboBox<String>();
-        comboboxadminb = new JComboBox<String>();
+        menuadmin = entFrame.menuent;
+        comboboxadminc = new JComboBox<>();
+        comboboxadminb = new JComboBox<>();
     }
 
     /**
