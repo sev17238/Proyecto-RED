@@ -13,7 +13,7 @@ public class userFrame2 extends javax.swing.JFrame {
     public static Menus menuuser2;
     public static Usuario cuenta2;
     public static Usuario cuenta3;
-    int pedo;int pedo2;
+    int pedo;
     /**
      * Creates new form userFrame2
      */
