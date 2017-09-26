@@ -23,7 +23,7 @@ public class adminFrame2 extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         registroadmin2 = new Registro();
-        menuadmin2 = new Menus();
+        menuadmin2 = adminFrame.menuadmin;
         comboboxadmin2c = new JComboBox();
         comboboxadmin2b = new JComboBox();
         bebidaNueva="";
@@ -53,7 +53,7 @@ public class adminFrame2 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTextFieldOrdenABorrar = new javax.swing.JTextField();
         botonregresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -148,6 +148,11 @@ public class adminFrame2 extends javax.swing.JFrame {
         jLabel2.setText("Escriba el numero de orden que desea borrar: ");
 
         jButton3.setText("Borrar orden");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("** Para ver el numero de orden, presione el boton para revisar ordenes.");
 
@@ -161,7 +166,7 @@ public class adminFrame2 extends javax.swing.JFrame {
                         .addGap(37, 37, 37)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextFieldOrdenABorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel3))
@@ -176,7 +181,7 @@ public class adminFrame2 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldOrdenABorrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -267,7 +272,6 @@ public class adminFrame2 extends javax.swing.JFrame {
     private void bnewbebidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnewbebidaActionPerformed
         // TODO add your handling code here:
         String precio = tpreciobebida.getText();
-        userFrame2 s= new userFrame2();
         if(precio.length()==0){
             JOptionPane.showMessageDialog(null, "No deje campos vacios.", "", JOptionPane.INFORMATION_MESSAGE);
         }else{
@@ -275,9 +279,9 @@ public class adminFrame2 extends javax.swing.JFrame {
             String bebida = cboxbebida1.getSelectedItem().toString();
             menuadmin2.agregarBebidas(bebida, preciodb);
             comboboxadmin2b.addItem(bebida);
-            bebidaNueva=bebida;
-            precioNuevo=preciodb;
-            s.agregarBebidaNueva(bebida,preciodb);
+            menuadmin2.agregarBebidas(bebida, preciodb);
+            tpreciobebida.setText("");
+            JOptionPane.showMessageDialog(null, "Bebida agregada con exito");
         }
     }//GEN-LAST:event_bnewbebidaActionPerformed
 
@@ -291,10 +295,27 @@ public class adminFrame2 extends javax.swing.JFrame {
             String comida = cboxcomida1.getSelectedItem().toString();
             menuadmin2.agregarComidas(comida, preciodb);            
             comboboxadmin2c.addItem(comida);
-            
-            
+            tpreciocomida.setText("");
+            JOptionPane.showMessageDialog(null, "Comida agregada");
         }
     }//GEN-LAST:event_bnewcomidaActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        ordenesFrame ordenes = new ordenesFrame();
+        int i = -1;
+        int oab=0;
+        Ordenes orden = new Ordenes();
+        try {
+            oab=Integer.parseInt(jTextFieldOrdenABorrar.getText());
+            registroadmin2.borrarOrden(oab);
+            JOptionPane.showMessageDialog(null, "Orden Borrada");
+            jTextFieldOrdenABorrar.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ingrese un numero de orden valido.");
+        }
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     
 
@@ -312,7 +333,7 @@ public class adminFrame2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextFieldOrdenABorrar;
     private javax.swing.JTextField tpreciobebida;
     private javax.swing.JTextField tpreciocomida;
     // End of variables declaration//GEN-END:variables

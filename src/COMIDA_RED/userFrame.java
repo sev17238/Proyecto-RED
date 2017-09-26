@@ -22,10 +22,10 @@ public class userFrame extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
        
         registrouser = new Registro();
-        menuuser = new Menus();
+        menuuser = entFrame.menuent;
         cuenta = new Usuario();
-        comboboxuserc = new JComboBox<String>();
-        comboboxuserb = new JComboBox<String>();
+        comboboxuserc = new JComboBox<>();
+        comboboxuserb = new JComboBox<>();
     }
     
     /**
@@ -263,9 +263,9 @@ public class userFrame extends javax.swing.JFrame {
                 user2.setVisible(true);
                 this.setVisible(false);
                 JOptionPane.showMessageDialog(null, "Bienvenido "+cuenta.getNombre()+"!", "", JOptionPane.PLAIN_MESSAGE);
-                user2.registrouser2 = registrouser;
-                user2.menuuser2 = menuuser;
-                user2.cuenta2 = cuenta;
+                userFrame2.registrouser2 = registrouser;
+                userFrame2.menuuser2 = menuuser;
+                userFrame2.cuenta2 = cuenta;
                 //user2.cboxcomidas = comboboxuserc;
                 //user2.cboxbebidas = comboboxuserb;
             }

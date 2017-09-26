@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
  *
  * @author SDiego
  */
-public class entFrame extends javax.swing.JFrame {
+public final class entFrame extends javax.swing.JFrame {
     public static Registro registroent; //La variable se declara "publica" y "de clase" para poder ser compartida
     public static Menus menuent;        //entre los diferentes JFrames creados.
     public static JComboBox<String> comboboxentc;
@@ -22,8 +22,8 @@ public class entFrame extends javax.swing.JFrame {
         
         registroent = new Registro();
         menuent = new Menus();
-        comboboxentc = new JComboBox<String>();
-        comboboxentb = new JComboBox<String>();
+        comboboxentc = new JComboBox<>();
+        comboboxentb = new JComboBox<>();
                 
         menusIniciales();
         
@@ -42,8 +42,8 @@ public class entFrame extends javax.swing.JFrame {
         menuent.agregarBebidas("Horchata con canela", 8.00);
         menuent.agregarBebidas("Coca Cola", 6.00);
         
-        comboboxentc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Porcion mediana de pizza", "Quesoburquesa", "Pie de queso", "Papas con queso y tocino"}));
-        comboboxentb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seven Up", "Coca Cola", "Rosa de jamaica", "Horchata con canela"}));
+        
+        
     }
    
     
@@ -162,11 +162,11 @@ public class entFrame extends javax.swing.JFrame {
                 userFrame user = new userFrame(); //Se crea un objeto tipo userFrame "frame del usuario" 
                 user.setVisible(true);            //y se vuelve visible.
                 this.setVisible(false);           //Se oculta el frame en el que estamos actualmente.
-                user.registrouser = registroent; //Los objetos tipo Registro y Menus del frame del usuario se igualan 
-                user.menuuser = menuent;         //a los objetos respectivos de este Frame para que no se pierdan 
+                userFrame.registrouser = registroent; //Los objetos tipo Registro y Menus del frame del usuario se igualan 
+                userFrame.menuuser = menuent;         //a los objetos respectivos de este Frame para que no se pierdan 
                                                  //los datos al momento de pasar al otro frame. 
-                user.comboboxuserc = comboboxentc;
-                user.comboboxuserb = comboboxentb;
+                userFrame.comboboxuserc = comboboxentc;
+                userFrame.comboboxuserb = comboboxentb;
             }else if(rbotonadmin.isSelected()){
                 adminFrame admin = new adminFrame();
                 admin.setVisible(true);
