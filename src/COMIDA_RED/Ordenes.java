@@ -6,7 +6,7 @@ package COMIDA_RED;
 *@author AlejandroTejada
 *@author DiegoSevilla
 *@since 15/08/2017
-*@version 1.0 
+*@version 3.0 
 */
 public class Ordenes{
 	//atributos
