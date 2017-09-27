@@ -141,10 +141,12 @@ public class Registro{
 	*@param cuenta El usuario que recibira la cuenta de lo gastado en la orden
 	*@param pedido La comida que el usuario desea elegir
         *@param pedido2 La bebida que el usuario desea elegir
+        *@param hora La hora a la que se entregara el pedido
+        *@param minuto Los minutos de la hora a la que se entregara el pedido
 	*/	
-	public void meterOrden(Usuario cuenta, Comidas pedido, Bebidas pedido2){
+	public void meterOrden(Usuario cuenta, Comidas pedido, Bebidas pedido2, String hora, String minuto){
 		Ordenes nueva = new Ordenes();
-		nueva.setOrden(cuenta,pedido,pedido2);
+		nueva.setOrden(cuenta,pedido,pedido2,hora,minuto);
 		ordenes.add(nueva);
 	}
 	/**

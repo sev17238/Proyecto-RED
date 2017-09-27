@@ -183,6 +183,10 @@ public class userFrame2 extends javax.swing.JFrame {
             }
         });
 
+        SpinnerMinuto.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+
+        SpinnerHora.setModel(new javax.swing.SpinnerNumberModel(7, 7, 19, 1));
+
         jLabel1.setText("Elija la hora y los minutos a los que desea su orden");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -252,9 +256,19 @@ public class userFrame2 extends javax.swing.JFrame {
         String bebida = cboxbebidas.getSelectedItem().toString();
         Comidas pedido = menuuser2.buscarComida(comida);
         Bebidas pedido2 = menuuser2.buscarBebida(bebida);
-        registrouser2.meterOrden(cuenta2, pedido,pedido2); //Se le agrega el usuario de la cuenta actual y la comida
+        String hora = SpinnerHora.getValue().toString();
+        int horai = Integer.parseInt(hora);
+        String minuto = SpinnerMinuto.getValue().toString();
+        int minutoi = Integer.parseInt(minuto);
+        if(horai<10){
+            hora = "0"+hora;
+        }
+        if(minutoi<10){
+            minuto = "0"+minuto;
+        }
+        registrouser2.meterOrden(cuenta2, pedido,pedido2,hora,minuto); //Se le agrega el usuario de la cuenta actual y la comida
                                                    //y bebida que se escogio a una nueva orden que es creada y agregada
-                                                   //a la lista de oredenes del registro.
+                                                   //a la lista de oredenes del registro.                                          
         JOptionPane.showMessageDialog(null, "Usted a ordenado: "+comida+" y "+bebida);
     }//GEN-LAST:event_bordenarmenuActionPerformed
 
@@ -270,9 +284,10 @@ public class userFrame2 extends javax.swing.JFrame {
                 i = i+1;
                 String comida = orden.getComida().getNombreComida();double precioc = orden.getComida().getPrecio();
                 String bebida = orden.getBebida().getNombreBebida();double preciob = orden.getBebida().getPrecio();
+                String hora = orden.getHora(); String minuto = orden.getMinutos();
                 double sumaprecios = precioc + preciob;
                 ordenes.jTextArea1.append(System.getProperty("line.separator"));
-                ordenes.jTextArea1.append(i+".Menu: "+comida+" y "+bebida+", debe pagar: Q."+sumaprecios);
+                ordenes.jTextArea1.append(i+".Menu: "+comida+" y "+bebida+", debe pagar: Q."+sumaprecios+", para la siguiente hora: "+hora+":"+minuto);
             }
         }
         ordenes.setVisible(true);

@@ -254,9 +254,10 @@ public class adminFrame2 extends javax.swing.JFrame {
             String comida = orden.getComida().getNombreComida();double precioc = orden.getComida().getPrecio();
             String bebida = orden.getBebida().getNombreBebida();double preciob = orden.getBebida().getPrecio();
             String user = orden.getUsuario().getNombre();String carnet = orden.getUsuario().getCarnet();
+            String hora = orden.getHora(); String minuto = orden.getMinutos();
             double sumaprecios = precioc + preciob;
             ordenes.jTextArea1.append(System.getProperty("line.separator"));
-            ordenes.jTextArea1.append(i+".Usuario: "+user+" Carnet: "+carnet+", pidio el menu: "+comida+" (Q."+precioc+") y "+bebida+" (Q."+preciob+"), con precio total de: Q."+sumaprecios);
+            ordenes.jTextArea1.append(i+".Usuario: "+user+" Carnet: "+carnet+", pidio el menu: "+comida+" (Q."+precioc+") y "+bebida+" (Q."+preciob+"), con precio total de: Q."+sumaprecios+", para la siguiente hora: "+hora+":"+minuto);
         }
         ordenes.setVisible(true);
     }//GEN-LAST:event_botonordenesActionPerformed

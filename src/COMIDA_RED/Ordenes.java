@@ -13,11 +13,15 @@ public class Ordenes{
 	private Usuario usuario;
 	private Comidas comida;
         private Bebidas bebida;
+        private String hora;
+        private String minuto;
 
 	public Ordenes(){
 		usuario = new Usuario();
 		comida = new Comidas();
                 bebida = new Bebidas();
+                hora = "00";
+                minuto = "00";
 	}
 	//metodos
 	/**
@@ -25,11 +29,15 @@ public class Ordenes{
 	*@param user Objeto con los datos de un usuario
 	*@param menu Objeto con los datos de una comida del menu
         *@param bebida Objeto con los datos de una bebida del menu
+        *@param horas Texto que guardara la hora de entrega del producto
+        *@param minutos Texto que guardara los minutos de la hora en que se entregara el producto
 	*/	
-	public void setOrden(Usuario user, Comidas menu, Bebidas bebida){
+	public void setOrden(Usuario user, Comidas menu, Bebidas bebida, String horas, String minutos){
 		usuario = user;
 		comida = menu;
                 this.bebida = bebida;
+                minuto = minutos;
+                hora = horas;
 	}
 	/**
 	*Devuelve el objeto con los datos de un usuario
@@ -52,4 +60,18 @@ public class Ordenes{
 	public Bebidas getBebida(){
 		return bebida;
 	}
+        /**
+	*Devuelve el String con la hora a la que se entregara el pedido
+	*@return String con la hora a la que se entregara el producto
+	*/	
+	public String getHora(){
+	        return hora;
+        }
+        /**
+	*Devuelve el String con los minutos de la hora a la que se entregara el pedido
+	*@return String con los minutos de la hora a la que se entregara el producto
+	*/	
+	public String getMinutos(){
+	        return minuto;
+        }
 }
