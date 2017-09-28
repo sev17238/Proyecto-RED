@@ -77,6 +77,7 @@ public class Menus{
 	/**
 	*Busca un alimento dentro de la lista de menus que se desea ordenar
 	*@return Objeto con los datos de la comida que se desea ordear
+        *@param nombre es el nombre de la comida
 	*/	
 	public Comidas buscarComida(String nombre){
 		Comidas prueba = new Comidas();
@@ -94,6 +95,7 @@ public class Menus{
         /**
 	*Busca una bebida dentro de la lista de menus2 que se desea ordenar
 	*@return Objeto con los datos de la bebida que se desea ordear
+        *@param nombre es el string con el nombre
 	*/	
 	public Bebidas buscarBebida(String nombre){
 		Bebidas prueba = new Bebidas();

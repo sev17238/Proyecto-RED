@@ -145,9 +145,9 @@ public class adminFrame2 extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Borrar ordenes"));
 
-        jLabel2.setText("Escriba el numero de orden que desea borrar: ");
+        jLabel2.setText("Escriba el numero de orden que desea entregar: ");
 
-        jButton3.setText("Borrar orden");
+        jButton3.setText("Entregar Orden");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -227,6 +227,8 @@ public class adminFrame2 extends javax.swing.JFrame {
                     .addComponent(botonregresar))
                 .addGap(10, 10, 10))
         );
+
+        jPanel2.getAccessibleContext().setAccessibleName("Entrega de Ordenes");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
