@@ -1,6 +1,7 @@
 
 package COMIDA_RED;
 
+import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
@@ -15,6 +16,7 @@ public class adminFrame2 extends javax.swing.JFrame {
     public static JComboBox<String> comboboxadmin2b;
     public String bebidaNueva;
     public double precioNuevo;
+    public int posicion;
     /**
      * Creates new form adminFrame2
      */
@@ -28,6 +30,7 @@ public class adminFrame2 extends javax.swing.JFrame {
         comboboxadmin2b = new JComboBox();
         bebidaNueva="";
         precioNuevo=0;
+        posicion=0;
     }
 
     /**
@@ -56,6 +59,7 @@ public class adminFrame2 extends javax.swing.JFrame {
         jTextFieldOrdenABorrar = new javax.swing.JTextField();
         jComboBoxBuscarOrden = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         botonregresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -138,7 +142,7 @@ public class adminFrame2 extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        botonordenes.setText("Revisar Ordenes");
+        botonordenes.setText("Revisar Ordenes Pendientes");
         botonordenes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonordenesActionPerformed(evt);
@@ -158,30 +162,57 @@ public class adminFrame2 extends javax.swing.JFrame {
 
         jLabel3.setText("** Para más informacion presione el botón: \"Revisar Ordenes\".");
 
+        jTextFieldOrdenABorrar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldOrdenABorrarFocusGained(evt);
+            }
+        });
+
         jComboBoxBuscarOrden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+        jComboBoxBuscarOrden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxBuscarOrdenActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Seleccione la orden");
+
+        jButton1.setText("Buscar Ordenes");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTextFieldOrdenABorrar, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3))
-                    .addComponent(jComboBoxBuscarOrden, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(155, 155, 155)
+                .addComponent(jButton3)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
+                .addGap(25, 25, 25)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldOrdenABorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(161, 161, 161)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jComboBoxBuscarOrden, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -191,13 +222,15 @@ public class adminFrame2 extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextFieldOrdenABorrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
-                .addGap(9, 9, 9)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBoxBuscarOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(jButton1))
+                .addGap(7, 7, 7)
+                .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE))
+                .addComponent(jComboBoxBuscarOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         botonregresar.setText("Regresar");
@@ -213,17 +246,15 @@ public class adminFrame2 extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 12, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(botonregresar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botonordenes)
-                        .addContainerGap())))
+                        .addGap(182, 182, 182)
+                        .addComponent(botonordenes, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,8 +262,8 @@ public class adminFrame2 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonordenes)
                     .addComponent(botonregresar))
@@ -321,15 +352,65 @@ public class adminFrame2 extends javax.swing.JFrame {
         int oab=0;
         Ordenes orden = new Ordenes();
         try {
-            oab=Integer.parseInt(jTextFieldOrdenABorrar.getText());
+            oab=this.posicion;
             registroadmin2.borrarOrden(oab);
             JOptionPane.showMessageDialog(null, "Orden Entregada");
             jTextFieldOrdenABorrar.setText("");
+            jComboBoxBuscarOrden.removeAllItems();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ingrese un numero de orden valido.");
         }
         
+        
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        try {
+           
+            String aa;
+            Registro s= new Registro();
+            ArrayList<Ordenes> ss=null;
+            aa=(jTextFieldOrdenABorrar.getText());
+             // TODO add your handling code here:
+            ordenesFrame ordenes = new ordenesFrame();
+            int i = -1;
+            Ordenes orden = new Ordenes();
+            for(int e = 0; e<registroadmin2.getOrdenes().size();e++){
+                orden = registroadmin2.getOrdenes().get(e);
+                if (orden.getUsuario().getCarnet().equals(aa)) {
+                    i = i+1;
+                    String comida = orden.getComida().getNombreComida();
+                    double precioc = orden.getComida().getPrecio();
+                    String bebida = orden.getBebida().getNombreBebida();
+                    double preciob = orden.getBebida().getPrecio();
+                    String user = orden.getUsuario().getNombre();
+                    String carnet = orden.getUsuario().getCarnet();
+                    String hora = orden.getHora();
+                    String minuto = orden.getMinutos();
+                    double sumaprecios = precioc + preciob;
+                    jComboBoxBuscarOrden.addItem( "Menu: "+comida+" y "+bebida+", con total de: Q."+sumaprecios);
+                }
+               
+                
+                
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ingrese un No. de Carnet valido");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextFieldOrdenABorrarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldOrdenABorrarFocusGained
+        // TODO add your handling code here:
+        jComboBoxBuscarOrden.removeAllItems();
+    }//GEN-LAST:event_jTextFieldOrdenABorrarFocusGained
+
+    private void jComboBoxBuscarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxBuscarOrdenActionPerformed
+        // TODO add your handling code here:
+        this.posicion=jComboBoxBuscarOrden.getSelectedIndex();
+    }//GEN-LAST:event_jComboBoxBuscarOrdenActionPerformed
 
     
 
@@ -340,8 +421,9 @@ public class adminFrame2 extends javax.swing.JFrame {
     private javax.swing.JButton botonregresar;
     private javax.swing.JComboBox<String> cboxbebida1;
     private javax.swing.JComboBox<String> cboxcomida1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
-    private static javax.swing.JComboBox<String> jComboBoxBuscarOrden;
+    public static javax.swing.JComboBox<String> jComboBoxBuscarOrden;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -354,3 +436,5 @@ public class adminFrame2 extends javax.swing.JFrame {
     private javax.swing.JTextField tpreciocomida;
     // End of variables declaration//GEN-END:variables
 }
+
+

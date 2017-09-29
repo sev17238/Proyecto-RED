@@ -156,4 +156,22 @@ public class Registro{
 	public void borrarOrden(int numero){
 		ordenes.remove(numero);
 	}
+        
+      /**  public ArrayList<Ordenes> retornarOrdenesUsuario(String carnet){
+            ArrayList<Ordenes> t=null;
+            Ordenes tt=null;
+            for (int i = 0; i < ordenes.size(); i++) {
+                tt=ordenes.get(i);
+                if (tt.getUsuario().getCarnet().equals(carnet)) {
+                    adminFrame2.jComboBoxBuscarOrden.addItem("HOLA NENE");
+                }
+            }
+            return t;
+        }
+        * 
+        
+        */
+        
+      
+        
 }
