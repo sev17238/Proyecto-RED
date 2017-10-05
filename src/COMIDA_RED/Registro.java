@@ -12,15 +12,15 @@ import java.util.Iterator;
 
 public class Registro{
 	//atributos
-	private ArrayList<Usuario> user;
-	private Administrador admin;
-	private ArrayList<Ordenes> ordenes;
+	private final ArrayList<Usuario> user;
+	private final Administrador admin;
+	private final ArrayList<Ordenes> ordenes;
 
 	//constructor
 	public Registro(){
-		user = new ArrayList<Usuario>();
+		user = new ArrayList<>();
 		admin = new Administrador(); 
-		ordenes = new ArrayList<Ordenes>();
+		ordenes = new ArrayList<>();
 	}
 
 	//metodos
@@ -155,23 +155,5 @@ public class Registro{
 	*/	
 	public void borrarOrden(int numero){
 		ordenes.remove(numero);
-	}
-        
-      /**  public ArrayList<Ordenes> retornarOrdenesUsuario(String carnet){
-            ArrayList<Ordenes> t=null;
-            Ordenes tt=null;
-            for (int i = 0; i < ordenes.size(); i++) {
-                tt=ordenes.get(i);
-                if (tt.getUsuario().getCarnet().equals(carnet)) {
-                    adminFrame2.jComboBoxBuscarOrden.addItem("HOLA NENE");
-                }
-            }
-            return t;
-        }
-        * 
-        
-        */
-        
-      
-        
+	}        
 }

@@ -13,13 +13,13 @@ import java.util.Iterator;
 
 public class Menus{
 	//atributos
-	private ArrayList<Comidas> menu;
-        private ArrayList<Bebidas> menu2;
+	private final ArrayList<Comidas> menu;
+        private final ArrayList<Bebidas> menu2;
 
 	//Constructor 
 	public Menus(){
-		menu = new ArrayList<Comidas>();
-                menu2 = new ArrayList<Bebidas>();
+		menu = new ArrayList<>();
+                menu2 = new ArrayList<>();
 	} 
 
 	//Metodos
@@ -55,24 +55,7 @@ public class Menus{
 			System.out.println(i +"."+prueba.getNombreComida()+". Su precio es de: "+ prueba.getPrecio());
 		}
 	}
-	/**
-	*Busca un alimento dentro de la lista de menus que se desea ordenar
-	*@param opcion Posicion del menu que se desea buscar para obtener sus datos
-	*@return Objeto con los datos de la comida que se desea ordear
-	*/	
-	/*public Comidas buscarMenu(int opcion){
-		int i = opcion;
-		Comidas prueba = new Comidas();
-		Iterator<Comidas> iterator = menu.iterator();
-		while (iterator.hasNext()){
-			i= i + 1;
-			prueba = iterator.next();
-			if(i==opcion){
-				return prueba;
-			}
-		}
-		return prueba;
-	}*/
+	
 
 	/**
 	*Busca un alimento dentro de la lista de menus que se desea ordenar

@@ -1,6 +1,7 @@
 
 package COMIDA_RED;
 
+import java.awt.HeadlessException;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -22,7 +23,7 @@ public class adminFrame2 extends javax.swing.JFrame {
      */
     public adminFrame2() {
         initComponents();
-        this.setLocationRelativeTo(null);
+      
         
         registroadmin2 = new Registro();
         menuadmin2 = adminFrame.menuadmin;
@@ -280,18 +281,18 @@ public class adminFrame2 extends javax.swing.JFrame {
         adminFrame admin = new adminFrame();
         admin.setVisible(true);
         this.setVisible(false);
-        admin.registroadmin = registroadmin2;
-        admin.menuadmin = menuadmin2;
-        admin.comboboxadminc = comboboxadmin2c;
-        admin.comboboxadminb = comboboxadmin2b;
+        adminFrame.registroadmin = registroadmin2;
+        adminFrame.menuadmin = menuadmin2;
+        adminFrame.comboboxadminc = comboboxadmin2c;
+        adminFrame.comboboxadminb = comboboxadmin2b;
     }//GEN-LAST:event_botonregresarActionPerformed
 
     private void botonordenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonordenesActionPerformed
         // TODO add your handling code here:
         ordenesFrame ordenes = new ordenesFrame();
-        ordenes.jTextArea1.append("Las ordenes son: ");
+        ordenesFrame.jTextArea1.append("Las ordenes son: ");
         int i = -1;
-        Ordenes orden = new Ordenes();
+        Ordenes orden =null;
         for(int e = 0; e<registroadmin2.getOrdenes().size();e++){
             orden = registroadmin2.getOrdenes().get(e);
             i = i+1;
@@ -300,8 +301,8 @@ public class adminFrame2 extends javax.swing.JFrame {
             String user = orden.getUsuario().getNombre();String carnet = orden.getUsuario().getCarnet();
             String hora = orden.getHora(); String minuto = orden.getMinutos();
             double sumaprecios = precioc + preciob;
-            ordenes.jTextArea1.append(System.getProperty("line.separator"));
-            ordenes.jTextArea1.append(i+".Usuario: "+user+" Carnet: "+carnet+", pidio el menu: "+comida+" (Q."+precioc+") y "+bebida+" (Q."+preciob+"), con precio total de: Q."+sumaprecios+", para la siguiente hora: "+hora+":"+minuto);
+            ordenesFrame.jTextArea1.append(System.getProperty("line.separator"));
+            ordenesFrame.jTextArea1.append(i+".Usuario: "+user+" Carnet: "+carnet+", pidio el menu: "+comida+" (Q."+precioc+") y "+bebida+" (Q."+preciob+"), con precio total de: Q."+sumaprecios+", para la siguiente hora: "+hora+":"+minuto);
         }
         ordenes.setVisible(true);
     }//GEN-LAST:event_botonordenesActionPerformed
@@ -349,7 +350,8 @@ public class adminFrame2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         ordenesFrame ordenes = new ordenesFrame();
         int i = -1;
-        int oab=0;
+        int oab;
+        oab = 0;
         Ordenes orden = new Ordenes();
         try {
             oab=this.posicion;
@@ -357,11 +359,9 @@ public class adminFrame2 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Orden Entregada");
             jTextFieldOrdenABorrar.setText("");
             jComboBoxBuscarOrden.removeAllItems();
-        } catch (Exception e) {
+        } catch (HeadlessException e) {
             JOptionPane.showMessageDialog(null, "Ingrese un numero de orden valido.");
         }
-        
-        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -392,11 +392,7 @@ public class adminFrame2 extends javax.swing.JFrame {
                     double sumaprecios = precioc + preciob;
                     jComboBoxBuscarOrden.addItem( "Menu: "+comida+" y "+bebida+", con total de: Q."+sumaprecios);
                 }
-               
-                
-                
             }
-            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ingrese un No. de Carnet valido");
         }

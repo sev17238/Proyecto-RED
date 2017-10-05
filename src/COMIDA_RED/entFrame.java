@@ -175,17 +175,17 @@ public final class entFrame extends javax.swing.JFrame {
                 this.setVisible(false);           //Se oculta el frame en el que estamos actualmente.
                 userFrame.registrouser = registroent; //Los objetos tipo Registro y Menus del frame del usuario se igualan 
                 userFrame.menuuser = menuent;         //a los objetos respectivos de este Frame para que no se pierdan 
-                                                 //los datos al momento de pasar al otro frame. 
+             //los datos al momento de pasar al otro frame. 
                 userFrame.comboboxuserc = comboboxentc;
                 userFrame.comboboxuserb = comboboxentb;
             }else if(rbotonadmin.isSelected()){
                 adminFrame admin = new adminFrame();
                 admin.setVisible(true);
                 this.setVisible(false);               
-                admin.registroadmin = registroent;
-                admin.menuadmin = menuent;
-                admin.comboboxadminc = comboboxentc;
-                admin.comboboxadminb = comboboxentb;
+                adminFrame.registroadmin = registroent;
+                adminFrame.menuadmin = menuent;
+                adminFrame.comboboxadminc = comboboxentc;
+                adminFrame.comboboxadminb = comboboxentb;
             }
         }else{
             JOptionPane.showMessageDialog(null, "Debe de eligir al menos una opcion!", "", JOptionPane.INFORMATION_MESSAGE);
@@ -225,10 +225,8 @@ public final class entFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new entFrame().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new entFrame().setVisible(true);
         });
     }
 

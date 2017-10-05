@@ -161,10 +161,10 @@ public class adminFrame extends javax.swing.JFrame {
                 admin2.setVisible(true);
                 this.setVisible(false);
                 JOptionPane.showMessageDialog(null, "Bienvenido!", "", JOptionPane.PLAIN_MESSAGE);
-                admin2.registroadmin2 = registroadmin;
-                admin2.menuadmin2 = menuadmin;
-                admin2.comboboxadmin2c = comboboxadminc;
-                admin2.comboboxadmin2b = comboboxadminb;
+                adminFrame2.registroadmin2 = registroadmin;
+                adminFrame2.menuadmin2 = menuadmin;
+                adminFrame2.comboboxadmin2c = comboboxadminc;
+                adminFrame2.comboboxadmin2b = comboboxadminb;
             }
         }
     }//GEN-LAST:event_botoningresoActionPerformed
@@ -174,10 +174,10 @@ public class adminFrame extends javax.swing.JFrame {
         entFrame ent = new entFrame();
         ent.setVisible(true);
         this.setVisible(false);
-        ent.registroent = registroadmin;
-        ent.menuent = menuadmin;
-        ent.comboboxentc = comboboxadminc;
-        ent.comboboxentb = comboboxadminb;
+        entFrame.registroent = registroadmin;
+        entFrame.menuent = menuadmin;
+        entFrame.comboboxentc = comboboxadminc;
+        entFrame.comboboxentb = comboboxadminb;
     }//GEN-LAST:event_botonregresoActionPerformed
 
     

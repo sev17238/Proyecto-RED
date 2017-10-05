@@ -293,10 +293,10 @@ public class userFrame extends javax.swing.JFrame {
         entFrame ent = new entFrame();
         ent.setVisible(true);
         this.setVisible(false);
-        ent.registroent = registrouser; 
-        ent.menuent = menuuser;
-        ent.comboboxentc = comboboxuserc;
-        ent.comboboxentb = comboboxuserb;
+        entFrame.registroent = registrouser; 
+        entFrame.menuent = menuuser;
+        entFrame.comboboxentc = comboboxuserc;
+        entFrame.comboboxentb = comboboxuserb;
     }//GEN-LAST:event_regresoActionPerformed
 
     

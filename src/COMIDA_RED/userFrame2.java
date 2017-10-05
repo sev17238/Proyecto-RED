@@ -1,14 +1,13 @@
 
 package COMIDA_RED;
 
-import java.util.Iterator;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author SDiego
  */
-public class userFrame2 extends javax.swing.JFrame {
+public final class userFrame2 extends javax.swing.JFrame {
     public static Registro registrouser2;
     public static Menus menuuser2;
     public static Usuario cuenta2;
@@ -29,12 +28,12 @@ public class userFrame2 extends javax.swing.JFrame {
     }
     public void llenarComboboxes(){
         String[] a=menuuser2.retornarListaBebidas();
-        for (int i = 0; i < a.length; i++) {
-            cboxbebidas.addItem(a[i]);
+        for (String a1 : a) {
+            cboxbebidas.addItem(a1);
         }
         String[] b=menuuser2.retornarListaComidas();
-        for (int i = 0; i < b.length; i++) {
-            cboxcomidas.addItem(b[i]);
+        for (String b1 : b) {
+            cboxcomidas.addItem(b1);
         }
     }
     /**
@@ -287,7 +286,7 @@ public class userFrame2 extends javax.swing.JFrame {
     private void botonverordenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonverordenesActionPerformed
         // TODO add your handling code here:
         ordenesFrame ordenes = new ordenesFrame();
-        ordenes.jTextArea1.append("Sus ordenes son: ");
+        ordenesFrame.jTextArea1.append("Sus ordenes son: ");
         int i = -1;
         Ordenes orden = new Ordenes();
         for(int e = 0; e<registrouser2.getOrdenes().size();e++){
@@ -298,8 +297,8 @@ public class userFrame2 extends javax.swing.JFrame {
                 String bebida = orden.getBebida().getNombreBebida();double preciob = orden.getBebida().getPrecio();
                 String hora = orden.getHora(); String minuto = orden.getMinutos();
                 double sumaprecios = precioc + preciob;
-                ordenes.jTextArea1.append(System.getProperty("line.separator"));
-                ordenes.jTextArea1.append(i+".Menu: "+comida+" y "+bebida+", debe pagar: Q."+sumaprecios+", para la siguiente hora: "+hora+":"+minuto);
+                ordenesFrame.jTextArea1.append(System.getProperty("line.separator"));
+                ordenesFrame.jTextArea1.append(i+".Menu: "+comida+" y "+bebida+", debe pagar: Q."+sumaprecios+", para la siguiente hora: "+hora+":"+minuto);
             }
         }
         ordenes.setVisible(true);
@@ -311,11 +310,11 @@ public class userFrame2 extends javax.swing.JFrame {
         userFrame user = new userFrame();
         user.setVisible(true);
         this.setVisible(false);
-        user.registrouser = registrouser2;
-        user.menuuser = menuuser2;
-        user.cuenta = cuenta2;
-        user.comboboxuserc = cboxcomidas;
-        user.comboboxuserb = cboxbebidas;
+        userFrame.registrouser = registrouser2;
+        userFrame.menuuser = menuuser2;
+        userFrame.cuenta = cuenta2;
+        userFrame.comboboxuserc = cboxcomidas;
+        userFrame.comboboxuserb = cboxbebidas;
     }//GEN-LAST:event_botonregresoActionPerformed
 
     private void cboxbebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxbebidasActionPerformed
