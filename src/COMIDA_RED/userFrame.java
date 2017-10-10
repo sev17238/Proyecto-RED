@@ -12,8 +12,7 @@ public class userFrame extends javax.swing.JFrame {
     public static Registro registrouser;
     public static Menus menuuser;
     public static Usuario cuenta;
-    public static JComboBox<String> comboboxuserc;
-    public static JComboBox<String> comboboxuserb;
+    
     /**
      * Creates new form userFrame
      */
@@ -24,8 +23,7 @@ public class userFrame extends javax.swing.JFrame {
         registrouser = new Registro();
         menuuser = entFrame.menuent;
         cuenta = new Usuario();
-        comboboxuserc = new JComboBox<>();
-        comboboxuserb = new JComboBox<>();
+        
     }
     
     /**
@@ -266,8 +264,7 @@ public class userFrame extends javax.swing.JFrame {
                 userFrame2.registrouser2 = registrouser;
                 userFrame2.menuuser2 = menuuser;
                 userFrame2.cuenta2 = cuenta;
-                //user2.cboxcomidas = comboboxuserc;
-                //user2.cboxbebidas = comboboxuserb;
+                
             }
         }
     }//GEN-LAST:event_botonloginActionPerformed
@@ -295,8 +292,7 @@ public class userFrame extends javax.swing.JFrame {
         this.setVisible(false);
         entFrame.registroent = registrouser; 
         entFrame.menuent = menuuser;
-        entFrame.comboboxentc = comboboxuserc;
-        entFrame.comboboxentb = comboboxuserb;
+        
     }//GEN-LAST:event_regresoActionPerformed
 
     

@@ -11,7 +11,6 @@ public final class userFrame2 extends javax.swing.JFrame {
     public static Registro registrouser2;
     public static Menus menuuser2;
     public static Usuario cuenta2;
-    public static Usuario cuenta3;
     /**
      * Creates new form userFrame2
      */
@@ -22,7 +21,6 @@ public final class userFrame2 extends javax.swing.JFrame {
         registrouser2 = new Registro();
         menuuser2 =userFrame.menuuser;
         cuenta2 = new Usuario();
-        cuenta3= new Usuario();
         llenarComboboxes();
         
     }
@@ -313,8 +311,6 @@ public final class userFrame2 extends javax.swing.JFrame {
         userFrame.registrouser = registrouser2;
         userFrame.menuuser = menuuser2;
         userFrame.cuenta = cuenta2;
-        userFrame.comboboxuserc = cboxcomidas;
-        userFrame.comboboxuserb = cboxbebidas;
     }//GEN-LAST:event_botonregresoActionPerformed
 
     private void cboxbebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxbebidasActionPerformed

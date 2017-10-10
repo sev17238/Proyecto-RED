@@ -11,8 +11,7 @@ import javax.swing.JOptionPane;
 public class adminFrame extends javax.swing.JFrame {
     public static Registro registroadmin;
     public static Menus menuadmin;
-    public static JComboBox<String> comboboxadminc;
-    public static JComboBox<String> comboboxadminb;
+    
     /**
      * Creates new form adminFrame
      */
@@ -22,8 +21,7 @@ public class adminFrame extends javax.swing.JFrame {
         
         registroadmin = new Registro();
         menuadmin = entFrame.menuent;
-        comboboxadminc = new JComboBox<>();
-        comboboxadminb = new JComboBox<>();
+        
     }
 
     /**
@@ -163,8 +161,7 @@ public class adminFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Bienvenido!", "", JOptionPane.PLAIN_MESSAGE);
                 adminFrame2.registroadmin2 = registroadmin;
                 adminFrame2.menuadmin2 = menuadmin;
-                adminFrame2.comboboxadmin2c = comboboxadminc;
-                adminFrame2.comboboxadmin2b = comboboxadminb;
+                
             }
         }
     }//GEN-LAST:event_botoningresoActionPerformed
@@ -176,8 +173,7 @@ public class adminFrame extends javax.swing.JFrame {
         this.setVisible(false);
         entFrame.registroent = registroadmin;
         entFrame.menuent = menuadmin;
-        entFrame.comboboxentc = comboboxadminc;
-        entFrame.comboboxentb = comboboxadminb;
+        
     }//GEN-LAST:event_botonregresoActionPerformed
 
     

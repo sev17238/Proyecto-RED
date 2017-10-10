@@ -36,8 +36,9 @@ public class Ordenes{
         *@param horas Texto que guardara la hora de entrega del producto
         *@param minutos Texto que guardara los minutos de la hora en que se entregara el producto
 	*/	
-	public void setOrden(Usuario user, Comidas menu, Bebidas bebida, String horas, String minutos){
+	public void setOrden(Usuario user,/*ArrayList<Comidas> pedido*/ Comidas menu, Bebidas bebida, String horas, String minutos){
 		usuario = user;
+                //this.pedido = pedido;
 		comida = menu;
                 this.bebida = bebida;
                 minuto = minutos;

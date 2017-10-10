@@ -13,8 +13,6 @@ import javax.swing.JOptionPane;
 public class adminFrame2 extends javax.swing.JFrame {
     public static Registro registroadmin2;
     public static Menus menuadmin2;
-    public static JComboBox<String> comboboxadmin2c;
-    public static JComboBox<String> comboboxadmin2b;
     public String bebidaNueva;
     public double precioNuevo;
     public int posicion;
@@ -23,12 +21,8 @@ public class adminFrame2 extends javax.swing.JFrame {
      */
     public adminFrame2() {
         initComponents();
-      
-        
         registroadmin2 = new Registro();
         menuadmin2 = adminFrame.menuadmin;
-        comboboxadmin2c = new JComboBox();
-        comboboxadmin2b = new JComboBox();
         bebidaNueva="";
         precioNuevo=0;
         posicion=0;
@@ -283,8 +277,7 @@ public class adminFrame2 extends javax.swing.JFrame {
         this.setVisible(false);
         adminFrame.registroadmin = registroadmin2;
         adminFrame.menuadmin = menuadmin2;
-        adminFrame.comboboxadminc = comboboxadmin2c;
-        adminFrame.comboboxadminb = comboboxadmin2b;
+        
     }//GEN-LAST:event_botonregresarActionPerformed
 
     private void botonordenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonordenesActionPerformed
@@ -324,8 +317,6 @@ public class adminFrame2 extends javax.swing.JFrame {
             double preciodb = Double.parseDouble(precio);
             String bebida = cboxbebida1.getSelectedItem().toString();
             menuadmin2.agregarBebidas(bebida, preciodb);
-            comboboxadmin2b.addItem(bebida);
-            menuadmin2.agregarBebidas(bebida, preciodb);
             tpreciobebida.setText("");
             JOptionPane.showMessageDialog(null, "Bebida agregada con exito");
         }
@@ -340,7 +331,6 @@ public class adminFrame2 extends javax.swing.JFrame {
             double preciodb = Double.parseDouble(precio);
             String comida = cboxcomida1.getSelectedItem().toString();
             menuadmin2.agregarComidas(comida, preciodb);            
-            comboboxadmin2c.addItem(comida);
             tpreciocomida.setText("");
             JOptionPane.showMessageDialog(null, "Comida agregada");
         }
