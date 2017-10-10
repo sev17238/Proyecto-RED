@@ -12,13 +12,13 @@ import java.util.Iterator;
 
 public class Registro{
 	//atributos
-	private final ArrayList<Usuario> user;
+	private final ArrayList<Usuario> users;
 	private final Administrador admin;
 	private final ArrayList<Ordenes> ordenes;
 
 	//constructor
 	public Registro(){
-		user = new ArrayList<>();
+		users = new ArrayList<>();
 		admin = new Administrador(); 
 		ordenes = new ArrayList<>();
 	}
@@ -41,7 +41,7 @@ public class Registro{
 	public void agregarUsuario(String nombre, String carnet, String correo, String contrasena){
 		Usuario nuevo = new Usuario();		
 		nuevo.setUsuario(nombre,carnet,correo,contrasena);
-		user.add(nuevo);
+		users.add(nuevo);
 	}
 	/**
 	*Busca un usuario dentro de los usuario registrados y devuelve un numero que ayudara mostrarle al usuario si esta registrado o no
@@ -50,7 +50,7 @@ public class Registro{
 	*@return Un 1 si el usuario esta registrado y un 0 si el usuario no esta registrado
 	*/	
 	public int buscarUsuario(String correo, String contrasena){
-		Iterator<Usuario> iterator = user.iterator();
+		Iterator<Usuario> iterator = users.iterator();
 		int verificacion = 0;
 		while (iterator.hasNext()){
 			Usuario prueba = iterator.next();
@@ -70,7 +70,7 @@ public class Registro{
 	*@return El dato tipo usuario al que se le cobrara la orden
 	*/	
 	public Usuario buscarUsuario2(String correo, String contrasena){ 
-		Iterator <Usuario> iterator = user.iterator();
+		Iterator <Usuario> iterator = users.iterator();
 		Usuario prueba = new Usuario();
 		while (iterator.hasNext()){
 			prueba = iterator.next();
@@ -155,5 +155,20 @@ public class Registro{
 	*/	
 	public void borrarOrden(int numero){
 		ordenes.remove(numero);
-	}        
+	} 
+        /**
+         * Metodo que retorna una lista con los carnets de los usuarios en el registro.
+         * @return 
+         */
+        public String[] retornarListaUsuariosCarnet(){
+            String[] list = new String[users.size()];
+            Usuario user = new Usuario();
+            for (int i = 0; i < users.size(); i++) {
+                user = users.get(i);
+                String carnet = user.getCarnet(); 
+                list[i]= carnet;                
+            }
+            return list;
+        }
+        
 }

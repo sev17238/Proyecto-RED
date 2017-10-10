@@ -30,7 +30,7 @@
                   <Group type="102" attributes="0">
                       <Component id="botonregresar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
-                      <Component id="botonordenes" min="-2" pref="196" max="-2" attributes="0"/>
+                      <Component id="bordenespendientes" min="-2" pref="196" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
@@ -50,7 +50,7 @@
               <Component id="jPanel2" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="botonordenes" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bordenespendientes" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="botonregresar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -196,12 +196,12 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="botonordenes">
+    <Component class="javax.swing.JButton" name="bordenespendientes">
       <Properties>
         <Property name="text" type="java.lang.String" value="Revisar Ordenes Pendientes"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonordenesActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bordenespendientesActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel2">
@@ -225,7 +225,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
-                  <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bentregarorden" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
@@ -240,9 +240,9 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextFieldOrdenABorrar" min="-2" pref="88" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                  <Component id="jButton1" min="-2" pref="133" max="-2" attributes="0"/>
+                                  <Component id="cboxcarnetsclientes" min="-2" pref="73" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                                  <Component id="bbuscarordenes" min="-2" pref="133" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
@@ -266,15 +266,15 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldOrdenABorrar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="bbuscarordenes" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cboxcarnetsclientes" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jComboBoxBuscarOrden" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bentregarorden" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLabel3" min="-2" pref="37" max="-2" attributes="0"/>
               </Group>
@@ -284,26 +284,21 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Escriba el Numero de carnet"/>
+            <Property name="text" type="java.lang.String" value="Escoja un numero de carnet:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="bentregarorden">
           <Properties>
             <Property name="text" type="java.lang.String" value="Entregar Orden"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bentregarordenActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="text" type="java.lang.String" value="** Para m&#xe1;s informacion presione el bot&#xf3;n: &quot;Revisar Ordenes&quot;."/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldOrdenABorrar">
-          <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldOrdenABorrarFocusGained"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="jComboBoxBuscarOrden">
           <Properties>
@@ -324,13 +319,19 @@
             <Property name="text" type="java.lang.String" value="Seleccione la orden"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="bbuscarordenes">
           <Properties>
             <Property name="text" type="java.lang.String" value="Buscar Ordenes"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bbuscarordenesActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cboxcarnetsclientes">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

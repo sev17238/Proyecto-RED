@@ -1,7 +1,6 @@
 
 package COMIDA_RED;
 
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**

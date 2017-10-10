@@ -101,7 +101,6 @@ public class Menus{
         public String[] retornarListaBebidas(){
             String[] a= new String[menu2.size()];
             Bebidas b= new Bebidas();
-            int m=0;
             for (int i = 0; i < menu2.size(); i++) {
                 b=menu2.get(i);
                 a[i]=b.getNombreBebida();

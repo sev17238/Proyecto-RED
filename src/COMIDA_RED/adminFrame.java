@@ -1,7 +1,6 @@
 
 package COMIDA_RED;
 
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,6 +22,8 @@ public class adminFrame extends javax.swing.JFrame {
         menuadmin = entFrame.menuent;
         
     }
+    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
