@@ -1,6 +1,8 @@
 
 package COMIDA_RED;
 
+import java.util.ArrayList;
+
 /**
 *@author DavidSoto
 *@author AlejandroTejada
@@ -11,6 +13,7 @@ package COMIDA_RED;
 public class Ordenes{
 	//atributos
 	private Usuario usuario;
+        private ArrayList<Comidas> pedido;
 	private Comidas comida;
         private Bebidas bebida;
         private String hora;
@@ -18,6 +21,7 @@ public class Ordenes{
 
 	public Ordenes(){
 		usuario = new Usuario();
+                pedido = new ArrayList<Comidas>();
 		comida = new Comidas();
                 bebida = new Bebidas();
                 hora = "00";
