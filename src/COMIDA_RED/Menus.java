@@ -17,55 +17,44 @@ public class Menus{
 
 	//Constructor 
 	public Menus(){
-		menu = new ArrayList<>();
+		menu = new ArrayList<Producto>();
 	} 
 
 	//Metodos
-	/**
-	*Agrega una comida al menu de alimentos
-	*@param alimento Comida que se desea ingresar al menu
-	*@param precio Precio de la comida ingresada
-	*/	
-	public void agregarComidas(String alimento, double precio){
-		Comidas com = new Comidas();
-		com.setComida(alimento, precio);
-		menu.add(com);
-	}
         /**
 	*Agrega una comida al menu de alimentos
-	*@param bebida Bebida que se desea ingresar al menu
+        *@param descripcion la descripcion del producto (Comida, Bebida, Postre)
+	*@param nombre nombre del producto
 	*@param precio Precio de la bebida ingresada
 	*/	
-	public void agregarBebidas(String bebida, double precio){
-		Bebidas beb = new Bebidas();
-		beb.setBebida(bebida, precio);
-		menu2.add(beb);
+	public void agregarProductos(String descripcion,String nombre, double precio){
+		Producto prod = new Producto();
+		prod.setProducto(descripcion, nombre, precio);
+		menu.add(prod);
 	}        
 	/**
 	*Muestra los alimentos que hay dentro del menu
 	*/	
 	public void mostrarMenus(){
 		int i = 0;
-		Iterator<Comidas> iterator = menu.iterator();
+		Iterator<Producto> iterator = menu.iterator();
 		while (iterator.hasNext()){
 			i= i + 1;
-			Comidas prueba = iterator.next();
-			System.out.println(i +"."+prueba.getNombreComida()+". Su precio es de: "+ prueba.getPrecio());
+			Producto prueba = iterator.next();
+			System.out.println(i +"."+prueba.getNombreProducto()+". Su precio es de: "+ prueba.getPrecio());
 		}
 	}
-	
-
 	/**
 	*Busca un alimento dentro de la lista de menus que se desea ordenar
 	*@return Objeto con los datos de la comida que se desea ordear
         *@param nombre es el nombre de la comida
 	*/	
-	public Comidas buscarComida(String nombre){
-		Comidas prueba = new Comidas();
+	public Producto buscarProducto(String nombre){
+		Producto prueba = new Producto();
 		//Iterator<Comidas> iterator = menu.iterator();		
 		for (int i = 0;i<menu.size();i++) {
 			prueba = menu.get(i);
-			if (nombre.equals(prueba.getNombreComida())) {
+			if (nombre.equals(prueba.getNombreProducto())) {
 				return prueba;
 			}else{
 				prueba = null;
@@ -73,35 +62,18 @@ public class Menus{
 		}
 		return prueba;
 	}
-        /**
-	*Busca una bebida dentro de la lista de menus2 que se desea ordenar
-	*@return Objeto con los datos de la bebida que se desea ordear
-        *@param nombre es el string con el nombre
-	*/	
-	public Bebidas buscarBebida(String nombre){
-		Bebidas prueba = new Bebidas();
-		//Iterator<Bebidas> iterator = menu.iterator();		
-		for (int i = 0;i<menu2.size();i++) {
-			prueba = menu2.get(i);
-			if (nombre.equals(prueba.getNombreBebida())) {
-				return prueba;
-			}else{
-				prueba = null;
-			}
-		}
-		return prueba;
-	}
-        
         /**
          * Este metodo retorna una lista con las bebidas en esta clase
          * @return un vector STring con la lista de bebidas
          */
         public String[] retornarListaBebidas(){
-            String[] a= new String[menu2.size()];
-            Bebidas b= new Bebidas();
-            for (int i = 0; i < menu2.size(); i++) {
-                b=menu2.get(i);
-                a[i]=b.getNombreBebida();
+            String[] a= new String[menu.size()];
+            Producto b= new Producto();
+            for (int i = 0; i < menu.size(); i++) {
+                b=menu.get(i);                
+                if(b.getDescripcionProducto().equals("Bebida")){
+                    a[i]=b.getNombreProducto();
+                }
             }
             return a;
         }
@@ -111,14 +83,13 @@ public class Menus{
          */
         public String[] retornarListaComidas(){
             String[] a= new String[menu.size()];
-            Comidas b= new Comidas();
-            int m=0;
+            Producto b= new Producto();
             for (int i = 0; i < menu.size(); i++) {
                 b=menu.get(i);
-                a[i]=b.getNombreComida();
+                if(b.getDescripcionProducto().equals("Comida")){
+                    a[i]=b.getNombreProducto();
+                }
             }
             return a;
-        }
-
-	 
+            }
 }

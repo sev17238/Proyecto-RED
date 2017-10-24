@@ -28,15 +28,15 @@ public final class entFrame extends javax.swing.JFrame {
      * Metodo que inicializa cuatro comidas en el menu del restaurante.
      */
     public void menusIniciales(){
-        menuent.agregarComidas("Porcion mediana de pizza", 12.00);
-        menuent.agregarComidas("Quesoburguesa", 11.00);
-        menuent.agregarComidas("Pie de queso", 8.00);
-        menuent.agregarComidas("Papas con queso y tocino", 15.00);
+        menuent.agregarProductos("Comida","Porcion mediana de pizza", 12.00);
+        menuent.agregarProductos("Comida","Quesoburguesa", 11.00);
+        menuent.agregarProductos("Comida","Pie de queso", 8.00);
+        menuent.agregarProductos("Comida","Papas con queso y tocino", 15.00);
         
-        menuent.agregarBebidas("Seven Up", 6.00);
-        menuent.agregarBebidas("Rosa de jamaica", 8.00);
-        menuent.agregarBebidas("Horchata con canela", 8.00);
-        menuent.agregarBebidas("Coca Cola", 6.00);           
+        menuent.agregarProductos("Bebida","Seven Up", 6.00);
+        menuent.agregarProductos("Bebida","Rosa de jamaica", 8.00);
+        menuent.agregarProductos("Bebida","Horchata con canela", 8.00);
+        menuent.agregarProductos("Bebida","Coca Cola", 6.00);           
     }
    
     

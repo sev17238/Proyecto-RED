@@ -114,8 +114,8 @@ public class Registro{
 			i = i + 1;
 			Ordenes prueba = iterator.next();
 			Usuario prueba1 = prueba.getUsuario();
-			Comidas prueba2 = prueba.getComida();
-			System.out.println(i+".Usuario: "+prueba1.getNombre()+", Carnet: "+prueba1.getCarnet()+", pidio: "+prueba2.getNombreComida()+", con precio de: "+prueba2.getPrecio());
+			Producto prueba2 = prueba.getProducto();
+			System.out.println(i+".Usuario: "+prueba1.getNombre()+", Carnet: "+prueba1.getCarnet()+", pidio: "+prueba2.getNombreProducto()+", con precio de: "+prueba2.getPrecio());
 		}
 	}
 	/**
@@ -130,23 +130,22 @@ public class Registro{
 			Ordenes prueba = iterator.next();
 			Usuario prueba1 = prueba.getUsuario();
 			String prueba3 = prueba1.getContrasena();
-			Comidas prueba2 = prueba.getComida();
+			Producto prueba2 = prueba.getProducto();
 			if(contrasena.equals(prueba3)){
-				System.out.println(i+".Menu: "+prueba2.getNombreComida()+", debe pagar: "+prueba2.getPrecio()+ " por este menu");
+				System.out.println(i+".Menu: "+prueba2.getNombreProducto()+", debe pagar: "+prueba2.getPrecio()+ " por este menu");
 			}
 		}	
 	}
 	/**
 	*Crea una nueva orden en el registro de los ordenes por despachar
 	*@param cuenta El usuario que recibira la cuenta de lo gastado en la orden
-	*@param pedido La comida que el usuario desea elegir
-        *@param pedido2 La bebida que el usuario desea elegir
+	*@param pedido El alimento que el usuario desea elegir
         *@param hora La hora a la que se entregara el pedido
         *@param minuto Los minutos de la hora a la que se entregara el pedido
 	*/	
-	public void meterOrden(Usuario cuenta, Comidas pedido, Bebidas pedido2, String hora, String minuto){
+	public void meterOrden(Usuario cuenta, Producto pedido, String hora, String minuto){
 		Ordenes nueva = new Ordenes();
-		nueva.setOrden(cuenta,pedido,pedido2,hora,minuto);
+		nueva.setOrden(cuenta,pedido,hora,minuto);
 		ordenes.add(nueva);
 	}
 	/**
