@@ -25,7 +25,7 @@ public class Producto {
 	/**
 	*Ingresa los datos de un nuevo producto
 	*@param producto Nombre del producto que se ingresara
-	*@param price Precio del producto ingresado 
+	*@param price Precio del producto ingresado
 	*/	
 	public void setComida(String producto, double price){
 		descripcion = producto;

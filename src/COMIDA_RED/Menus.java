@@ -13,13 +13,11 @@ import java.util.Iterator;
 
 public class Menus{
 	//atributos
-	private final ArrayList<Comidas> menu;
-        private final ArrayList<Bebidas> menu2;
+	private final ArrayList<Producto> menu;
 
 	//Constructor 
 	public Menus(){
 		menu = new ArrayList<>();
-                menu2 = new ArrayList<>();
 	} 
 
 	//Metodos
