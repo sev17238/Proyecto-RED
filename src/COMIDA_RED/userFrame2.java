@@ -40,8 +40,8 @@ public final class userFrame2 extends javax.swing.JFrame {
      */
     public void imagenesLabelComida(String comida){        
         labelcomida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesComidas/"+comida+".png")));
-        double preciocomida = menuuser2.buscarComida(comida).getPrecio();
-        preciocomidas.setText("Q."+preciocomida);
+        double preciocomida = menuuser2.buscarProducto(comida).getPrecio();
+        lbcomidas.setText("Q."+preciocomida);
     }
     public void agregarBebidaNueva(String bebida, double precio){
         cboxbebidas.addItem(bebida);
@@ -53,8 +53,8 @@ public final class userFrame2 extends javax.swing.JFrame {
      */
     public void imagenesLabelBebida(String bebida){        
         labelbebida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBebidas/"+bebida+".png")));
-        double preciobebida = menuuser2.buscarBebida(bebida).getPrecio();
-        preciobebidas.setText("Q."+preciobebida);
+        double preciobebida = menuuser2.buscarProducto(bebida).getPrecio();
+        lbbebidas.setText("Q."+preciobebida);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -65,15 +65,15 @@ public final class userFrame2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
+        panelcomidas = new javax.swing.JPanel();
         cboxcomidas = new javax.swing.JComboBox<>();
         labelcomida = new javax.swing.JLabel();
-        preciocomidas = new javax.swing.JLabel();
+        lbcomidas = new javax.swing.JLabel();
         chbcomidas = new javax.swing.JCheckBox();
-        jPanel4 = new javax.swing.JPanel();
+        panelbebidas = new javax.swing.JPanel();
         cboxbebidas = new javax.swing.JComboBox<>();
         labelbebida = new javax.swing.JLabel();
-        preciobebidas = new javax.swing.JLabel();
+        lbbebidas = new javax.swing.JLabel();
         chbbebidas = new javax.swing.JCheckBox();
         botonverordenes = new javax.swing.JButton();
         botonregreso = new javax.swing.JButton();
@@ -83,15 +83,15 @@ public final class userFrame2 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        cboxbebidas1 = new javax.swing.JComboBox<>();
+        panelpostres = new javax.swing.JPanel();
+        cboxpostres = new javax.swing.JComboBox<>();
         labelbebida1 = new javax.swing.JLabel();
-        preciobebidas1 = new javax.swing.JLabel();
+        lbpostres = new javax.swing.JLabel();
         chbpostres = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Comidas"));
+        panelcomidas.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Comidas"));
 
         cboxcomidas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,42 +102,48 @@ public final class userFrame2 extends javax.swing.JFrame {
         labelcomida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesComidas/Porcion mediana de pizza.png"))); // NOI18N
         labelcomida.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        preciocomidas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        preciocomidas.setText("Q.12.0");
+        lbcomidas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbcomidas.setText("Q.12.0");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        chbcomidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chbcomidasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelcomidasLayout = new javax.swing.GroupLayout(panelcomidas);
+        panelcomidas.setLayout(panelcomidasLayout);
+        panelcomidasLayout.setHorizontalGroup(
+            panelcomidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelcomidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelcomidasLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(cboxcomidas, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(38, 38, 38)
                     .addComponent(chbcomidas)
                     .addContainerGap())
-                .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(panelcomidasLayout.createSequentialGroup()
                     .addGap(93, 93, 93)
-                    .addComponent(preciocomidas)))
-            .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addComponent(lbcomidas)))
+            .addGroup(panelcomidasLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(labelcomida, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+        panelcomidasLayout.setVerticalGroup(
+            panelcomidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelcomidasLayout.createSequentialGroup()
+                .addGroup(panelcomidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(chbcomidas)
                     .addComponent(cboxcomidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(labelcomida, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(preciocomidas)
+                .addComponent(lbcomidas)
                 .addContainerGap())
         );
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Bebidas"));
+        panelbebidas.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Bebidas"));
 
         cboxbebidas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,37 +153,43 @@ public final class userFrame2 extends javax.swing.JFrame {
 
         labelbebida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBebidas/Seven Up.png"))); // NOI18N
 
-        preciobebidas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        preciobebidas.setText("Q.6.0");
+        lbbebidas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbbebidas.setText("Q.6.0");
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        chbbebidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chbbebidasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelbebidasLayout = new javax.swing.GroupLayout(panelbebidas);
+        panelbebidas.setLayout(panelbebidasLayout);
+        panelbebidasLayout.setHorizontalGroup(
+            panelbebidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelbebidasLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(cboxbebidas, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(chbbebidas))
-            .addGroup(jPanel4Layout.createSequentialGroup()
+            .addGroup(panelbebidasLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(labelbebida, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel4Layout.createSequentialGroup()
+            .addGroup(panelbebidasLayout.createSequentialGroup()
                 .addGap(92, 92, 92)
-                .addComponent(preciobebidas))
+                .addComponent(lbbebidas))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+        panelbebidasLayout.setVerticalGroup(
+            panelbebidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelbebidasLayout.createSequentialGroup()
+                .addGroup(panelbebidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelbebidasLayout.createSequentialGroup()
                         .addGap(11, 11, 11)
                         .addComponent(cboxbebidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(chbbebidas))
                 .addGap(18, 18, 18)
                 .addComponent(labelbebida, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
-                .addComponent(preciobebidas))
+                .addComponent(lbbebidas))
         );
 
         botonverordenes.setText("Ver ordenes");
@@ -211,48 +223,54 @@ public final class userFrame2 extends javax.swing.JFrame {
 
         jLabel3.setText("Minutos");
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Postres"));
+        panelpostres.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Postres"));
 
-        cboxbebidas1.addActionListener(new java.awt.event.ActionListener() {
+        cboxpostres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboxbebidas1ActionPerformed(evt);
+                cboxpostresActionPerformed(evt);
             }
         });
 
-        preciobebidas1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        preciobebidas1.setText("Q.7.5");
+        lbpostres.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbpostres.setText("Q.7.5");
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+        chbpostres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chbpostresActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelpostresLayout = new javax.swing.GroupLayout(panelpostres);
+        panelpostres.setLayout(panelpostresLayout);
+        panelpostresLayout.setHorizontalGroup(
+            panelpostresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelpostresLayout.createSequentialGroup()
+                .addGroup(panelpostresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelpostresLayout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(cboxbebidas1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cboxpostres, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(chbpostres))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGroup(panelpostresLayout.createSequentialGroup()
                         .addGap(92, 92, 92)
-                        .addComponent(preciobebidas1)))
+                        .addComponent(lbpostres)))
                 .addGap(3, 3, 3))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelpostresLayout.createSequentialGroup()
                 .addComponent(labelbebida1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+        panelpostresLayout.setVerticalGroup(
+            panelpostresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelpostresLayout.createSequentialGroup()
+                .addGroup(panelpostresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelpostresLayout.createSequentialGroup()
                         .addGap(11, 11, 11)
-                        .addComponent(cboxbebidas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cboxpostres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(chbpostres))
                 .addGap(18, 18, 18)
                 .addComponent(labelbebida1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
-                .addComponent(preciobebidas1))
+                .addComponent(lbpostres))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -260,34 +278,34 @@ public final class userFrame2 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(botonregreso)
+                            .addGap(125, 125, 125)
+                            .addComponent(bordenarmenu)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botonverordenes))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(143, 143, 143)
+                            .addComponent(jLabel1))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addComponent(panelcomidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(6, 6, 6)
+                            .addComponent(panelbebidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(panelpostres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(botonregreso)
-                        .addGap(125, 125, 125)
-                        .addComponent(bordenarmenu)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botonverordenes))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(149, 149, 149)
+                        .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SpinnerHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SpinnerMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(SpinnerHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(SpinnerMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -295,9 +313,9 @@ public final class userFrame2 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panelcomidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelbebidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelpostres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
@@ -327,22 +345,42 @@ public final class userFrame2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         String comida = cboxcomidas.getSelectedItem().toString();
         String bebida = cboxbebidas.getSelectedItem().toString();
-        Comidas pedido = menuuser2.buscarComida(comida);
-        Bebidas pedido2 = menuuser2.buscarBebida(bebida);
-        String hora = SpinnerHora.getValue().toString();
-        int horai = Integer.parseInt(hora);
-        String minuto = SpinnerMinuto.getValue().toString();
-        int minutoi = Integer.parseInt(minuto);
-        if(horai<10){
-            hora = "0"+hora;
-        }
-        if(minutoi<10){
-            minuto = "0"+minuto;
-        }
-        registrouser2.meterOrden(cuenta2, pedido,pedido2,hora,minuto); //Se le agrega el usuario de la cuenta actual y la comida
+        String postre = cboxpostres.getSelectedItem().toString();
+        if(chbcomidas.isSelected() && chbbebidas.isSelected() && chbpostres.isSelected()){
+            Producto pedido = menuuser2.buscarProducto(comida);
+            Producto pedido2 = menuuser2.buscarProducto(bebida);
+            Producto pedido3 = menuuser2.buscarProducto(postre);
+            String hora = SpinnerHora.getValue().toString();
+            int horai = Integer.parseInt(hora);
+            String minuto = SpinnerMinuto.getValue().toString();
+            int minutoi = Integer.parseInt(minuto);
+            if(horai<10){
+                hora = "0"+hora;
+            }
+            if(minutoi<10){
+                minuto = "0"+minuto;
+            }
+            registrouser2.meterOrden(cuenta2, pedido,hora,minuto); //Se le agrega el usuario de la cuenta actual y la comida
                                                    //y bebida que se escogio a una nueva orden que es creada y agregada
-                                                   //a la lista de oredenes del registro.                                          
-        JOptionPane.showMessageDialog(null, "Usted a ordenado: "+comida+" y "+bebida);
+                                                   //a la lista de oredenes del registro. 
+            registrouser2.meterOrden(cuenta2, pedido2,hora,minuto);
+            registrouser2.meterOrden(cuenta2, pedido3,hora,minuto); 
+            JOptionPane.showMessageDialog(null, "Usted a ordenado: "+comida+", "+postre+" y "+bebida);
+        }else if(chbcomidas.isSelected() && chbbebidas.isSelected()  /**/&& chbpostres.isSelected()==false){
+            
+        }else if(chbbebidas.isSelected() && chbpostres.isSelected()  /**/&& chbcomidas.isSelected()==false){
+        
+        }else if(chbcomidas.isSelected() && chbpostres.isSelected()  /**/&& chbbebidas.isSelected()==false){
+        
+        }else if(chbcomidas.isSelected() /**/&& chbpostres.isSelected()==false && chbbebidas.isSelected()==false){
+        
+        }else if(chbpostres.isSelected() /**/&& chbcomidas.isSelected()==false && chbbebidas.isSelected()==false){
+        
+        }else if(chbbebidas.isSelected() /**/&& chbpostres.isSelected()==false && chbcomidas.isSelected()==false){
+        
+        }
+        
+        
     }//GEN-LAST:event_bordenarmenuActionPerformed
 
     private void botonverordenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonverordenesActionPerformed
@@ -355,12 +393,10 @@ public final class userFrame2 extends javax.swing.JFrame {
             orden = registrouser2.getOrdenes().get(e);
             if(orden.getUsuario().getContrasena().equals(cuenta2.getContrasena())){
                 i = i+1;
-                String comida = orden.getComida().getNombreComida();double precioc = orden.getComida().getPrecio();
-                String bebida = orden.getBebida().getNombreBebida();double preciob = orden.getBebida().getPrecio();
-                String hora = orden.getHora(); String minuto = orden.getMinutos();
-                double sumaprecios = precioc + preciob;
+                String alimento = orden.getProducto().getNombreProducto();double precio = orden.getProducto().getPrecio();                
+                String hora = orden.getHora(); String minuto = orden.getMinutos();    
                 ordenesFrame.jTextArea1.append(System.getProperty("line.separator"));
-                ordenesFrame.jTextArea1.append(i+".Menu: "+comida+" y "+bebida+", debe pagar: Q."+sumaprecios+", para la siguiente hora: "+hora+":"+minuto);
+                ordenesFrame.jTextArea1.append(i+".Menu: "+alimento+", debe pagar: Q."+precio+", para la siguiente hora: "+hora+":"+minuto);
             }
         }
         ordenes.setVisible(true);
@@ -384,9 +420,36 @@ public final class userFrame2 extends javax.swing.JFrame {
         
     }//GEN-LAST:event_cboxbebidasActionPerformed
 
-    private void cboxbebidas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxbebidas1ActionPerformed
+    private void cboxpostresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxpostresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cboxbebidas1ActionPerformed
+    }//GEN-LAST:event_cboxpostresActionPerformed
+
+    private void chbcomidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbcomidasActionPerformed
+        // TODO add your handling code here:
+        if(chbcomidas.isSelected()){
+            cboxcomidas.setEnabled(true);panelcomidas.setEnabled(true);
+        }else{
+            cboxcomidas.setEnabled(false);panelcomidas.setEnabled(false);
+        }
+    }//GEN-LAST:event_chbcomidasActionPerformed
+
+    private void chbbebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbbebidasActionPerformed
+        // TODO add your handling code here:
+        if(chbcomidas.isSelected()){
+            cboxbebidas.setEnabled(true);panelbebidas.setEnabled(true);
+        }else{
+            cboxbebidas.setEnabled(false);panelbebidas.setEnabled(false);
+        }
+    }//GEN-LAST:event_chbbebidasActionPerformed
+
+    private void chbpostresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbpostresActionPerformed
+        // TODO add your handling code here:
+        if(chbcomidas.isSelected()){
+            cboxpostres.setEnabled(true);panelpostres.setEnabled(true);
+        }else{
+            cboxpostres.setEnabled(false);panelpostres.setEnabled(false);
+        }
+    }//GEN-LAST:event_chbpostresActionPerformed
 
     
 
@@ -397,22 +460,22 @@ public final class userFrame2 extends javax.swing.JFrame {
     private javax.swing.JButton botonregreso;
     private javax.swing.JButton botonverordenes;
     public static javax.swing.JComboBox<String> cboxbebidas;
-    public static javax.swing.JComboBox<String> cboxbebidas1;
     public static javax.swing.JComboBox<String> cboxcomidas;
+    public static javax.swing.JComboBox<String> cboxpostres;
     private javax.swing.JCheckBox chbbebidas;
     private javax.swing.JCheckBox chbcomidas;
     private javax.swing.JCheckBox chbpostres;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel labelbebida;
     private javax.swing.JLabel labelbebida1;
     private javax.swing.JLabel labelcomida;
-    private javax.swing.JLabel preciobebidas;
-    private javax.swing.JLabel preciobebidas1;
-    private javax.swing.JLabel preciocomidas;
+    private javax.swing.JLabel lbbebidas;
+    private javax.swing.JLabel lbcomidas;
+    private javax.swing.JLabel lbpostres;
+    private javax.swing.JPanel panelbebidas;
+    private javax.swing.JPanel panelcomidas;
+    private javax.swing.JPanel panelpostres;
     // End of variables declaration//GEN-END:variables
 }

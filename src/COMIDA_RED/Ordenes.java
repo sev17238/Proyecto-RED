@@ -27,7 +27,7 @@ public class Ordenes{
 	}
 	//metodos
 	/**
-	*Ingresa los datos de una nueva orden
+	*Ingresa los datos de una nueva orden de un solo producto.
 	*@param user Objeto con los datos de un usuario
         *@param producto la comida, bebida o postre que tiene la orden.
         *@param horas Texto que guardara la hora de entrega del producto
@@ -35,10 +35,43 @@ public class Ordenes{
 	*/	
 	public void setOrden(Usuario user, Producto producto, String horas, String minutos){
 		usuario = user;		
-                this.producto = producto;
+                //pedido.add(producto);
+                this.producto=producto;
                 minuto = minutos;
                 hora = horas;
 	}
+        /**
+	*Ingresa los datos de una nueva orden de dos productos.
+	*@param user Objeto con los datos de un usuario
+        *@param producto la comida, bebida o postre que tiene la orden.
+        *@param producto2 la segunda comida, bebida o postre que tiene la orden
+        *@param horas Texto que guardara la hora de entrega del producto
+        *@param minutos Texto que guardara los minutos de la hora en que se entregara el producto
+	*/
+        public void setOrden2(Usuario user, Producto producto,Producto producto2, String horas, String minutos){
+            usuario = user;		
+            pedido.add(producto);
+            pedido.add(producto2);
+            minuto = minutos;
+            hora = horas;
+        }
+        /**
+	*Ingresa los datos de una nueva orden de tres productos.
+	*@param user Objeto con los datos de un usuario
+        *@param producto la comida, bebida o postre que tiene la orden.
+        *@param producto2 la segunda comida, bebida o postre que tiene la orden.
+        *@param producto3 la tercera comida, bebida o postre que tiene la orden.
+        *@param horas Texto que guardara la hora de entrega del producto
+        *@param minutos Texto que guardara los minutos de la hora en que se entregara el producto
+	*/
+        public void setOrden3(Usuario user, Producto producto,Producto producto2,Producto producto3, String horas, String minutos){
+            usuario = user;		
+            pedido.add(producto);
+            pedido.add(producto2);
+            pedido.add(producto3);
+            minuto = minutos;
+            hora = horas;
+        }
 	/**
 	*Devuelve el objeto con los datos de un usuario
 	*@return Objeto con los datos de un usuario
@@ -52,6 +85,13 @@ public class Ordenes{
 	*/	
 	public Producto getProducto(){
 		return producto;
+	}
+        /**
+	*Devuelve el objeto con los datos de una comida del menu
+	*@return Objeto con los datos de una comida del menu
+	*/	
+	public ArrayList<Producto> getPedido(){
+		return pedido;
 	}
         /**
 	*Devuelve el String con la hora a la que se entregara el pedido
