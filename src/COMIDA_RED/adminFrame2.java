@@ -291,13 +291,19 @@ public final class adminFrame2 extends javax.swing.JFrame {
         for(int e = 0; e<registroadmin2.getOrdenes().size();e++){
             orden = registroadmin2.getOrdenes().get(e);
             i = i+1;
-            String comida = orden.getComida().getNombreComida();double precioc = orden.getComida().getPrecio();
-            String bebida = orden.getBebida().getNombreBebida();double preciob = orden.getBebida().getPrecio();
+            //String comida = orden.getComida().getNombreComida();double precioc = orden.getComida().getPrecio();
+            //String bebida = orden.getBebida().getNombreBebida();double preciob = orden.getBebida().getPrecio();
             String user = orden.getUsuario().getNombre();String carnet = orden.getUsuario().getCarnet();
             String hora = orden.getHora(); String minuto = orden.getMinutos();
-            double sumaprecios = precioc + preciob;
+            //double sumaprecios = precioc + preciob;
             ordenesFrame.jTextArea1.append(System.getProperty("line.separator"));
-            ordenesFrame.jTextArea1.append(i+".Usuario: "+user+" Carnet: "+carnet+", pidio el menu: "+comida+" (Q."+precioc+") y "+bebida+" (Q."+preciob+"), con precio total de: Q."+sumaprecios+", para la siguiente hora: "+hora+":"+minuto);
+            ordenesFrame.jTextArea1.append(i+".Usuario: "+user+" Carnet: "+carnet+", pidio el menu siguiente , para la siguiente hora: "+hora+":"+minuto+" :");
+            Producto prod = new Producto();
+            for(int k=0;k<orden.getPedido().size();k++){
+                prod = orden.getPedido().get(k);
+                ordenesFrame.jTextArea1.append(System.getProperty("line.separator"));
+                ordenesFrame.jTextArea1.append(" - "+prod.getNombreProducto()+", con precio:"+prod.getPrecio());
+            }
         }
         ordenes.setVisible(true);
     }//GEN-LAST:event_bordenespendientesActionPerformed
@@ -318,7 +324,7 @@ public final class adminFrame2 extends javax.swing.JFrame {
         }else{
             double preciodb = Double.parseDouble(precio);
             String bebida = cboxbebida1.getSelectedItem().toString();
-            menuadmin2.agregarBebidas(bebida, preciodb);
+            menuadmin2.agregarProductos("Bebida",bebida,preciodb);
             tpreciobebida.setText("");
             JOptionPane.showMessageDialog(null, "Bebida agregada con exito");
         }
@@ -332,7 +338,7 @@ public final class adminFrame2 extends javax.swing.JFrame {
         }else{
             double preciodb = Double.parseDouble(precio);
             String comida = cboxcomida1.getSelectedItem().toString();
-            menuadmin2.agregarComidas(comida, preciodb);            
+            menuadmin2.agregarProductos("Comida",comida, preciodb);            
             tpreciocomida.setText("");
             JOptionPane.showMessageDialog(null, "Comida agregada");
         }
@@ -373,16 +379,16 @@ public final class adminFrame2 extends javax.swing.JFrame {
                 orden = registroadmin2.getOrdenes().get(e);
                 if (orden.getUsuario().getCarnet().equals(aa)) {
                     i = i+1;
-                    String comida = orden.getComida().getNombreComida();
-                    double precioc = orden.getComida().getPrecio();
-                    String bebida = orden.getBebida().getNombreBebida();
-                    double preciob = orden.getBebida().getPrecio();
+                    //String comida = orden.getComida().getNombreComida();
+                    //double precioc = orden.getComida().getPrecio();
+                    //String bebida = orden.getBebida().getNombreBebida();
+                    //double preciob = orden.getBebida().getPrecio();
                     String user = orden.getUsuario().getNombre();
                     String carnet = orden.getUsuario().getCarnet();
                     String hora = orden.getHora();
                     String minuto = orden.getMinutos();
-                    double sumaprecios = precioc + preciob;
-                    jComboBoxBuscarOrden.addItem( "Menu: "+comida+" y "+bebida+", con total de: Q."+sumaprecios);
+                    //double sumaprecios = precioc + preciob;
+                    //jComboBoxBuscarOrden.addItem( "Menu: "+comida+" y "+bebida+", con total de: Q."+sumaprecios);
                 }
             }
         } catch (Exception e) {

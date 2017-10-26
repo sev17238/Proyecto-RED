@@ -33,6 +33,10 @@ public final class userFrame2 extends javax.swing.JFrame {
         for (String b1 : b) {
             cboxcomidas.addItem(b1);
         }
+        String[] c=menuuser2.retornarListaPostres();
+        for (String c1 : c) {
+            cboxpostres.addItem(c1);
+        }
     }
     /**
      * Metodo para colocar la imagen correspondiente de la comida 
@@ -41,12 +45,8 @@ public final class userFrame2 extends javax.swing.JFrame {
     public void imagenesLabelComida(String comida){        
         labelcomida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesComidas/"+comida+".png")));
         double preciocomida = menuuser2.buscarProducto(comida).getPrecio();
-        lbcomidas.setText("Q."+preciocomida);
-    }
-    public void agregarBebidaNueva(String bebida, double precio){
-        cboxbebidas.addItem(bebida);
-        
-    }
+        lbpreciocomidas.setText("Q."+preciocomida);
+    }    
     /**
      * Metodo para colocar la imagen correspondiente de la bebida 
      * @param bebida el nombre de la bebida de la que se quiere obtener el precio y la imagen.
@@ -54,8 +54,17 @@ public final class userFrame2 extends javax.swing.JFrame {
     public void imagenesLabelBebida(String bebida){        
         labelbebida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBebidas/"+bebida+".png")));
         double preciobebida = menuuser2.buscarProducto(bebida).getPrecio();
-        lbbebidas.setText("Q."+preciobebida);
+        lbpreciobebidas.setText("Q."+preciobebida);
     }
+    /**
+     * Metodo para colocar la imagen correspondiente del postre
+     * @param postre el nombre del postre de la que se quiere obtener el precio y la imagen.
+     */
+    public void imagenesLabelPostre(String postre){        
+        labelpostre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesPostres/"+postre+".png")));
+        double preciocomida = menuuser2.buscarProducto(postre).getPrecio();
+        lbpreciopostres.setText("Q."+preciocomida);
+    }   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,12 +77,12 @@ public final class userFrame2 extends javax.swing.JFrame {
         panelcomidas = new javax.swing.JPanel();
         cboxcomidas = new javax.swing.JComboBox<>();
         labelcomida = new javax.swing.JLabel();
-        lbcomidas = new javax.swing.JLabel();
+        lbpreciocomidas = new javax.swing.JLabel();
         chbcomidas = new javax.swing.JCheckBox();
         panelbebidas = new javax.swing.JPanel();
         cboxbebidas = new javax.swing.JComboBox<>();
         labelbebida = new javax.swing.JLabel();
-        lbbebidas = new javax.swing.JLabel();
+        lbpreciobebidas = new javax.swing.JLabel();
         chbbebidas = new javax.swing.JCheckBox();
         botonverordenes = new javax.swing.JButton();
         botonregreso = new javax.swing.JButton();
@@ -85,8 +94,8 @@ public final class userFrame2 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         panelpostres = new javax.swing.JPanel();
         cboxpostres = new javax.swing.JComboBox<>();
-        labelbebida1 = new javax.swing.JLabel();
-        lbpostres = new javax.swing.JLabel();
+        labelpostre = new javax.swing.JLabel();
+        lbpreciopostres = new javax.swing.JLabel();
         chbpostres = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -102,9 +111,10 @@ public final class userFrame2 extends javax.swing.JFrame {
         labelcomida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesComidas/Porcion mediana de pizza.png"))); // NOI18N
         labelcomida.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        lbcomidas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbcomidas.setText("Q.12.0");
+        lbpreciocomidas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbpreciocomidas.setText("Q.12.0");
 
+        chbcomidas.setSelected(true);
         chbcomidas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chbcomidasActionPerformed(evt);
@@ -124,7 +134,7 @@ public final class userFrame2 extends javax.swing.JFrame {
                     .addContainerGap())
                 .addGroup(panelcomidasLayout.createSequentialGroup()
                     .addGap(93, 93, 93)
-                    .addComponent(lbcomidas)))
+                    .addComponent(lbpreciocomidas)))
             .addGroup(panelcomidasLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(labelcomida, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -139,7 +149,7 @@ public final class userFrame2 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(labelcomida, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbcomidas)
+                .addComponent(lbpreciocomidas)
                 .addContainerGap())
         );
 
@@ -153,9 +163,10 @@ public final class userFrame2 extends javax.swing.JFrame {
 
         labelbebida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBebidas/Seven Up.png"))); // NOI18N
 
-        lbbebidas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbbebidas.setText("Q.6.0");
+        lbpreciobebidas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbpreciobebidas.setText("Q.6.0");
 
+        chbbebidas.setSelected(true);
         chbbebidas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chbbebidasActionPerformed(evt);
@@ -167,16 +178,19 @@ public final class userFrame2 extends javax.swing.JFrame {
         panelbebidasLayout.setHorizontalGroup(
             panelbebidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelbebidasLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(cboxbebidas, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(chbbebidas))
-            .addGroup(panelbebidasLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(labelbebida, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelbebidasLayout.createSequentialGroup()
-                .addGap(92, 92, 92)
-                .addComponent(lbbebidas))
+                .addGroup(panelbebidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelbebidasLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(cboxbebidas, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(chbbebidas))
+                    .addGroup(panelbebidasLayout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(lbpreciobebidas)))
+                .addGap(3, 6, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelbebidasLayout.createSequentialGroup()
+                .addComponent(labelbebida, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
         panelbebidasLayout.setVerticalGroup(
             panelbebidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,7 +203,7 @@ public final class userFrame2 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(labelbebida, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
-                .addComponent(lbbebidas))
+                .addComponent(lbpreciobebidas))
         );
 
         botonverordenes.setText("Ver ordenes");
@@ -231,9 +245,10 @@ public final class userFrame2 extends javax.swing.JFrame {
             }
         });
 
-        lbpostres.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbpostres.setText("Q.7.5");
+        lbpreciopostres.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lbpreciopostres.setText("Q.7.5");
 
+        chbpostres.setSelected(true);
         chbpostres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chbpostresActionPerformed(evt);
@@ -253,10 +268,11 @@ public final class userFrame2 extends javax.swing.JFrame {
                         .addComponent(chbpostres))
                     .addGroup(panelpostresLayout.createSequentialGroup()
                         .addGap(92, 92, 92)
-                        .addComponent(lbpostres)))
-                .addGap(3, 3, 3))
+                        .addComponent(lbpreciopostres)))
+                .addGap(3, 6, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelpostresLayout.createSequentialGroup()
-                .addComponent(labelbebida1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(labelpostre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelpostresLayout.setVerticalGroup(
@@ -268,9 +284,9 @@ public final class userFrame2 extends javax.swing.JFrame {
                         .addComponent(cboxpostres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(chbpostres))
                 .addGap(18, 18, 18)
-                .addComponent(labelbebida1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelpostre, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
-                .addComponent(lbpostres))
+                .addComponent(lbpreciopostres))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -360,27 +376,100 @@ public final class userFrame2 extends javax.swing.JFrame {
             if(minutoi<10){
                 minuto = "0"+minuto;
             }
-            registrouser2.meterOrden(cuenta2, pedido,hora,minuto); //Se le agrega el usuario de la cuenta actual y la comida
+            registrouser2.meterOrden3(cuenta2, pedido,pedido2,pedido3,hora,minuto); //Se le agrega el usuario de la cuenta actual y la comida
                                                    //y bebida que se escogio a una nueva orden que es creada y agregada
                                                    //a la lista de oredenes del registro. 
-            registrouser2.meterOrden(cuenta2, pedido2,hora,minuto);
-            registrouser2.meterOrden(cuenta2, pedido3,hora,minuto); 
             JOptionPane.showMessageDialog(null, "Usted a ordenado: "+comida+", "+postre+" y "+bebida);
         }else if(chbcomidas.isSelected() && chbbebidas.isSelected()  /**/&& chbpostres.isSelected()==false){
-            
+            Producto pedido = menuuser2.buscarProducto(comida);
+            Producto pedido2 = menuuser2.buscarProducto(bebida);
+            String hora = SpinnerHora.getValue().toString();
+            int horai = Integer.parseInt(hora);
+            String minuto = SpinnerMinuto.getValue().toString();
+            int minutoi = Integer.parseInt(minuto);
+            if(horai<10){
+                hora = "0"+hora;
+            }
+            if(minutoi<10){
+                minuto = "0"+minuto;
+            }
+            registrouser2.meterOrden2(cuenta2, pedido,pedido2,hora,minuto); 
+            JOptionPane.showMessageDialog(null, "Usted a ordenado: "+comida+" y "+bebida);    
         }else if(chbbebidas.isSelected() && chbpostres.isSelected()  /**/&& chbcomidas.isSelected()==false){
-        
+            Producto pedido = menuuser2.buscarProducto(postre);
+            Producto pedido2 = menuuser2.buscarProducto(bebida);
+            String hora = SpinnerHora.getValue().toString();
+            int horai = Integer.parseInt(hora);
+            String minuto = SpinnerMinuto.getValue().toString();
+            int minutoi = Integer.parseInt(minuto);
+            if(horai<10){
+                hora = "0"+hora;
+            }
+            if(minutoi<10){
+                minuto = "0"+minuto;
+            }
+            registrouser2.meterOrden2(cuenta2, pedido,pedido2,hora,minuto);  
+            JOptionPane.showMessageDialog(null, "Usted a ordenado: "+postre+" y "+bebida);
         }else if(chbcomidas.isSelected() && chbpostres.isSelected()  /**/&& chbbebidas.isSelected()==false){
-        
+            Producto pedido = menuuser2.buscarProducto(comida);
+            Producto pedido2 = menuuser2.buscarProducto(postre);
+            String hora = SpinnerHora.getValue().toString();
+            int horai = Integer.parseInt(hora);
+            String minuto = SpinnerMinuto.getValue().toString();
+            int minutoi = Integer.parseInt(minuto);
+            if(horai<10){
+                hora = "0"+hora;
+            }
+            if(minutoi<10){
+                minuto = "0"+minuto;
+            }
+            registrouser2.meterOrden2(cuenta2, pedido,pedido2,hora,minuto);  
+            JOptionPane.showMessageDialog(null, "Usted a ordenado: "+comida+" y "+postre);
         }else if(chbcomidas.isSelected() /**/&& chbpostres.isSelected()==false && chbbebidas.isSelected()==false){
-        
+            Producto pedido = menuuser2.buscarProducto(comida);
+            String hora = SpinnerHora.getValue().toString();
+            int horai = Integer.parseInt(hora);
+            String minuto = SpinnerMinuto.getValue().toString();
+            int minutoi = Integer.parseInt(minuto);
+            if(horai<10){
+                hora = "0"+hora;
+            }
+            if(minutoi<10){
+                minuto = "0"+minuto;
+            }
+            registrouser2.meterOrden(cuenta2, pedido,hora,minuto);  
+            JOptionPane.showMessageDialog(null, "Usted a ordenado: "+comida);
         }else if(chbpostres.isSelected() /**/&& chbcomidas.isSelected()==false && chbbebidas.isSelected()==false){
-        
+            Producto pedido = menuuser2.buscarProducto(postre);
+            String hora = SpinnerHora.getValue().toString();
+            int horai = Integer.parseInt(hora);
+            String minuto = SpinnerMinuto.getValue().toString();
+            int minutoi = Integer.parseInt(minuto);
+            if(horai<10){
+                hora = "0"+hora;
+            }
+            if(minutoi<10){
+                minuto = "0"+minuto;
+            }
+            registrouser2.meterOrden(cuenta2, pedido,hora,minuto);  
+            JOptionPane.showMessageDialog(null, "Usted a ordenado: "+postre);
         }else if(chbbebidas.isSelected() /**/&& chbpostres.isSelected()==false && chbcomidas.isSelected()==false){
-        
+            Producto pedido = menuuser2.buscarProducto(bebida);
+            String hora = SpinnerHora.getValue().toString();
+            int horai = Integer.parseInt(hora);
+            String minuto = SpinnerMinuto.getValue().toString();
+            int minutoi = Integer.parseInt(minuto);
+            if(horai<10){
+                hora = "0"+hora;
+            }
+            if(minutoi<10){
+                minuto = "0"+minuto;
+            }
+            registrouser2.meterOrden(cuenta2, pedido,hora,minuto);  
+            JOptionPane.showMessageDialog(null, "Usted a ordenado: "+bebida);
+        }else{
+            JOptionPane.showMessageDialog(null, "Elija al menos una opcion con los checkBoxes.");
         }
-        
-        
     }//GEN-LAST:event_bordenarmenuActionPerformed
 
     private void botonverordenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonverordenesActionPerformed
@@ -393,14 +482,21 @@ public final class userFrame2 extends javax.swing.JFrame {
             orden = registrouser2.getOrdenes().get(e);
             if(orden.getUsuario().getContrasena().equals(cuenta2.getContrasena())){
                 i = i+1;
-                String alimento = orden.getProducto().getNombreProducto();double precio = orden.getProducto().getPrecio();                
+                //String alimento = orden.getProducto().getNombreProducto();double precio = orden.getProducto().getPrecio();                
                 String hora = orden.getHora(); String minuto = orden.getMinutos();    
                 ordenesFrame.jTextArea1.append(System.getProperty("line.separator"));
-                ordenesFrame.jTextArea1.append(i+".Menu: "+alimento+", debe pagar: Q."+precio+", para la siguiente hora: "+hora+":"+minuto);
+                ordenesFrame.jTextArea1.append(i+". Menu:");
+                Producto prod = new Producto();
+                for(int k=0;k<orden.getPedido().size();k++){
+                    prod = orden.getPedido().get(k);
+                    ordenesFrame.jTextArea1.append(System.getProperty("line.separator"));
+                    ordenesFrame.jTextArea1.append(" - "+prod.getNombreProducto()+" con precio: "+prod.getPrecio());
+                }
+                ordenesFrame.jTextArea1.append(System.getProperty("line.separator"));
+                ordenesFrame.jTextArea1.append("...para la siguiente hora: "+hora+":"+minuto);
             }
         }
-        ordenes.setVisible(true);
-        
+        ordenes.setVisible(true);        
     }//GEN-LAST:event_botonverordenesActionPerformed
 
     private void botonregresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonregresoActionPerformed
@@ -416,12 +512,13 @@ public final class userFrame2 extends javax.swing.JFrame {
     private void cboxbebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxbebidasActionPerformed
         // TODO add your handling code here:
         String bebida = cboxbebidas.getSelectedItem().toString();
-        imagenesLabelBebida(bebida);
-        
+        imagenesLabelBebida(bebida);        
     }//GEN-LAST:event_cboxbebidasActionPerformed
 
     private void cboxpostresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxpostresActionPerformed
         // TODO add your handling code here:
+        String postre = cboxpostres.getSelectedItem().toString();
+        imagenesLabelPostre(postre);  
     }//GEN-LAST:event_cboxpostresActionPerformed
 
     private void chbcomidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbcomidasActionPerformed
@@ -469,11 +566,11 @@ public final class userFrame2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel labelbebida;
-    private javax.swing.JLabel labelbebida1;
     private javax.swing.JLabel labelcomida;
-    private javax.swing.JLabel lbbebidas;
-    private javax.swing.JLabel lbcomidas;
-    private javax.swing.JLabel lbpostres;
+    private javax.swing.JLabel labelpostre;
+    private javax.swing.JLabel lbpreciobebidas;
+    private javax.swing.JLabel lbpreciocomidas;
+    private javax.swing.JLabel lbpreciopostres;
     private javax.swing.JPanel panelbebidas;
     private javax.swing.JPanel panelcomidas;
     private javax.swing.JPanel panelpostres;

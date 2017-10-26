@@ -30,13 +30,17 @@ public final class entFrame extends javax.swing.JFrame {
     public void menusIniciales(){
         menuent.agregarProductos("Comida","Porcion mediana de pizza", 12.00);
         menuent.agregarProductos("Comida","Quesoburguesa", 11.00);
-        menuent.agregarProductos("Comida","Pie de queso", 8.00);
+        menuent.agregarProductos("Comida","Hut Dog", 8.00);
         menuent.agregarProductos("Comida","Papas con queso y tocino", 15.00);
         
         menuent.agregarProductos("Bebida","Seven Up", 6.00);
-        menuent.agregarProductos("Bebida","Rosa de jamaica", 8.00);
+        menuent.agregarProductos("Bebida","Rosa de jamaica", 9.00);
         menuent.agregarProductos("Bebida","Horchata con canela", 8.00);
-        menuent.agregarProductos("Bebida","Coca Cola", 6.00);           
+        menuent.agregarProductos("Bebida","Coca Cola", 7.00);  
+        
+        menuent.agregarProductos("Postre","Dona de chocolate", 5.00);  
+        menuent.agregarProductos("Postre","Pie de queso", 7.50);  
+        
     }
    
     

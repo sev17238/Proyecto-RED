@@ -92,4 +92,19 @@ public class Menus{
             }
             return a;
             }
+        /**
+         * Este metodo retorna una lista con las bebidas en esta clase
+         * @return un vector STring con la lista de bebidas
+         */
+        public String[] retornarListaPostres(){
+            String[] a= new String[menu.size()];
+            Producto b= new Producto();
+            for (int i = 0; i < menu.size(); i++) {
+                b=menu.get(i);                
+                if(b.getDescripcionProducto().equals("Postre")){
+                    a[i]=b.getNombreProducto();
+                }
+            }
+            return a;
+        }
 }

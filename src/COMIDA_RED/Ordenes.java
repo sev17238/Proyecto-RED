@@ -14,14 +14,14 @@ public class Ordenes{
 	//atributos
 	private Usuario usuario;
         private ArrayList<Producto> pedido;
-	private Producto producto;
+	//private Producto producto;
         private String hora;
         private String minuto;
 
 	public Ordenes(){
 		usuario = new Usuario();
                 pedido = new ArrayList<Producto>();
-		producto = new Producto();
+		//producto = new Producto();
                 hora = "00";
                 minuto = "00";
 	}
@@ -35,8 +35,8 @@ public class Ordenes{
 	*/	
 	public void setOrden(Usuario user, Producto producto, String horas, String minutos){
 		usuario = user;		
-                //pedido.add(producto);
-                this.producto=producto;
+                pedido.add(producto);
+                //this.producto=producto;
                 minuto = minutos;
                 hora = horas;
 	}
@@ -79,13 +79,7 @@ public class Ordenes{
 	public Usuario getUsuario(){
 		return usuario;
 	}
-        /**
-	*Devuelve el objeto con los datos de una comida del menu
-	*@return Objeto con los datos de una comida del menu
-	*/	
-	public Producto getProducto(){
-		return producto;
-	}
+        
         /**
 	*Devuelve el objeto con los datos de una comida del menu
 	*@return Objeto con los datos de una comida del menu
