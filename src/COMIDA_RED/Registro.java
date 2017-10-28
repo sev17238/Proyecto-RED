@@ -5,7 +5,7 @@ package COMIDA_RED;
 *@author AlejandroTejada
 *@author DiegoSevilla
 *@since 15/08/2017
-*@version 1.0 
+*@version 2.0 
 */
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -204,5 +204,33 @@ public class Registro{
             }
             return list;
         }
-        
+        /**
+         * Busca a los 3 usuarios que han hecho mas prestamos en la biblioteca
+         * @return Texto con los 3 usuario que mas han prestado en la biblioteca
+         */
+        public String MejoresUsuario(){
+            Iterator<Ordenes> iterator = ordenes.iterator();
+            String texto = "";
+            Ordenes[] mejores = new Ordenes[ordenes.size()];
+            while(iterator.hasNext()){
+                Ordenes nuevo = iterator.next();
+                for(int i=0; i<ordenes.size(); i++){
+                    mejores[i]=ordenes.get(i);
+                }
+            }
+            Ordenes nuevo1;
+            for(int i=0; i<mejores.length;i++){
+                for(int j =i+1; j<mejores.length;j++){
+                    int mejores1 = Integer.parseInt(mejores[i].getHora());
+                    int mejores2 = Integer.parseInt(mejores[j].getHora());
+                    if(mejores1<mejores2){
+                        nuevo1 = mejores[i];
+                        mejores[i]=mejores[j];
+                        mejores[j]=nuevo1;
+                    }
+                }
+            }
+            texto = "Lista ordenada";
+            return texto;
+        }        
 }
