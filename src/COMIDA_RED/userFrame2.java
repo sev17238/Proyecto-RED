@@ -524,27 +524,27 @@ public final class userFrame2 extends javax.swing.JFrame {
     private void chbcomidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbcomidasActionPerformed
         // TODO add your handling code here:
         if(chbcomidas.isSelected()){
-            cboxcomidas.setEnabled(true);panelcomidas.setEnabled(true);
+            cboxcomidas.setEnabled(true);//panelcomidas.setEnabled(true);
         }else{
-            cboxcomidas.setEnabled(false);panelcomidas.setEnabled(false);
+            cboxcomidas.setEnabled(false);//panelcomidas.setEnabled(false);
         }
     }//GEN-LAST:event_chbcomidasActionPerformed
 
     private void chbbebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbbebidasActionPerformed
         // TODO add your handling code here:
-        if(chbcomidas.isSelected()){
-            cboxbebidas.setEnabled(true);panelbebidas.setEnabled(true);
+        if(chbbebidas.isSelected()){
+            cboxbebidas.setEnabled(true);//panelbebidas.setEnabled(true);
         }else{
-            cboxbebidas.setEnabled(false);panelbebidas.setEnabled(false);
+            cboxbebidas.setEnabled(false);//panelbebidas.setEnabled(false);
         }
     }//GEN-LAST:event_chbbebidasActionPerformed
 
     private void chbpostresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbpostresActionPerformed
         // TODO add your handling code here:
-        if(chbcomidas.isSelected()){
-            cboxpostres.setEnabled(true);panelpostres.setEnabled(true);
+        if(chbpostres.isSelected()){
+            cboxpostres.setEnabled(true);//panelpostres.setEnabled(true);
         }else{
-            cboxpostres.setEnabled(false);panelpostres.setEnabled(false);
+            cboxpostres.setEnabled(false);//panelpostres.setEnabled(false);
         }
     }//GEN-LAST:event_chbpostresActionPerformed
 

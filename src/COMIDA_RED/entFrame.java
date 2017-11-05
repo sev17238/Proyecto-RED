@@ -72,14 +72,16 @@ public final class entFrame extends javax.swing.JFrame {
         jPanel1.setOpaque(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
         jLabel1.setText("Bienvenido!!");
 
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 204));
         jLabel2.setText("Elija una opcion porfavor:");
 
         buttonGroup1.add(rbotonuser);
-        rbotonuser.setForeground(new java.awt.Color(255, 255, 255));
+        rbotonuser.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        rbotonuser.setForeground(new java.awt.Color(0, 0, 204));
         rbotonuser.setText("Ingresar como Usuario");
         rbotonuser.setOpaque(false);
         rbotonuser.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +91,8 @@ public final class entFrame extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(rbotonadmin);
-        rbotonadmin.setForeground(new java.awt.Color(255, 255, 255));
+        rbotonadmin.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        rbotonadmin.setForeground(new java.awt.Color(0, 0, 255));
         rbotonadmin.setText("Ingresar como Administrador");
         rbotonadmin.setOpaque(false);
 
@@ -124,10 +127,8 @@ public final class entFrame extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(rbotonuser, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(rbotonadmin, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)))
+                            .addComponent(rbotonuser, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rbotonadmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(123, 123, 123)
                         .addComponent(jLabel1)
