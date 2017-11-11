@@ -66,12 +66,12 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="panelcomidas" min="-2" max="-2" attributes="0"/>
-                  <Component id="panelbebidas" min="-2" max="-2" attributes="0"/>
-                  <Component id="panelpostres" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="panelbebidas" max="32767" attributes="0"/>
+                  <Component id="panelpostres" max="32767" attributes="0"/>
+                  <Component id="panelcomidas" alignment="0" pref="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="14" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -135,7 +135,7 @@
                       <Component id="chbcomidas" min="-2" max="-2" attributes="0"/>
                       <Component id="cboxcomidas" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="labelcomida" min="-2" pref="158" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lbpreciocomidas" min="-2" max="-2" attributes="0"/>

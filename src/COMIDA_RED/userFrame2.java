@@ -1,6 +1,8 @@
 
 package COMIDA_RED;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,18 +27,19 @@ public final class userFrame2 extends javax.swing.JFrame {
         
     }
     public void llenarComboboxes(){
-        String[] a=menuuser2.retornarListaBebidas();
-        for (String a1 : a) {
+        ArrayList<String> a=menuuser2.retornarListaBebidas();
+        System.out.println("Vector"+Arrays.asList(a)+" "+a.size());
+        a.forEach((a1) -> {
             cboxbebidas.addItem(a1);
-        }
-        String[] b=menuuser2.retornarListaComidas();
-        for (String b1 : b) {
+        });
+        ArrayList<String> b=menuuser2.retornarListaComidas();
+        b.forEach((b1) -> {
             cboxcomidas.addItem(b1);
-        }
-        String[] c=menuuser2.retornarListaPostres();
-        for (String c1 : c) {
+        });
+        ArrayList<String> c=menuuser2.retornarListaPostres();
+        c.forEach((c1) -> {
             cboxpostres.addItem(c1);
-        }
+        });
     }
     /**
      * Metodo para colocar la imagen correspondiente de la comida 
@@ -146,7 +149,7 @@ public final class userFrame2 extends javax.swing.JFrame {
                 .addGroup(panelcomidasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(chbcomidas)
                     .addComponent(cboxcomidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addComponent(labelcomida, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbpreciocomidas)
@@ -328,11 +331,11 @@ public final class userFrame2 extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelcomidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelbebidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelpostres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelbebidas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelpostres, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelcomidas, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -350,12 +353,6 @@ public final class userFrame2 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cboxcomidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxcomidasActionPerformed
-        // TODO add your handling code here:
-        String comida = cboxcomidas.getSelectedItem().toString();
-        imagenesLabelComida(comida);
-    }//GEN-LAST:event_cboxcomidasActionPerformed
 
     private void bordenarmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bordenarmenuActionPerformed
         // TODO add your handling code here:
@@ -509,12 +506,6 @@ public final class userFrame2 extends javax.swing.JFrame {
         userFrame.cuenta = cuenta2;
     }//GEN-LAST:event_botonregresoActionPerformed
 
-    private void cboxbebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxbebidasActionPerformed
-        // TODO add your handling code here:
-        String bebida = cboxbebidas.getSelectedItem().toString();
-        imagenesLabelBebida(bebida);        
-    }//GEN-LAST:event_cboxbebidasActionPerformed
-
     private void cboxpostresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxpostresActionPerformed
         // TODO add your handling code here:
         String postre = cboxpostres.getSelectedItem().toString();
@@ -547,6 +538,18 @@ public final class userFrame2 extends javax.swing.JFrame {
             cboxpostres.setEnabled(false);//panelpostres.setEnabled(false);
         }
     }//GEN-LAST:event_chbpostresActionPerformed
+
+    private void cboxbebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxbebidasActionPerformed
+        // TODO add your handling code here:
+        String bebida = cboxbebidas.getSelectedItem().toString();
+        imagenesLabelBebida(bebida);
+    }//GEN-LAST:event_cboxbebidasActionPerformed
+
+    private void cboxcomidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxcomidasActionPerformed
+        // TODO add your handling code here:
+        String comida = cboxcomidas.getSelectedItem().toString();
+        imagenesLabelComida(comida);
+    }//GEN-LAST:event_cboxcomidasActionPerformed
 
     
 

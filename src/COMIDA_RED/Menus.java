@@ -66,13 +66,13 @@ public class Menus{
          * Este metodo retorna una lista con las bebidas en esta clase
          * @return un vector STring con la lista de bebidas
          */
-        public String[] retornarListaBebidas(){
-            String[] a= new String[menu.size()];
+        public ArrayList<String> retornarListaBebidas(){
+            ArrayList<String> a= new ArrayList<>();
             Producto b= new Producto();
             for (int i = 0; i < menu.size(); i++) {
                 b=menu.get(i);                
-                if(b.getDescripcionProducto().equals("Bebida")){
-                    a[i]=b.getNombreProducto();
+                    if(b.getDescripcionProducto().equals("Bebida")){
+                    a.add(b.getNombreProducto());
                 }
             }
             return a;
@@ -81,13 +81,13 @@ public class Menus{
          * Este metodo retorna una lista con las comidas en esta clase
          * @return un vector STring con la lista de comidas
          */
-        public String[] retornarListaComidas(){
-            String[] a= new String[menu.size()];
+        public ArrayList<String> retornarListaComidas(){
+           ArrayList<String> a= new ArrayList<>();
             Producto b= new Producto();
             for (int i = 0; i < menu.size(); i++) {
                 b=menu.get(i);
                 if(b.getDescripcionProducto().equals("Comida")){
-                    a[i]=b.getNombreProducto();
+                    a.add(b.getNombreProducto());
                 }
             }
             return a;
@@ -96,13 +96,13 @@ public class Menus{
          * Este metodo retorna una lista con las bebidas en esta clase
          * @return un vector STring con la lista de bebidas
          */
-        public String[] retornarListaPostres(){
-            String[] a= new String[menu.size()];
+        public ArrayList<String> retornarListaPostres(){
+            ArrayList<String> a= new ArrayList<>();
             Producto b= new Producto();
             for (int i = 0; i < menu.size(); i++) {
                 b=menu.get(i);                
                 if(b.getDescripcionProducto().equals("Postre")){
-                    a[i]=b.getNombreProducto();
+                    a.add(b.getNombreProducto());
                 }
             }
             return a;
