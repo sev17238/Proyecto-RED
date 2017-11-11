@@ -3,6 +3,7 @@ package COMIDA_RED;
 
 import java.awt.HeadlessException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +16,7 @@ public final class adminFrame2 extends javax.swing.JFrame {
     public String bebidaNueva;
     public double precioNuevo;
     public int posicion;
+   
     /**
      * Creates new form adminFrame2
      */
@@ -25,6 +27,7 @@ public final class adminFrame2 extends javax.swing.JFrame {
         bebidaNueva="";
         precioNuevo=0;
         posicion=0;
+        
         llenarComboBoxCarnetClientes();
     }
     
@@ -54,22 +57,31 @@ public final class adminFrame2 extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         tpreciobebida = new javax.swing.JTextField();
         bnewbebida = new javax.swing.JButton();
-        bordenespendientes = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        bentregarorden = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jComboBoxBuscarOrden = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         bbuscarordenes = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         cboxcarnetsclientes = new javax.swing.JComboBox<>();
+        jButtonEntregarOrdenCarnetIndividual = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jComboBoxBuscarOrden = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        bordenespendientes = new javax.swing.JButton();
+        bentregarordenCola = new javax.swing.JButton();
+        jButtonVerOrdenesHora = new javax.swing.JButton();
         botonregresar = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cuenta de AdministradorRED - Restaurante RED, Pedidos Digitales");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Agregue una comida o bebida"));
+        jPanel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        cboxcomida1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         cboxcomida1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dona de chocolate", "Hut Dog", "Pollo empanizado", "Dobladas con carne", "Alitas con salsa barbacoa" }));
         cboxcomida1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,8 +89,10 @@ public final class adminFrame2 extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel1.setText("Precio de la comida:");
 
+        bnewcomida.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         bnewcomida.setText("Agregar comida");
         bnewcomida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +100,9 @@ public final class adminFrame2 extends javax.swing.JFrame {
             }
         });
 
+        tpreciocomida.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+
+        cboxbebida1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         cboxbebida1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sprite", "Fanta", "Jugo de naranja", "Jugo de tamarindo", " " }));
         cboxbebida1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,8 +110,12 @@ public final class adminFrame2 extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel4.setText("Precio de la bebida:");
 
+        tpreciobebida.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+
+        bnewbebida.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         bnewbebida.setText("Agregar bebida");
         bnewbebida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +136,7 @@ public final class adminFrame2 extends javax.swing.JFrame {
                         .addComponent(tpreciobebida, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(bnewbebida)
                     .addComponent(cboxbebida1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -123,7 +144,7 @@ public final class adminFrame2 extends javax.swing.JFrame {
                         .addComponent(tpreciocomida, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(cboxcomida1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bnewcomida, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
+                .addGap(37, 37, 37))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,34 +166,13 @@ public final class adminFrame2 extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        bordenespendientes.setText("Revisar Ordenes Pendientes");
-        bordenespendientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bordenespendientesActionPerformed(evt);
-            }
-        });
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Borrar ordenes"));
-
-        jLabel2.setText("Escoja un numero de carnet:");
-
-        bentregarorden.setText("Entregar Orden");
-        bentregarorden.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bentregarordenActionPerformed(evt);
-            }
-        });
-
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("** Para más informacion presione el botón: \"Revisar Ordenes\".");
 
-        jComboBoxBuscarOrden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
-        jComboBoxBuscarOrden.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxBuscarOrdenActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setText("Seleccione la orden");
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         bbuscarordenes.setText("Buscar Ordenes");
         bbuscarordenes.addActionListener(new java.awt.event.ActionListener() {
@@ -181,55 +181,147 @@ public final class adminFrame2 extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setText("Escoja un numero de carnet:");
+
+        jButtonEntregarOrdenCarnetIndividual.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButtonEntregarOrdenCarnetIndividual.setText("Entregar Orden Usuario");
+        jButtonEntregarOrdenCarnetIndividual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEntregarOrdenCarnetIndividualActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Seleccione la orden");
+
+        jComboBoxBuscarOrden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+        jComboBoxBuscarOrden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxBuscarOrdenActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Consultar y Entregar Orden Con Carnet");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBoxBuscarOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(cboxcarnetsclientes, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 72, 72)
+                        .addComponent(bbuscarordenes, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(189, 189, 189)
+                .addComponent(jButtonEntregarOrdenCarnetIndividual)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(bbuscarordenes)
+                    .addComponent(cboxcarnetsclientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBoxBuscarOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonEntregarOrdenCarnetIndividual, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Consultas Generales");
+
+        bordenespendientes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bordenespendientes.setText("Revisar Ordenes Pendientes");
+        bordenespendientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bordenespendientesActionPerformed(evt);
+            }
+        });
+
+        bentregarordenCola.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bentregarordenCola.setText("Entregar Orden en Cola");
+        bentregarordenCola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bentregarordenColaActionPerformed(evt);
+            }
+        });
+
+        jButtonVerOrdenesHora.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButtonVerOrdenesHora.setText("Ver Ordenes Hora");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(bordenespendientes)
+                .addGap(15, 15, 15)
+                .addComponent(bentregarordenCola, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonVerOrdenesHora, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(bordenespendientes, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(bentregarordenCola, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonVerOrdenesHora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 19, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(155, 155, 155)
-                .addComponent(bentregarorden)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cboxcarnetsclientes, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(58, 58, 58)
-                                .addComponent(bbuscarordenes, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(161, 161, 161)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jComboBoxBuscarOrden, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(0, 17, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(bbuscarordenes)
-                    .addComponent(cboxcarnetsclientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
-                .addComponent(jLabel5)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBoxBuscarOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bentregarorden)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
         );
 
+        botonregresar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         botonregresar.setText("Regresar");
         botonregresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -237,37 +329,46 @@ public final class adminFrame2 extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setText("Manejo de Ordenes");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(botonregresar)
-                        .addGap(182, 182, 182)
-                        .addComponent(bordenespendientes, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 16, Short.MAX_VALUE))
+                        .addGap(272, 272, 272)
+                        .addComponent(jLabel6))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(botonregresar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(botonregresar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bordenespendientes)
-                    .addComponent(botonregresar))
-                .addGap(10, 10, 10))
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
         );
 
-        jPanel2.getAccessibleContext().setAccessibleName("Entrega de Ordenes");
+        jPanel2.getAccessibleContext().setAccessibleName("Ordenes");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -344,7 +445,7 @@ public final class adminFrame2 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bnewcomidaActionPerformed
 
-    private void bentregarordenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bentregarordenActionPerformed
+    private void bentregarordenColaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bentregarordenColaActionPerformed
         // TODO add your handling code here:
         ordenesFrame ordenes = new ordenesFrame();
         int i = -1;
@@ -354,43 +455,20 @@ public final class adminFrame2 extends javax.swing.JFrame {
         try {
             oab=this.posicion;
             registroadmin2.borrarOrden(oab);
-            JOptionPane.showMessageDialog(null, "Orden Entregada");
+            
             //jTextFieldOrdenABorrar.setText("");
             jComboBoxBuscarOrden.removeAllItems();
         } catch (HeadlessException e) {
             JOptionPane.showMessageDialog(null, "Ingrese un numero de orden valido.");
         }
-    }//GEN-LAST:event_bentregarordenActionPerformed
+    }//GEN-LAST:event_bentregarordenColaActionPerformed
 
     private void bbuscarordenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bbuscarordenesActionPerformed
         // TODO add your handling code here:
         try {
            
-            String aa;
-            Registro s= new Registro();
-            ArrayList<Ordenes> ss=null;
-            aa=cboxcarnetsclientes.getSelectedItem().toString();
-            //aa=jTextFieldOrdenABorrar.getText();
-             // TODO add your handling code here:
-            ordenesFrame ordenes = new ordenesFrame();
-            int i = -1;
-            Ordenes orden = new Ordenes();
-            for(int e = 0; e<registroadmin2.getOrdenes().size();e++){
-                orden = registroadmin2.getOrdenes().get(e);
-                if (orden.getUsuario().getCarnet().equals(aa)) {
-                    i = i+1;
-                    //String comida = orden.getComida().getNombreComida();
-                    //double precioc = orden.getComida().getPrecio();
-                    //String bebida = orden.getBebida().getNombreBebida();
-                    //double preciob = orden.getBebida().getPrecio();
-                    String user = orden.getUsuario().getNombre();
-                    String carnet = orden.getUsuario().getCarnet();
-                    String hora = orden.getHora();
-                    String minuto = orden.getMinutos();
-                    //double sumaprecios = precioc + preciob;
-                    //jComboBoxBuscarOrden.addItem( "Menu: "+comida+" y "+bebida+", con total de: Q."+sumaprecios);
-                }
-            }
+            llenarComboboxOrdenes();
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ingrese un No. de Carnet valido");
         }
@@ -398,14 +476,91 @@ public final class adminFrame2 extends javax.swing.JFrame {
 
     private void jComboBoxBuscarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxBuscarOrdenActionPerformed
         // TODO add your handling code here:
-        this.posicion=jComboBoxBuscarOrden.getSelectedIndex();
+        
+         try {
+           this.posicion=jComboBoxBuscarOrden.getSelectedIndex();
+            
+             
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocurrió un error inténtelo de nuevo.");
+        }
+        
+        
     }//GEN-LAST:event_jComboBoxBuscarOrdenActionPerformed
+        
+    public void llenarComboboxOrdenes(){
+        String carnet;
+            String ordenAentregar="Orden de: ";
+            carnet=cboxcarnetsclientes.getSelectedItem().toString();
+            jComboBoxBuscarOrden.removeAllItems();
+            
+            ordenesFrame ordenes = new ordenesFrame();
+            int i = -1;
+            Ordenes orden = new Ordenes();
+            
+            for(int e = 0; e<registroadmin2.getOrdenes().size();e++){
+                orden = registroadmin2.getOrdenes().get(e);
+                if (orden.getUsuario().getCarnet().equals(carnet)) {
+                    i = i+1;
+                    
+                    //double sumaprecios = precioc + preciob;
+                    //jComboBoxBuscarOrden.addItem( "Menu: "+comida+" y "+bebida+", con total de: Q."+sumaprecios);
+                    Producto prod= new Producto();
+                    for(int k=0;k<orden.getPedido().size();k++){
+                        prod = orden.getPedido().get(k);
+                        ordenAentregar= ordenAentregar +prod.getNombreProducto()+", ";
+                        
+                    }
+                    jComboBoxBuscarOrden.addItem(ordenAentregar);
+                  
+                    
+                }
+                ordenAentregar="Orden de: ";
+                
+                    
+                }
+    }
+    private void jButtonEntregarOrdenCarnetIndividualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntregarOrdenCarnetIndividualActionPerformed
+        // TODO add your handling code here:
+        
+        try {
+            String carnet;
+            carnet=cboxcarnetsclientes.getSelectedItem().toString();
+            
+            ordenesFrame ordenes = new ordenesFrame();
+            int contador=0;
+            Ordenes orden = new Ordenes();
+            for(int e = 0; e<registroadmin2.getOrdenes().size();e++){
+                orden = registroadmin2.getOrdenes().get(e);
+                if (orden.getUsuario().getCarnet().equals(carnet)) {
+                  contador++;
+                }
+            }
+            
+            String[] arrayID= new String[contador];
+            int contadorArray=0;
+            Ordenes orden2= new Ordenes();
+             for (int i = 0; i < registroadmin2.getOrdenes().size(); i++) {
+                 orden2=registroadmin2.getOrdenes().get(i);
+                 if (orden2.getUsuario().getCarnet().equals(carnet)) {
+                     arrayID[contadorArray]=orden2.getIdOrden();
+                     contadorArray++;
+                 }
+             }
+             System.out.println("Vector id "+Arrays.asList(arrayID));
+            String idBorrar=arrayID[this.posicion];
+            registroadmin2.borrarOrdenId(idBorrar);
+            llenarComboboxOrdenes();
+        } catch (Exception e) {
+        }
+        
+    }//GEN-LAST:event_jButtonEntregarOrdenCarnetIndividualActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bbuscarordenes;
-    private javax.swing.JButton bentregarorden;
+    private javax.swing.JButton bentregarordenCola;
     private javax.swing.JButton bnewbebida;
     private javax.swing.JButton bnewcomida;
     private javax.swing.JButton bordenespendientes;
@@ -413,14 +568,21 @@ public final class adminFrame2 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cboxbebida1;
     public static javax.swing.JComboBox<String> cboxcarnetsclientes;
     private javax.swing.JComboBox<String> cboxcomida1;
+    private javax.swing.JButton jButtonEntregarOrdenCarnetIndividual;
+    private javax.swing.JButton jButtonVerOrdenesHora;
     public static javax.swing.JComboBox<String> jComboBoxBuscarOrden;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField tpreciobebida;
     private javax.swing.JTextField tpreciocomida;
     // End of variables declaration//GEN-END:variables

@@ -17,6 +17,8 @@ public class Ordenes{
 	//private Producto producto;
         private String hora;
         private String minuto;
+        private String ID;
+        
 
 	public Ordenes(){
 		usuario = new Usuario();
@@ -24,6 +26,7 @@ public class Ordenes{
 		//producto = new Producto();
                 hora = "00";
                 minuto = "00";
+                ID="";
 	}
 	//metodos
 	/**
@@ -39,6 +42,7 @@ public class Ordenes{
                 //this.producto=producto;
                 minuto = minutos;
                 hora = horas;
+                setIDOrden();
 	}
         /**
 	*Ingresa los datos de una nueva orden de dos productos.
@@ -54,6 +58,7 @@ public class Ordenes{
             pedido.add(producto2);
             minuto = minutos;
             hora = horas;
+            setIDOrden();
         }
         /**
 	*Ingresa los datos de una nueva orden de tres productos.
@@ -71,6 +76,7 @@ public class Ordenes{
             pedido.add(producto3);
             minuto = minutos;
             hora = horas;
+            setIDOrden();
         }
 	/**
 	*Devuelve el objeto con los datos de un usuario
@@ -101,4 +107,23 @@ public class Ordenes{
 	public String getMinutos(){
 	        return minuto;
         }
+        /**
+         * Este método retorna el id de la orden 
+         * @return un String con cada orden
+         */
+        public String getIdOrden(){
+            return this.ID;
+        }
+        
+    /**
+     *Este void da una ID random a cada orden
+     */
+    public void setIDOrden(){
+            int maxID=128000;
+            int minID=1;
+            int idRandom = (int) (Math.random() *(maxID-minID)+maxID);
+            this.ID=String.valueOf(idRandom);
+        }
+    
+      
 }

@@ -7,8 +7,10 @@ package COMIDA_RED;
 *@since 15/08/2017
 *@version 2.0 
 */
+import java.awt.HeadlessException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 
 public class Registro{
 	//atributos
@@ -188,8 +190,31 @@ public class Registro{
 	*@param numero Numero de orden que se desea eliminar 
 	*/	
 	public void borrarOrden(int numero){
-		ordenes.remove(numero);
+		          try {
+                ordenes.remove(numero);
+                JOptionPane.showMessageDialog(null, "Orden Entregada");
+            } catch (Exception IndexOutOfBoundsException) {
+                              JOptionPane.showMessageDialog(null, "Ya no hay ordenes para entregar.");
+            }
 	} 
+        /**
+         * Este método borra una orden si le mandan el ID de la orden
+         * @param idOrden un string con el id d ela orden
+         */
+        public void borrarOrdenId(String idOrden){
+            try {
+                Ordenes orden= new Ordenes();
+            for (int i = 0; i < ordenes.size(); i++) {
+                orden=ordenes.get(i);
+                if (orden.getIdOrden().equals(idOrden)) {
+                    ordenes.remove(orden);
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Orden Borrada");
+            } catch (HeadlessException e) {
+                JOptionPane.showMessageDialog(null, "No se pudo borrar la orden, intentelo de nuevo.");
+            }
+        }
         /**
          * Metodo que retorna una lista con los carnets de los usuarios en el registro.
          * @return 
