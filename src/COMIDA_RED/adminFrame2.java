@@ -141,7 +141,7 @@ public final class adminFrame2 extends javax.swing.JFrame {
         });
 
         cboxpostre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        cboxpostre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dona de chocolate" }));
+        cboxpostre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Flan de chocolate", "Cubilete de chocolate" }));
         cboxpostre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboxpostreActionPerformed(evt);
