@@ -10,13 +10,14 @@ package COMIDA_RED;
 import java.awt.HeadlessException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class Registro{
 	//atributos
-	private final ArrayList<Usuario> users;
-	private final Administrador admin;
-	private final ArrayList<Ordenes> ordenes;
+	private ArrayList<Usuario> users;
+	private Administrador admin;
+	private ArrayList<Ordenes> ordenes;
 
 	//constructor
 	public Registro(){
@@ -24,7 +25,25 @@ public class Registro{
 		admin = new Administrador(); 
 		ordenes = new ArrayList<>();
 	}
-
+        /**
+         * Constructor secundario de la clase usado en BaseDatosRED para recuperar los usuarios
+         * y ordenes guardados en la base de datos.
+         * @param usuarios lista de usuarios
+         * @param listaordenes
+         */
+        public Registro(List<Usuario> usuarios,List<Ordenes> listaordenes){
+            Usuario user = new Usuario();
+            for(int i=0;i<usuarios.size();i++){
+                user = usuarios.get(i);
+                users.add(user);
+            }
+            Ordenes ord = new Ordenes();
+            for(int i=0;i<listaordenes.size();i++){
+                ord = listaordenes.get(i);
+                ordenes.add(ord);
+            }
+        }
+        
 	//metodos
         /**
          * Metodo para obtener la lista de ordenes del registro.
@@ -257,5 +276,14 @@ public class Registro{
             }
             texto = "Lista ordenada";
             return texto;
-        }        
+        }      
+        
+        //Metodos agregados para la interaccion con la base de datos.
+        public void nuevoUsuario(Usuario user){
+            users.add(user);
+        }
+        
+        public void nuevaOrden(Ordenes ord){
+            ordenes.add(ord);
+        }
 }

@@ -49,14 +49,18 @@ public final class adminFrame2 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        cboxcomida1 = new javax.swing.JComboBox<>();
+        cboxcomida = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         bnewcomida = new javax.swing.JButton();
         tpreciocomida = new javax.swing.JTextField();
-        cboxbebida1 = new javax.swing.JComboBox<>();
+        cboxbebida = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         tpreciobebida = new javax.swing.JTextField();
         bnewbebida = new javax.swing.JButton();
+        tpreciopostre = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        bnewpostre = new javax.swing.JButton();
+        cboxpostre = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -81,11 +85,11 @@ public final class adminFrame2 extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Agregue una comida o bebida"));
         jPanel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        cboxcomida1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        cboxcomida1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dona de chocolate", "Hut Dog", "Pollo empanizado", "Dobladas con carne", "Alitas con salsa barbacoa" }));
-        cboxcomida1.addActionListener(new java.awt.event.ActionListener() {
+        cboxcomida.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        cboxcomida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hut Dog", "Pollo empanizado", "Dobladas con carne", "Alitas con salsa barbacoa" }));
+        cboxcomida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboxcomida1ActionPerformed(evt);
+                cboxcomidaActionPerformed(evt);
             }
         });
 
@@ -102,11 +106,11 @@ public final class adminFrame2 extends javax.swing.JFrame {
 
         tpreciocomida.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        cboxbebida1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        cboxbebida1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sprite", "Fanta", "Jugo de naranja", "Jugo de tamarindo", " " }));
-        cboxbebida1.addActionListener(new java.awt.event.ActionListener() {
+        cboxbebida.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        cboxbebida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sprite", "Fanta", "Jugo de naranja", "Jugo de tamarindo", " " }));
+        cboxbebida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboxbebida1ActionPerformed(evt);
+                cboxbebidaActionPerformed(evt);
             }
         });
 
@@ -123,6 +127,27 @@ public final class adminFrame2 extends javax.swing.JFrame {
             }
         });
 
+        tpreciopostre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jLabel9.setText("Precio del postre:");
+
+        bnewpostre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        bnewpostre.setText("Agregar Postre");
+        bnewpostre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bnewpostreActionPerformed(evt);
+            }
+        });
+
+        cboxpostre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        cboxpostre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dona de chocolate" }));
+        cboxpostre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxpostreActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -135,34 +160,50 @@ public final class adminFrame2 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tpreciobebida, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(bnewbebida)
-                    .addComponent(cboxbebida1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                    .addComponent(cboxbebida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tpreciocomida, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cboxcomida1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cboxcomida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bnewcomida, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(37, 37, 37))
+                .addGap(65, 65, 65)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(bnewpostre)
+                        .addGap(41, 41, 41))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cboxpostre, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tpreciopostre, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(19, 19, 19))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cboxcomida1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cboxbebida1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cboxcomida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cboxbebida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cboxpostre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tpreciocomida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel4)
-                    .addComponent(tpreciobebida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tpreciobebida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tpreciopostre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bnewcomida)
-                    .addComponent(bnewbebida))
+                    .addComponent(bnewbebida)
+                    .addComponent(bnewpostre))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -281,7 +322,7 @@ public final class adminFrame2 extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(bentregarordenCola, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonVerOrdenesHora, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                .addComponent(jButtonVerOrdenesHora, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -304,9 +345,8 @@ public final class adminFrame2 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 17, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -343,12 +383,13 @@ public final class adminFrame2 extends javax.swing.JFrame {
                         .addComponent(jLabel6))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(botonregresar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(34, 34, 34)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonregresar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -409,13 +450,13 @@ public final class adminFrame2 extends javax.swing.JFrame {
         ordenes.setVisible(true);
     }//GEN-LAST:event_bordenespendientesActionPerformed
 
-    private void cboxbebida1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxbebida1ActionPerformed
+    private void cboxbebidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxbebidaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cboxbebida1ActionPerformed
+    }//GEN-LAST:event_cboxbebidaActionPerformed
 
-    private void cboxcomida1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxcomida1ActionPerformed
+    private void cboxcomidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxcomidaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cboxcomida1ActionPerformed
+    }//GEN-LAST:event_cboxcomidaActionPerformed
 
     private void bnewbebidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnewbebidaActionPerformed
         // TODO add your handling code here:
@@ -424,7 +465,7 @@ public final class adminFrame2 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No deje campos vacios.", "", JOptionPane.INFORMATION_MESSAGE);
         }else{
             double preciodb = Double.parseDouble(precio);
-            String bebida = cboxbebida1.getSelectedItem().toString();
+            String bebida = cboxbebida.getSelectedItem().toString();
             menuadmin2.agregarProductos("Bebida",bebida,preciodb);
             tpreciobebida.setText("");
             JOptionPane.showMessageDialog(null, "Bebida agregada con exito");
@@ -438,7 +479,7 @@ public final class adminFrame2 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No deje campos vacios.", "", JOptionPane.INFORMATION_MESSAGE);
         }else{
             double preciodb = Double.parseDouble(precio);
-            String comida = cboxcomida1.getSelectedItem().toString();
+            String comida = cboxcomida.getSelectedItem().toString();
             menuadmin2.agregarProductos("Comida",comida, preciodb);            
             tpreciocomida.setText("");
             JOptionPane.showMessageDialog(null, "Comida agregada");
@@ -556,6 +597,24 @@ public final class adminFrame2 extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButtonEntregarOrdenCarnetIndividualActionPerformed
 
+    private void bnewpostreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnewpostreActionPerformed
+        // TODO add your handling code here:
+        String precio = tpreciopostre.getText();
+        if(precio.length()==0){
+            JOptionPane.showMessageDialog(null, "No deje campos vacios.", "", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            double preciodb = Double.parseDouble(precio);
+            String postre = cboxpostre.getSelectedItem().toString();
+            menuadmin2.agregarProductos("Postre",postre, preciodb);            
+            tpreciopostre.setText("");
+            JOptionPane.showMessageDialog(null, "Postre agregado");
+        }
+    }//GEN-LAST:event_bnewpostreActionPerformed
+
+    private void cboxpostreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxpostreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboxpostreActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -563,11 +622,13 @@ public final class adminFrame2 extends javax.swing.JFrame {
     private javax.swing.JButton bentregarordenCola;
     private javax.swing.JButton bnewbebida;
     private javax.swing.JButton bnewcomida;
+    private javax.swing.JButton bnewpostre;
     private javax.swing.JButton bordenespendientes;
     private javax.swing.JButton botonregresar;
-    private javax.swing.JComboBox<String> cboxbebida1;
+    private javax.swing.JComboBox<String> cboxbebida;
     public static javax.swing.JComboBox<String> cboxcarnetsclientes;
-    private javax.swing.JComboBox<String> cboxcomida1;
+    private javax.swing.JComboBox<String> cboxcomida;
+    private javax.swing.JComboBox<String> cboxpostre;
     private javax.swing.JButton jButtonEntregarOrdenCarnetIndividual;
     private javax.swing.JButton jButtonVerOrdenesHora;
     public static javax.swing.JComboBox<String> jComboBoxBuscarOrden;
@@ -579,12 +640,14 @@ public final class adminFrame2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField tpreciobebida;
     private javax.swing.JTextField tpreciocomida;
+    private javax.swing.JTextField tpreciopostre;
     // End of variables declaration//GEN-END:variables
 }
 

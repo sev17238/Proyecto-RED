@@ -10,16 +10,29 @@ package COMIDA_RED;
 */
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class Menus{
 	//atributos
-	private final ArrayList<Producto> menu;
+	private ArrayList<Producto> menu;
 
 	//Constructor 
 	public Menus(){
-		menu = new ArrayList<Producto>();
+            menu = new ArrayList<Producto>();
 	} 
-
+        /**
+         * Constructo secunadario de la clase usado en la clase BaseDatosRED para recuperar los productos 
+         * guardados en la base de datos.
+         * @param productos 
+         */
+        public Menus(List<Producto> productos){
+            Producto prod = new Producto();
+            for(int i=0;i<productos.size();i++){
+                prod = productos.get(i);
+                menu.add(prod);
+            }
+        }
+        
 	//Metodos
         /**
 	*Agrega una comida al menu de alimentos
@@ -106,5 +119,9 @@ public class Menus{
                 }
             }
             return a;
+        }
+        //Metodo agregado para interaccion con la base de datos
+        public void nuevoProducto(Producto prod){
+            menu.add(prod);
         }
 }
