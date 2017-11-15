@@ -4,6 +4,8 @@ package COMIDA_RED;
 import java.awt.HeadlessException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -310,6 +312,11 @@ public final class adminFrame2 extends javax.swing.JFrame {
 
         jButtonVerOrdenesHora.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButtonVerOrdenesHora.setText("Ver Ordenes Hora");
+        jButtonVerOrdenesHora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVerOrdenesHoraActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -460,7 +467,10 @@ public final class adminFrame2 extends javax.swing.JFrame {
 
     private void bnewbebidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnewbebidaActionPerformed
         // TODO add your handling code here:
-        String precio = tpreciobebida.getText();
+        
+        
+        try {
+           String precio = tpreciobebida.getText();
         if(precio.length()==0){
             JOptionPane.showMessageDialog(null, "No deje campos vacios.", "", JOptionPane.INFORMATION_MESSAGE);
         }else{
@@ -470,11 +480,16 @@ public final class adminFrame2 extends javax.swing.JFrame {
             tpreciobebida.setText("");
             JOptionPane.showMessageDialog(null, "Bebida agregada con exito");
         }
+        } catch (HeadlessException | NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Ingrese valores de dinero en el campo de precio, no letras.");
+        }
     }//GEN-LAST:event_bnewbebidaActionPerformed
 
     private void bnewcomidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnewcomidaActionPerformed
         // TODO add your handling code here:
-        String precio = tpreciocomida.getText();
+        
+        try {
+            String precio = tpreciocomida.getText();
         if(precio.length()==0){
             JOptionPane.showMessageDialog(null, "No deje campos vacios.", "", JOptionPane.INFORMATION_MESSAGE);
         }else{
@@ -483,6 +498,9 @@ public final class adminFrame2 extends javax.swing.JFrame {
             menuadmin2.agregarProductos("Comida",comida, preciodb);            
             tpreciocomida.setText("");
             JOptionPane.showMessageDialog(null, "Comida agregada");
+        }
+        } catch (HeadlessException | NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Ingrese valores de dinero en el campo de precio, no letras.");
         }
     }//GEN-LAST:event_bnewcomidaActionPerformed
 
@@ -599,7 +617,8 @@ public final class adminFrame2 extends javax.swing.JFrame {
 
     private void bnewpostreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnewpostreActionPerformed
         // TODO add your handling code here:
-        String precio = tpreciopostre.getText();
+        try {
+            String precio = tpreciopostre.getText();
         if(precio.length()==0){
             JOptionPane.showMessageDialog(null, "No deje campos vacios.", "", JOptionPane.INFORMATION_MESSAGE);
         }else{
@@ -609,11 +628,49 @@ public final class adminFrame2 extends javax.swing.JFrame {
             tpreciopostre.setText("");
             JOptionPane.showMessageDialog(null, "Postre agregado");
         }
+        } catch (HeadlessException | NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Ingrese valores de dinero en el campo de precio, no letras.");
+        }
     }//GEN-LAST:event_bnewpostreActionPerformed
 
     private void cboxpostreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxpostreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cboxpostreActionPerformed
+
+    private void jButtonVerOrdenesHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerOrdenesHoraActionPerformed
+        // TODO add your handling code here:
+        List<Ordenes> horas= new ArrayList<>();
+        horas=registroadmin2.getOrdenes();
+        horas.sort(Comparator.comparing(Ordenes::getHora));
+        
+        // TODO add your handling code here:
+        ordenesFrame ordenes = new ordenesFrame();
+        ordenes.setTitle("Ordenes por hora");
+        ordenesFrame.jTextArea1.append("Las ordenes son: ");
+        int i = -1;
+        Ordenes orden =null;
+        for(int e = 0; e<horas.size();e++){
+            orden = horas.get(e);
+            i = i+1;
+            //String comida = orden.getComida().getNombreComida();double precioc = orden.getComida().getPrecio();
+            //String bebida = orden.getBebida().getNombreBebida();double preciob = orden.getBebida().getPrecio();
+            String user = orden.getUsuario().getNombre();
+            String carnet = orden.getUsuario().getCarnet();
+            String hora = orden.getHora();
+            String minuto = orden.getMinutos();
+            //double sumaprecios = precioc + preciob;
+            ordenesFrame.jTextArea1.append(System.getProperty("line.separator"));
+            ordenesFrame.jTextArea1.append(i+".Usuario: "+user+" Carnet: "+carnet+", pidio el menu siguiente , para la siguiente hora: "+hora+":"+minuto+" :");
+            Producto prod = new Producto();
+            for(int k=0;k<orden.getPedido().size();k++){
+                prod = orden.getPedido().get(k);
+                ordenesFrame.jTextArea1.append(System.getProperty("line.separator"));
+                ordenesFrame.jTextArea1.append(" - "+prod.getNombreProducto()+", con precio:"+prod.getPrecio());
+            }
+        }
+        ordenes.setVisible(true);
+        
+    }//GEN-LAST:event_jButtonVerOrdenesHoraActionPerformed
 
     
 
