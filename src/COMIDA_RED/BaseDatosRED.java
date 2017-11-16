@@ -4,6 +4,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
+import javax.swing.JOptionPane;
 /**
 *@author DavidSoto
 *@author AlejandroTejada
@@ -104,5 +105,30 @@ public class BaseDatosRED {
         return menuRED;
     }
     
+    public void eliminarOrdenIdDB(String ID){
+        Query q = em.createQuery("select d from Ordenes d where d.ID = :id");
+            q.setParameter("id", ID);
+            Ordenes ord = (Ordenes) q.getSingleResult();
+            if(ord != null){
+                registroRED.borrarOrdenId(ID);
+                em.getTransaction().begin();// grabar el tanque en la base de datos
+                em.remove(ord);
+                em.getTransaction().commit();
+            } 
+    }
+    
+    public void eliminarOrdenDB(int numero){        
+        String ID = registroRED.getIDborrarOrden(numero);
+        Query q = em.createQuery("select d from Ordenes d where d.ID = :id");
+        q.setParameter("id", ID);
+        Ordenes ord = (Ordenes) q.getSingleResult();
+        if(ord != null){
+            registroRED.borrarOrden(numero);
+            em.getTransaction().begin();// grabar el tanque en la base de datos
+            em.remove(ord);
+            em.getTransaction().commit();
+        } 
+       
+    }
     
 }

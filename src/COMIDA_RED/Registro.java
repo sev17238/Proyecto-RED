@@ -209,13 +209,29 @@ public class Registro{
 	*@param numero Numero de orden que se desea eliminar 
 	*/	
 	public void borrarOrden(int numero){
-		          try {
+            try {
                 ordenes.remove(numero);
                 JOptionPane.showMessageDialog(null, "Orden Entregada");
-            } catch (Exception IndexOutOfBoundsException) {
-                              JOptionPane.showMessageDialog(null, "Ya no hay ordenes para entregar.");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Ya no hay ordenes para entregar.");
             }
 	} 
+        /**
+	* Este metodo se usara en conjunto con borrarOrden() para retornar la id de la orden que se borrara y 
+        * asi poder usar dicha id para eliminar la orden en la base de datos.
+	*@param numero Numero de orden de la que se desea la ID. 
+        * @return  
+	*/	
+	public String getIDborrarOrden(int numero){
+            try {
+                String ident = ordenes.get(numero).getIdOrden();
+                return ident;
+            }catch (Exception e) {
+                //  JOptionPane.showMessageDialog(null, "Ya no hay ordenes para entregar.");
+                return null;
+            }
+	} 
+        
         /**
          * Este método borra una orden si le mandan el ID de la orden
          * @param idOrden un string con el id d ela orden
