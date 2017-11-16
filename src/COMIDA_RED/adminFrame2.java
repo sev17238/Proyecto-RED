@@ -169,8 +169,8 @@ public final class adminFrame2 extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tpreciocomida, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cboxcomida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bnewcomida, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(bnewcomida, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cboxcomida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(65, 65, 65)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -178,7 +178,7 @@ public final class adminFrame2 extends javax.swing.JFrame {
                         .addGap(41, 41, 41))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cboxpostre, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cboxpostre, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -525,9 +525,11 @@ public final class adminFrame2 extends javax.swing.JFrame {
     private void bbuscarordenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bbuscarordenesActionPerformed
         // TODO add your handling code here:
         try {
-           
-            llenarComboboxOrdenes();
-            
+            if(cboxcarnetsclientes.getSelectedItem().toString().length()==0){
+                JOptionPane.showMessageDialog(null, "No hay un carnet seleccionado.\nPorfavor seleccione uno.");
+            }else{
+                llenarComboboxOrdenes();
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ingrese un No. de Carnet valido");
         }
@@ -583,6 +585,7 @@ public final class adminFrame2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         try {
+            
             String carnet;
             carnet=cboxcarnetsclientes.getSelectedItem().toString();
             
@@ -606,13 +609,14 @@ public final class adminFrame2 extends javax.swing.JFrame {
                      contadorArray++;
                  }
              }
-             System.out.println("Vector id "+Arrays.asList(arrayID));
+            //System.out.println("Vector id "+Arrays.asList(arrayID));
             String idBorrar=arrayID[this.posicion];
             registroadmin2.borrarOrdenId(idBorrar);
             llenarComboboxOrdenes();
+            
         } catch (Exception e) {
-        }
-        
+            JOptionPane.showMessageDialog(null, "No hay una orden seleccionada para entregar.");
+        }        
     }//GEN-LAST:event_jButtonEntregarOrdenCarnetIndividualActionPerformed
 
     private void bnewpostreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnewpostreActionPerformed

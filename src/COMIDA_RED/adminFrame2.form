@@ -107,8 +107,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="tpreciocomida" min="-2" pref="59" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="cboxcomida" alignment="1" min="-2" pref="146" max="-2" attributes="0"/>
                       <Component id="bnewcomida" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="cboxcomida" alignment="1" min="-2" pref="170" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -118,7 +118,7 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="cboxpostre" min="-2" pref="146" max="-2" attributes="0"/>
+                              <Component id="cboxpostre" min="-2" pref="175" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
