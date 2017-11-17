@@ -29,6 +29,11 @@ public final class userFrame2 extends javax.swing.JFrame {
         llenarComboboxes();
         
     }
+    /**
+     * Este metodo se encarga de llenar los comboboxes de comidas, bebidas y postres dependiendo de lo 
+     * que se encuentre en el registro de menus del atributo de tipo Menu del objeto BaseDatosRED de esta
+     * clase.
+     */
     public void llenarComboboxes(){
         ArrayList<String> a=DBREDuser2.getMenuRED().retornarListaBebidas();
         //System.out.println("Vector"+Arrays.asList(a)+" "+a.size());

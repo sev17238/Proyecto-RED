@@ -26,7 +26,10 @@ public class BaseDatosRED {
         registroRED = new Registro(); //registro de tanques vacio
         menuRED = new Menus();
     }
-    
+    /**
+     * Metodo que concluye los procesos realizados de presistencia de los atributos de esta clase dedicados
+     * a eso.
+     */
     public void cerrarDB(){
         em.close();
         emf.close();
@@ -69,7 +72,12 @@ public class BaseDatosRED {
         em.persist(user);
         em.getTransaction().commit();
     }
-    
+    /**
+     * Metodo que ingresa un nuevo producto a la base de datos y al registro.
+     * @param descripcion del producto
+     * @param nombre del producto
+     * @param price del producto
+     */
     public void nuevoProducto(String descripcion, String nombre, double price){
         Producto prod = new Producto();
         prod.setProducto(descripcion, nombre, price);
@@ -78,7 +86,13 @@ public class BaseDatosRED {
         em.persist(prod);
         em.getTransaction().commit();
     }
-    
+    /**
+     * Metodo que ingresa una nueva orden a la base de datos y al registro.
+     * @param user al que pertence la orden
+     * @param producto que ordeno el usuario
+     * @param horas a la que se tiene que entregar la orden
+     * @param minutos a los que se tiene que entregar la orden
+     */
     public void nuevaOrden(Usuario user, Producto producto, String horas, String minutos){
         Ordenes ord = new Ordenes();
         ord.setOrden(user, producto, horas, minutos);
@@ -87,7 +101,14 @@ public class BaseDatosRED {
         em.persist(ord);
         em.getTransaction().commit();
     }
-    
+    /**
+     * Metodo que ingresa una nueva orden de dos productos a la base de datos y al registro.
+     * @param user al que pertence la orden
+     * @param producto el que ordeno el usuario
+     * @param producto2 el segundo que ordeno el usuario
+     * @param horas a la que se tiene que entregar la orden
+     * @param minutos a los que se tiene que entregar la orden
+     */
     public void nuevaOrden2(Usuario user, Producto producto,Producto producto2, String horas, String minutos){
         Ordenes ord = new Ordenes();
         ord.setOrden2(user, producto, producto2, horas, minutos);
@@ -96,7 +117,15 @@ public class BaseDatosRED {
         em.persist(ord);
         em.getTransaction().commit();
     }
-    
+    /**
+     * Metodo que ingresa una nueva orden de tres productos a la base de datos y al registro.
+     * @param user al que pertence la orden
+     * @param producto el que ordeno el usuario
+     * @param producto2 el segundo que ordeno el usuario
+     * @param producto3 el tercero que ordeno el producto
+     * @param horas a la que se tiene que entregar la orden
+     * @param minutos a los que se tiene que entregar la orden
+     */
     public void nuevaOrden3(Usuario user, Producto producto,Producto producto2,Producto producto3, String horas, String minutos){
         Ordenes ord = new Ordenes();
         ord.setOrden3(user, producto, producto2, producto3, horas, minutos);
@@ -105,15 +134,24 @@ public class BaseDatosRED {
         em.persist(ord);
         em.getTransaction().commit();
     }
-    
+    /**
+     * Metodo que returna el atributo de tipo Registro de esta clase
+     * @return el atributo
+     */
     public Registro getRegistroRED(){
         return registroRED;
     }
-    
+    /**
+     * Metodo que retorna el atributo de tripo Menus de esta clase.
+     * @return 
+     */
     public Menus getMenuRED(){
         return menuRED;
     }
-    
+    /**
+     * Elimina la orden a la que pertenece la ID ingresada como parametro
+     * @param ID de la orden que se quiere borrar.
+     */
     public void eliminarOrdenIdDB(String ID){
         Query q = em.createQuery("select d from Ordenes d where d.identificacion = :id");
             q.setParameter("id", ID);
@@ -125,7 +163,10 @@ public class BaseDatosRED {
                 em.getTransaction().commit();
             } 
     }
-    
+    /**
+     * Elimina la orden en cola en cuestion.
+     * @param numero de la orden
+     */
     public void eliminarOrdenDB(int numero){        
         String ID = registroRED.getIDborrarOrden(numero);
         Query q = em.createQuery("select d from Ordenes d where d.identificacion = :id");
