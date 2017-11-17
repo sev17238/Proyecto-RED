@@ -9,8 +9,8 @@ package COMIDA_RED;
 */
 public class Administrador{
 	//atributos
-	private String nombre;
-	private String contrasena;
+	private final String nombre;
+	private final String contrasena;
 
 	//Constructor
 	public Administrador(){

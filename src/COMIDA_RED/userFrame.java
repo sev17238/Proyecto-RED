@@ -8,8 +8,9 @@ import javax.swing.JOptionPane;
  * @author SDiego
  */
 public class userFrame extends javax.swing.JFrame {
-    public static Registro registrouser;
-    public static Menus menuuser;
+    //public static Registro registrouser;
+    //public static Menus menuuser;
+    public static BaseDatosRED DBREDuser;
     public static Usuario cuenta;
     
     /**
@@ -19,10 +20,21 @@ public class userFrame extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
        
-        registrouser = new Registro();
-        menuuser = entFrame.menuent;
+        //registrouser = new Registro();
+        //menuuser = entFrame.menuent;
+        DBREDuser = entFrame.DBRED;
         cuenta = new Usuario();
         
+        mostrarUsuarios();
+    }
+    
+    public void mostrarUsuarios(){
+        Usuario user = new Usuario();
+        for(int i=0;i<DBREDuser.getRegistroRED().getUsers().size();i++){
+            user = DBREDuser.getRegistroRED().getUsers().get(i);
+            System.out.println(" - "+user.getNombre());
+            
+        }
     }
     
     /**
@@ -192,18 +204,20 @@ public class userFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addComponent(regreso)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(147, 147, 147)
-                .addComponent(regreso)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,18 +264,19 @@ public class userFrame extends javax.swing.JFrame {
         if(correo.length()==0 || contra.length()==0){
             JOptionPane.showMessageDialog(null, "No deje campos vacios!", "", JOptionPane.INFORMATION_MESSAGE);
         }else{
-            int verif = registrouser.buscarUsuario(correo, contra);
+            int verif = DBREDuser.getRegistroRED().buscarUsuario(correo, contra);
             if(verif == 0){
                 JOptionPane.showMessageDialog(null, "El usuario ingresado no existe.", "", JOptionPane.INFORMATION_MESSAGE);
             }else{      
-                cuenta = registrouser.buscarUsuario2(correo, contra);
+                cuenta = DBREDuser.getRegistroRED().buscarUsuario2(correo, contra);
                 userFrame2 user2 = new userFrame2();
                 user2.setTitle("Cuenta de "+cuenta.getNombre()+" - Restaurante RED, Pedidos Digitales");
                 user2.setVisible(true);
                 this.setVisible(false);
                 JOptionPane.showMessageDialog(null, "Bienvenido "+cuenta.getNombre()+"!", "", JOptionPane.PLAIN_MESSAGE);
-                userFrame2.registrouser2 = registrouser;
-                userFrame2.menuuser2 = menuuser;
+                //userFrame2.registrouser2 = registrouser;
+                //userFrame2.menuuser2 = menuuser;
+                userFrame2.DBREDuser2 = DBREDuser;
                 userFrame2.cuenta2 = cuenta;
                 
             }
@@ -277,7 +292,7 @@ public class userFrame extends javax.swing.JFrame {
         if(nombre.length()==0||carnet.length()==0||correo.length()==0||contra.length()==0){
             JOptionPane.showMessageDialog(null, "No deje campos vacios!", "", JOptionPane.INFORMATION_MESSAGE);
         }else{
-            registrouser.agregarUsuario(nombre, carnet, correo, contra);
+            DBREDuser.nuevoUsuario(nombre, carnet, correo, contra);
             tnombresignup.setText(null);tcarnetsignup.setText(null);tcorreosignup.setText(null);contrasignup.setText(null);
             JOptionPane.showMessageDialog(null, "Se ha registrado exitosamente!", "Cuenta creada", JOptionPane.PLAIN_MESSAGE);
         }
@@ -289,8 +304,7 @@ public class userFrame extends javax.swing.JFrame {
         entFrame ent = new entFrame();
         ent.setVisible(true);
         this.setVisible(false);
-        entFrame.registroent = registrouser; 
-        entFrame.menuent = menuuser;
+        entFrame.DBRED = DBREDuser;         
         
     }//GEN-LAST:event_regresoActionPerformed
 

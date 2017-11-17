@@ -21,9 +21,9 @@ public class Registro{
 
 	//constructor
 	public Registro(){
-		users = new ArrayList<>();
+		users = new ArrayList<Usuario>();
 		admin = new Administrador(); 
-		ordenes = new ArrayList<>();
+		ordenes = new ArrayList<Ordenes>();
 	}
         /**
          * Constructor secundario de la clase usado en BaseDatosRED para recuperar los usuarios
@@ -31,17 +31,22 @@ public class Registro{
          * @param usuarios lista de usuarios
          * @param listaordenes
          */
-        public Registro(List<Usuario> usuarios,List<Ordenes> listaordenes){
-            Usuario user = new Usuario();
-            for(int i=0;i<usuarios.size();i++){
-                user = usuarios.get(i);
-                users.add(user);
-            }
+        public Registro(List<Usuario> usuarios,List<Ordenes> listaordenes){            
+            ordenes = new ArrayList<Ordenes>();
             Ordenes ord = new Ordenes();
             for(int i=0;i<listaordenes.size();i++){
                 ord = listaordenes.get(i);
                 ordenes.add(ord);
             }
+            
+            users = new ArrayList<Usuario>();          
+            Usuario user = new Usuario();
+            for(int i=0;i<usuarios.size();i++){
+                user = usuarios.get(i);
+                users.add(user);
+            }
+            
+            admin = new Administrador(); 
         }
         
 	//metodos
@@ -49,7 +54,7 @@ public class Registro{
          * Metodo para obtener la lista de ordenes del registro.
          * @return la lista de ordenes que se han hecho.
          */
-        public ArrayList<Ordenes> getOrdenes(){
+        public List<Ordenes> getOrdenes(){
             return ordenes;
         }        
 	/**
@@ -245,7 +250,7 @@ public class Registro{
                     ordenes.remove(orden);
                 }
             }
-            JOptionPane.showMessageDialog(null, "Orden Borrada");
+            JOptionPane.showMessageDialog(null, "Orden Entregada");
             } catch (HeadlessException e) {
                 JOptionPane.showMessageDialog(null, "No se pudo borrar la orden, intentelo de nuevo.");
             }
@@ -254,7 +259,7 @@ public class Registro{
          * Metodo que retorna una lista con los carnets de los usuarios en el registro.
          * @return 
          */
-        public String[] retornarListaUsuariosCarnet(){
+        public String[] retornarListaUsuarioCarnet(){
             String[] list = new String[users.size()];
             Usuario user = new Usuario();
             for (int i = 0; i < users.size(); i++) {
@@ -295,11 +300,22 @@ public class Registro{
         }      
         
         //Metodos agregados para la interaccion con la base de datos.
-        public void nuevoUsuario(Usuario user){
+        public void newUsuario(Usuario user){
+            //System.out.println(user);
+            //user.setId();
             users.add(user);
         }
         
-        public void nuevaOrden(Ordenes ord){
+        public void newOrden(Ordenes ord){
             ordenes.add(ord);
         }
+        
+        public Administrador getAdmin(){
+            return admin;
+        }
+        
+        public List<Usuario> getUsers(){
+            return users;
+        }
+        
 }

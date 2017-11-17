@@ -6,15 +6,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import javax.persistence.NoResultException;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * 
  * @author SDiego
  */
 public final class adminFrame2 extends javax.swing.JFrame {
-    public static Registro registroadmin2;
-    public static Menus menuadmin2;
+    //public static Registro registroadmin2;
+    //public static Menus menuadmin2;
+    public static BaseDatosRED DBREDadmin2;
     public String bebidaNueva;
     public double precioNuevo;
     public int posicion;
@@ -24,8 +26,10 @@ public final class adminFrame2 extends javax.swing.JFrame {
      */
     public adminFrame2() {
         initComponents();
-        registroadmin2 = adminFrame.registroadmin;
-        menuadmin2 = adminFrame.menuadmin;
+        this.setLocationRelativeTo(null);
+        //registroadmin2 = adminFrame.registroadmin;
+        //menuadmin2 = adminFrame.menuadmin;
+        DBREDadmin2 = adminFrame.DBREDadmin;
         bebidaNueva="";
         precioNuevo=0;
         posicion=0;
@@ -34,7 +38,7 @@ public final class adminFrame2 extends javax.swing.JFrame {
     }
     
      public void llenarComboBoxCarnetClientes(){
-        String[] list = registroadmin2.retornarListaUsuariosCarnet();
+        String[] list = DBREDadmin2.getRegistroRED().retornarListaUsuarioCarnet();
         cboxcarnetsclientes.addItem("");
         for(String item: list){
             cboxcarnetsclientes.addItem(item);
@@ -88,7 +92,7 @@ public final class adminFrame2 extends javax.swing.JFrame {
         jPanel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         cboxcomida.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        cboxcomida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hut Dog", "Pollo empanizado", "Dobladas con carne", "Alitas con salsa barbacoa" }));
+        cboxcomida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alitas con salsa barbacoa", "Dobladas con carne", "Hut Dog", "Papas con queso y tocino", "Pollo empanizado", "Porcion mediana de pizza", "Quesoburguesa", " " }));
         cboxcomida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboxcomidaActionPerformed(evt);
@@ -109,7 +113,7 @@ public final class adminFrame2 extends javax.swing.JFrame {
         tpreciocomida.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         cboxbebida.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        cboxbebida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sprite", "Fanta", "Jugo de naranja", "Jugo de tamarindo", " " }));
+        cboxbebida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Coca Cola", "Fanta", "Horchata con canela", "Jugo de naranja", "Jugo de tamarindo", "Rosa de jamaica", "Seven Up", "Sprite" }));
         cboxbebida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboxbebidaActionPerformed(evt);
@@ -143,7 +147,7 @@ public final class adminFrame2 extends javax.swing.JFrame {
         });
 
         cboxpostre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        cboxpostre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Flan de chocolate", "Cubilete de chocolate" }));
+        cboxpostre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Flan de chocolate", "Dona de chocolate", "Cubilete de chocolate", "Pie de queso" }));
         cboxpostre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboxpostreActionPerformed(evt);
@@ -426,8 +430,8 @@ public final class adminFrame2 extends javax.swing.JFrame {
         adminFrame admin = new adminFrame();
         admin.setVisible(true);
         this.setVisible(false);
-        adminFrame.registroadmin = registroadmin2;
-        adminFrame.menuadmin = menuadmin2;
+        adminFrame.DBREDadmin = DBREDadmin2;
+        adminFrame.DBREDadmin = DBREDadmin2;
         
     }//GEN-LAST:event_botonregresarActionPerformed
 
@@ -437,8 +441,8 @@ public final class adminFrame2 extends javax.swing.JFrame {
         ordenesFrame.jTextArea1.append("Las ordenes son: ");
         int i = -1;
         Ordenes orden =null;
-        for(int e = 0; e<registroadmin2.getOrdenes().size();e++){
-            orden = registroadmin2.getOrdenes().get(e);
+        for(int e = 0; e<DBREDadmin2.getRegistroRED().getOrdenes().size();e++){
+            orden = DBREDadmin2.getRegistroRED().getOrdenes().get(e);
             i = i+1;
             //String comida = orden.getComida().getNombreComida();double precioc = orden.getComida().getPrecio();
             //String bebida = orden.getBebida().getNombreBebida();double preciob = orden.getBebida().getPrecio();
@@ -476,7 +480,7 @@ public final class adminFrame2 extends javax.swing.JFrame {
         }else{
             double preciodb = Double.parseDouble(precio);
             String bebida = cboxbebida.getSelectedItem().toString();
-            menuadmin2.agregarProductos("Bebida",bebida,preciodb);
+            DBREDadmin2.nuevoProducto("Bebida",bebida,preciodb);
             tpreciobebida.setText("");
             JOptionPane.showMessageDialog(null, "Bebida agregada con exito");
         }
@@ -495,7 +499,7 @@ public final class adminFrame2 extends javax.swing.JFrame {
         }else{
             double preciodb = Double.parseDouble(precio);
             String comida = cboxcomida.getSelectedItem().toString();
-            menuadmin2.agregarProductos("Comida",comida, preciodb);            
+            DBREDadmin2.nuevoProducto("Comida",comida, preciodb);            
             tpreciocomida.setText("");
             JOptionPane.showMessageDialog(null, "Comida agregada");
         }
@@ -513,12 +517,14 @@ public final class adminFrame2 extends javax.swing.JFrame {
         Ordenes orden = new Ordenes();
         try {
             oab=this.posicion;
-            registroadmin2.borrarOrden(oab);
+            DBREDadmin2.eliminarOrdenDB(oab);
             
             //jTextFieldOrdenABorrar.setText("");
             jComboBoxBuscarOrden.removeAllItems();
         } catch (HeadlessException e) {
             JOptionPane.showMessageDialog(null, "Ingrese un numero de orden valido.");
+        } catch(NoResultException e){
+            JOptionPane.showMessageDialog(null, "No hay ordenes en cola.");
         }
     }//GEN-LAST:event_bentregarordenColaActionPerformed
 
@@ -559,8 +565,8 @@ public final class adminFrame2 extends javax.swing.JFrame {
             int i = -1;
             Ordenes orden = new Ordenes();
             
-            for(int e = 0; e<registroadmin2.getOrdenes().size();e++){
-                orden = registroadmin2.getOrdenes().get(e);
+            for(int e = 0; e<DBREDadmin2.getRegistroRED().getOrdenes().size();e++){
+                orden = DBREDadmin2.getRegistroRED().getOrdenes().get(e);
                 if (orden.getUsuario().getCarnet().equals(carnet)) {
                     i = i+1;
                     
@@ -592,8 +598,8 @@ public final class adminFrame2 extends javax.swing.JFrame {
             ordenesFrame ordenes = new ordenesFrame();
             int contador=0;
             Ordenes orden = new Ordenes();
-            for(int e = 0; e<registroadmin2.getOrdenes().size();e++){
-                orden = registroadmin2.getOrdenes().get(e);
+            for(int e = 0; e<DBREDadmin2.getRegistroRED().getOrdenes().size();e++){
+                orden = DBREDadmin2.getRegistroRED().getOrdenes().get(e);
                 if (orden.getUsuario().getCarnet().equals(carnet)) {
                   contador++;
                 }
@@ -602,8 +608,8 @@ public final class adminFrame2 extends javax.swing.JFrame {
             String[] arrayID= new String[contador];
             int contadorArray=0;
             Ordenes orden2= new Ordenes();
-             for (int i = 0; i < registroadmin2.getOrdenes().size(); i++) {
-                 orden2=registroadmin2.getOrdenes().get(i);
+             for (int i = 0; i < DBREDadmin2.getRegistroRED().getOrdenes().size(); i++) {
+                 orden2=DBREDadmin2.getRegistroRED().getOrdenes().get(i);
                  if (orden2.getUsuario().getCarnet().equals(carnet)) {
                      arrayID[contadorArray]=orden2.getIdOrden();
                      contadorArray++;
@@ -611,7 +617,8 @@ public final class adminFrame2 extends javax.swing.JFrame {
              }
             //System.out.println("Vector id "+Arrays.asList(arrayID));
             String idBorrar=arrayID[this.posicion];
-            registroadmin2.borrarOrdenId(idBorrar);
+            
+            DBREDadmin2.eliminarOrdenIdDB(idBorrar);
             llenarComboboxOrdenes();
             
         } catch (Exception e) {
@@ -628,7 +635,7 @@ public final class adminFrame2 extends javax.swing.JFrame {
         }else{
             double preciodb = Double.parseDouble(precio);
             String postre = cboxpostre.getSelectedItem().toString();
-            menuadmin2.agregarProductos("Postre",postre, preciodb);            
+            DBREDadmin2.nuevoProducto("Postre",postre, preciodb);            
             tpreciopostre.setText("");
             JOptionPane.showMessageDialog(null, "Postre agregado");
         }
@@ -644,13 +651,13 @@ public final class adminFrame2 extends javax.swing.JFrame {
     private void jButtonVerOrdenesHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerOrdenesHoraActionPerformed
         // TODO add your handling code here:
         List<Ordenes> horas= new ArrayList<>();
-        horas=registroadmin2.getOrdenes();
+        horas=DBREDadmin2.getRegistroRED().getOrdenes();
         horas.sort(Comparator.comparing(Ordenes::getHora));
         
         // TODO add your handling code here:
         ordenesFrame ordenes = new ordenesFrame();
         ordenes.setTitle("Ordenes por hora");
-        ordenesFrame.jTextArea1.append("Las ordenes son: ");
+        ordenesFrame.jTextArea1.append("Las ordenes por hora son: ");
         int i = -1;
         Ordenes orden =null;
         for(int e = 0; e<horas.size();e++){

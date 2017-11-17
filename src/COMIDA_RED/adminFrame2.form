@@ -167,11 +167,15 @@
               <Font name="Tahoma" size="15" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Hut Dog"/>
-                <StringItem index="1" value="Pollo empanizado"/>
-                <StringItem index="2" value="Dobladas con carne"/>
-                <StringItem index="3" value="Alitas con salsa barbacoa"/>
+              <StringArray count="8">
+                <StringItem index="0" value="Alitas con salsa barbacoa"/>
+                <StringItem index="1" value="Dobladas con carne"/>
+                <StringItem index="2" value="Hut Dog"/>
+                <StringItem index="3" value="Papas con queso y tocino"/>
+                <StringItem index="4" value="Pollo empanizado"/>
+                <StringItem index="5" value="Porcion mediana de pizza"/>
+                <StringItem index="6" value="Quesoburguesa"/>
+                <StringItem index="7" value=" "/>
               </StringArray>
             </Property>
           </Properties>
@@ -214,12 +218,15 @@
               <Font name="Tahoma" size="15" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="5">
-                <StringItem index="0" value="Sprite"/>
+              <StringArray count="8">
+                <StringItem index="0" value="Coca Cola"/>
                 <StringItem index="1" value="Fanta"/>
-                <StringItem index="2" value="Jugo de naranja"/>
-                <StringItem index="3" value="Jugo de tamarindo"/>
-                <StringItem index="4" value=" "/>
+                <StringItem index="2" value="Horchata con canela"/>
+                <StringItem index="3" value="Jugo de naranja"/>
+                <StringItem index="4" value="Jugo de tamarindo"/>
+                <StringItem index="5" value="Rosa de jamaica"/>
+                <StringItem index="6" value="Seven Up"/>
+                <StringItem index="7" value="Sprite"/>
               </StringArray>
             </Property>
           </Properties>
@@ -288,9 +295,11 @@
               <Font name="Tahoma" size="15" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
+              <StringArray count="4">
                 <StringItem index="0" value="Flan de chocolate"/>
-                <StringItem index="1" value="Cubilete de chocolate"/>
+                <StringItem index="1" value="Dona de chocolate"/>
+                <StringItem index="2" value="Cubilete de chocolate"/>
+                <StringItem index="3" value="Pie de queso"/>
               </StringArray>
             </Property>
           </Properties>

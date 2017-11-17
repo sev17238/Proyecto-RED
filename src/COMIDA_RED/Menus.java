@@ -26,6 +26,7 @@ public class Menus{
          * @param productos 
          */
         public Menus(List<Producto> productos){
+            menu = new ArrayList<Producto>();
             Producto prod = new Producto();
             for(int i=0;i<productos.size();i++){
                 prod = productos.get(i);
@@ -40,7 +41,7 @@ public class Menus{
 	*@param nombre nombre del producto
 	*@param precio Precio de la bebida ingresada
 	*/	
-	public void agregarProductos(String descripcion,String nombre, double precio){
+	public void agregarProducto(String descripcion,String nombre, double precio){
 		Producto prod = new Producto();
 		prod.setProducto(descripcion, nombre, precio);
 		menu.add(prod);
@@ -121,7 +122,7 @@ public class Menus{
             return a;
         }
         //Metodo agregado para interaccion con la base de datos
-        public void nuevoProducto(Producto prod){
+        public void newProducto(Producto prod){
             menu.add(prod);
         }
 }

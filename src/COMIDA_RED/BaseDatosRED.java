@@ -4,7 +4,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 /**
 *@author DavidSoto
 *@author AlejandroTejada
@@ -13,15 +13,15 @@ import javax.swing.JOptionPane;
 *@version 3.0 
 */
 public class BaseDatosRED {
-    Registro registroRED;
-    Menus menuRED;
-    EntityManagerFactory emf;  // para especificar la Persistent Unit y conexion a la base de datos
-    EntityManager em; // manejador de las entidades en la base de datos
+    public Registro registroRED;
+    public Menus menuRED;
+    public EntityManagerFactory emf;  // para especificar la Persistent Unit y conexion a la base de datos
+    public EntityManager em; // manejador de las entidades en la base de datos
     /**
      * Constructor de la clase.
      */
     public BaseDatosRED(){
-        emf = javax.persistence.Persistence.createEntityManagerFactory("LABORATORIO5PU");
+        emf = javax.persistence.Persistence.createEntityManagerFactory("COMIDA_REDPU");
         em = emf.createEntityManager();
         registroRED = new Registro(); //registro de tanques vacio
         menuRED = new Menus();
@@ -39,8 +39,8 @@ public class BaseDatosRED {
         Query q = em.createQuery("select d from Ordenes d");
         List<Ordenes> orders = q.getResultList();
         
-        Query q1 = em.createQuery("select d from Usuario d");
-        List<Usuario> users = q.getResultList();
+        Query q1 = em.createQuery("select nd from Usuario nd");
+        List<Usuario> users = q1.getResultList();
         
         registroRED = new Registro(users,orders);
     }
@@ -49,7 +49,7 @@ public class BaseDatosRED {
      * lista del objeto menuRED.
      */
     public void recuperarProductos(){
-        Query q = em.createQuery("select d from Ordenes d");
+        Query q = em.createQuery("select dd from Producto dd");
         List<Producto> productos = q.getResultList();
         
         menuRED = new Menus(productos);
@@ -64,16 +64,25 @@ public class BaseDatosRED {
     public void nuevoUsuario(String nombre,String carnet,String correo,String contra){
         Usuario user = new Usuario();
         user.setUsuario(nombre, carnet, correo, contra);
-        registroRED.nuevoUsuario(user);
+        registroRED.newUsuario(user);
         em.getTransaction().begin();
         em.persist(user);
+        em.getTransaction().commit();
+    }
+    
+    public void nuevoProducto(String descripcion, String nombre, double price){
+        Producto prod = new Producto();
+        prod.setProducto(descripcion, nombre, price);
+        menuRED.newProducto(prod);
+        em.getTransaction().begin();
+        em.persist(prod);
         em.getTransaction().commit();
     }
     
     public void nuevaOrden(Usuario user, Producto producto, String horas, String minutos){
         Ordenes ord = new Ordenes();
         ord.setOrden(user, producto, horas, minutos);
-        registroRED.nuevaOrden(ord);
+        registroRED.newOrden(ord);
         em.getTransaction().begin();
         em.persist(ord);
         em.getTransaction().commit();
@@ -82,7 +91,7 @@ public class BaseDatosRED {
     public void nuevaOrden2(Usuario user, Producto producto,Producto producto2, String horas, String minutos){
         Ordenes ord = new Ordenes();
         ord.setOrden2(user, producto, producto2, horas, minutos);
-        registroRED.nuevaOrden(ord);
+        registroRED.newOrden(ord);
         em.getTransaction().begin();
         em.persist(ord);
         em.getTransaction().commit();
@@ -91,7 +100,7 @@ public class BaseDatosRED {
     public void nuevaOrden3(Usuario user, Producto producto,Producto producto2,Producto producto3, String horas, String minutos){
         Ordenes ord = new Ordenes();
         ord.setOrden3(user, producto, producto2, producto3, horas, minutos);
-        registroRED.nuevaOrden(ord);
+        registroRED.newOrden(ord);
         em.getTransaction().begin();
         em.persist(ord);
         em.getTransaction().commit();
@@ -106,7 +115,7 @@ public class BaseDatosRED {
     }
     
     public void eliminarOrdenIdDB(String ID){
-        Query q = em.createQuery("select d from Ordenes d where d.ID = :id");
+        Query q = em.createQuery("select d from Ordenes d where d.identificacion = :id");
             q.setParameter("id", ID);
             Ordenes ord = (Ordenes) q.getSingleResult();
             if(ord != null){
@@ -119,7 +128,7 @@ public class BaseDatosRED {
     
     public void eliminarOrdenDB(int numero){        
         String ID = registroRED.getIDborrarOrden(numero);
-        Query q = em.createQuery("select d from Ordenes d where d.ID = :id");
+        Query q = em.createQuery("select d from Ordenes d where d.identificacion = :id");
         q.setParameter("id", ID);
         Ordenes ord = (Ordenes) q.getSingleResult();
         if(ord != null){
@@ -127,8 +136,7 @@ public class BaseDatosRED {
             em.getTransaction().begin();// grabar el tanque en la base de datos
             em.remove(ord);
             em.getTransaction().commit();
-        } 
-       
+        }        
     }
     
 }

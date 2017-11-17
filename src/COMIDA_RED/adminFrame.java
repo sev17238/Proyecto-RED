@@ -8,8 +8,9 @@ import javax.swing.JOptionPane;
  * @author SDiego
  */
 public class adminFrame extends javax.swing.JFrame {
-    public static Registro registroadmin;
-    public static Menus menuadmin;
+    //public static Registro registroadmin;
+    //public static Menus menuadmin;
+    public static BaseDatosRED DBREDadmin;
     
     /**
      * Creates new form adminFrame
@@ -18,9 +19,9 @@ public class adminFrame extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
-        registroadmin = new Registro();
-        menuadmin = entFrame.menuent;
-        
+        //registroadmin = new Registro();
+        //menuadmin = entFrame.menuent;
+        DBREDadmin = entFrame.DBRED;
     }
     
    
@@ -152,7 +153,7 @@ public class adminFrame extends javax.swing.JFrame {
         if(nombre.length()==0||contr.length()==0){
             JOptionPane.showMessageDialog(null, "No deje campos vacios.", "", JOptionPane.INFORMATION_MESSAGE);
         }else{
-            int verif = registroadmin.buscarAdministrador(nombre, contr);
+            int verif = DBREDadmin.getRegistroRED().buscarAdministrador(nombre, contr);
             if(verif == 0){
                 JOptionPane.showMessageDialog(null, "El administrador ingresado no existe.", "", JOptionPane.INFORMATION_MESSAGE);
             }else{
@@ -160,8 +161,7 @@ public class adminFrame extends javax.swing.JFrame {
                 admin2.setVisible(true);
                 this.setVisible(false);
                 JOptionPane.showMessageDialog(null, "Bienvenido!", "", JOptionPane.PLAIN_MESSAGE);
-                adminFrame2.registroadmin2 = registroadmin;
-                adminFrame2.menuadmin2 = menuadmin;
+                adminFrame2.DBREDadmin2 = DBREDadmin;
                 
             }
         }
@@ -172,8 +172,7 @@ public class adminFrame extends javax.swing.JFrame {
         entFrame ent = new entFrame();
         ent.setVisible(true);
         this.setVisible(false);
-        entFrame.registroent = registroadmin;
-        entFrame.menuent = menuadmin;
+        entFrame.DBRED = DBREDadmin;
         
     }//GEN-LAST:event_botonregresoActionPerformed
 

@@ -10,8 +10,9 @@ import javax.swing.JOptionPane;
  * @author SDiego
  */
 public final class userFrame2 extends javax.swing.JFrame {
-    public static Registro registrouser2;
-    public static Menus menuuser2;
+    //public static Registro registrouser2;
+    //public static Menus menuuser2;
+    public static BaseDatosRED DBREDuser2;
     public static Usuario cuenta2;
     /**
      * Creates new form userFrame2
@@ -20,23 +21,25 @@ public final class userFrame2 extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
-        registrouser2 = new Registro();
-        menuuser2 =userFrame.menuuser;
+        //registrouser2 = new Registro();
+        //menuuser2 =userFrame.menuuser;
+        DBREDuser2 = userFrame.DBREDuser;
         cuenta2 = new Usuario();
+        
         llenarComboboxes();
         
     }
     public void llenarComboboxes(){
-        ArrayList<String> a=menuuser2.retornarListaBebidas();
-        System.out.println("Vector"+Arrays.asList(a)+" "+a.size());
+        ArrayList<String> a=DBREDuser2.getMenuRED().retornarListaBebidas();
+        //System.out.println("Vector"+Arrays.asList(a)+" "+a.size());
         a.forEach((a1) -> {
             cboxbebidas.addItem(a1);
         });
-        ArrayList<String> b=menuuser2.retornarListaComidas();
+        ArrayList<String> b=DBREDuser2.getMenuRED().retornarListaComidas();
         b.forEach((b1) -> {
             cboxcomidas.addItem(b1);
         });
-        ArrayList<String> c=menuuser2.retornarListaPostres();
+        ArrayList<String> c=DBREDuser2.getMenuRED().retornarListaPostres();
         c.forEach((c1) -> {
             cboxpostres.addItem(c1);
         });
@@ -47,7 +50,7 @@ public final class userFrame2 extends javax.swing.JFrame {
      */
     public void imagenesLabelComida(String comida){        
         labelcomida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesComidas/"+comida+".png")));
-        double preciocomida = menuuser2.buscarProducto(comida).getPrecio();
+        double preciocomida = DBREDuser2.getMenuRED().buscarProducto(comida).getPrecio();
         lbpreciocomidas.setText("Q."+preciocomida);
     }    
     /**
@@ -56,7 +59,7 @@ public final class userFrame2 extends javax.swing.JFrame {
      */
     public void imagenesLabelBebida(String bebida){        
         labelbebida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBebidas/"+bebida+".png")));
-        double preciobebida = menuuser2.buscarProducto(bebida).getPrecio();
+        double preciobebida = DBREDuser2.getMenuRED().buscarProducto(bebida).getPrecio();
         lbpreciobebidas.setText("Q."+preciobebida);
     }
     /**
@@ -65,7 +68,7 @@ public final class userFrame2 extends javax.swing.JFrame {
      */
     public void imagenesLabelPostre(String postre){        
         labelpostre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesPostres/"+postre+".png")));
-        double preciocomida = menuuser2.buscarProducto(postre).getPrecio();
+        double preciocomida = DBREDuser2.getMenuRED().buscarProducto(postre).getPrecio();
         lbpreciopostres.setText("Q."+preciocomida);
     }   
     /**
@@ -111,11 +114,10 @@ public final class userFrame2 extends javax.swing.JFrame {
             }
         });
 
-        labelcomida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesComidas/Porcion mediana de pizza.png"))); // NOI18N
         labelcomida.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         lbpreciocomidas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbpreciocomidas.setText("Q.12.0");
+        lbpreciocomidas.setText("Q.0.0");
 
         chbcomidas.setSelected(true);
         chbcomidas.addActionListener(new java.awt.event.ActionListener() {
@@ -164,10 +166,8 @@ public final class userFrame2 extends javax.swing.JFrame {
             }
         });
 
-        labelbebida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBebidas/Seven Up.png"))); // NOI18N
-
         lbpreciobebidas.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbpreciobebidas.setText("Q.6.0");
+        lbpreciobebidas.setText("Q.0.0");
 
         chbbebidas.setSelected(true);
         chbbebidas.addActionListener(new java.awt.event.ActionListener() {
@@ -192,7 +192,7 @@ public final class userFrame2 extends javax.swing.JFrame {
                         .addComponent(lbpreciobebidas)))
                 .addGap(3, 6, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelbebidasLayout.createSequentialGroup()
-                .addComponent(labelbebida, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(labelbebida, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelbebidasLayout.setVerticalGroup(
@@ -255,7 +255,7 @@ public final class userFrame2 extends javax.swing.JFrame {
         });
 
         lbpreciopostres.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lbpreciopostres.setText("Q.7.5");
+        lbpreciopostres.setText("Q.0.0");
 
         chbpostres.setSelected(true);
         chbpostres.addActionListener(new java.awt.event.ActionListener() {
@@ -371,9 +371,9 @@ public final class userFrame2 extends javax.swing.JFrame {
         String bebida = cboxbebidas.getSelectedItem().toString();
         String postre = cboxpostres.getSelectedItem().toString();
         if(chbcomidas.isSelected() && chbbebidas.isSelected() && chbpostres.isSelected()){
-            Producto pedido = menuuser2.buscarProducto(comida);
-            Producto pedido2 = menuuser2.buscarProducto(bebida);
-            Producto pedido3 = menuuser2.buscarProducto(postre);
+            Producto pedido = DBREDuser2.getMenuRED().buscarProducto(comida);
+            Producto pedido2 = DBREDuser2.getMenuRED().buscarProducto(bebida);
+            Producto pedido3 = DBREDuser2.getMenuRED().buscarProducto(postre);
             String hora = SpinnerHora.getValue().toString();
             int horai = Integer.parseInt(hora);
             String minuto = SpinnerMinuto.getValue().toString();
@@ -384,13 +384,13 @@ public final class userFrame2 extends javax.swing.JFrame {
             if(minutoi<10){
                 minuto = "0"+minuto;
             }
-            registrouser2.meterOrden3(cuenta2, pedido,pedido2,pedido3,hora,minuto); //Se le agrega el usuario de la cuenta actual y la comida
+            DBREDuser2.nuevaOrden3(cuenta2, pedido,pedido2,pedido3,hora,minuto); //Se le agrega el usuario de la cuenta actual y la comida
                                                    //y bebida que se escogio a una nueva orden que es creada y agregada
                                                    //a la lista de oredenes del registro. 
             JOptionPane.showMessageDialog(null, "Usted a ordenado: "+comida+", "+postre+" y "+bebida);
         }else if(chbcomidas.isSelected() && chbbebidas.isSelected()  /**/&& chbpostres.isSelected()==false){
-            Producto pedido = menuuser2.buscarProducto(comida);
-            Producto pedido2 = menuuser2.buscarProducto(bebida);
+            Producto pedido = DBREDuser2.getMenuRED().buscarProducto(comida);
+            Producto pedido2 = DBREDuser2.getMenuRED().buscarProducto(bebida);
             String hora = SpinnerHora.getValue().toString();
             int horai = Integer.parseInt(hora);
             String minuto = SpinnerMinuto.getValue().toString();
@@ -401,11 +401,11 @@ public final class userFrame2 extends javax.swing.JFrame {
             if(minutoi<10){
                 minuto = "0"+minuto;
             }
-            registrouser2.meterOrden2(cuenta2, pedido,pedido2,hora,minuto); 
+            DBREDuser2.nuevaOrden2(cuenta2, pedido,pedido2,hora,minuto); 
             JOptionPane.showMessageDialog(null, "Usted a ordenado: "+comida+" y "+bebida);    
         }else if(chbbebidas.isSelected() && chbpostres.isSelected()  /**/&& chbcomidas.isSelected()==false){
-            Producto pedido = menuuser2.buscarProducto(postre);
-            Producto pedido2 = menuuser2.buscarProducto(bebida);
+            Producto pedido = DBREDuser2.getMenuRED().buscarProducto(postre);
+            Producto pedido2 = DBREDuser2.getMenuRED().buscarProducto(bebida);
             String hora = SpinnerHora.getValue().toString();
             int horai = Integer.parseInt(hora);
             String minuto = SpinnerMinuto.getValue().toString();
@@ -416,11 +416,11 @@ public final class userFrame2 extends javax.swing.JFrame {
             if(minutoi<10){
                 minuto = "0"+minuto;
             }
-            registrouser2.meterOrden2(cuenta2, pedido,pedido2,hora,minuto);  
+            DBREDuser2.nuevaOrden2(cuenta2, pedido,pedido2,hora,minuto);  
             JOptionPane.showMessageDialog(null, "Usted a ordenado: "+postre+" y "+bebida);
         }else if(chbcomidas.isSelected() && chbpostres.isSelected()  /**/&& chbbebidas.isSelected()==false){
-            Producto pedido = menuuser2.buscarProducto(comida);
-            Producto pedido2 = menuuser2.buscarProducto(postre);
+            Producto pedido = DBREDuser2.getMenuRED().buscarProducto(comida);
+            Producto pedido2 = DBREDuser2.getMenuRED().buscarProducto(postre);
             String hora = SpinnerHora.getValue().toString();
             int horai = Integer.parseInt(hora);
             String minuto = SpinnerMinuto.getValue().toString();
@@ -431,10 +431,10 @@ public final class userFrame2 extends javax.swing.JFrame {
             if(minutoi<10){
                 minuto = "0"+minuto;
             }
-            registrouser2.meterOrden2(cuenta2, pedido,pedido2,hora,minuto);  
+            DBREDuser2.nuevaOrden2(cuenta2, pedido,pedido2,hora,minuto);  
             JOptionPane.showMessageDialog(null, "Usted a ordenado: "+comida+" y "+postre);
         }else if(chbcomidas.isSelected() /**/&& chbpostres.isSelected()==false && chbbebidas.isSelected()==false){
-            Producto pedido = menuuser2.buscarProducto(comida);
+            Producto pedido = DBREDuser2.getMenuRED().buscarProducto(comida);
             String hora = SpinnerHora.getValue().toString();
             int horai = Integer.parseInt(hora);
             String minuto = SpinnerMinuto.getValue().toString();
@@ -445,10 +445,10 @@ public final class userFrame2 extends javax.swing.JFrame {
             if(minutoi<10){
                 minuto = "0"+minuto;
             }
-            registrouser2.meterOrden(cuenta2, pedido,hora,minuto);  
+            DBREDuser2.nuevaOrden(cuenta2, pedido,hora,minuto);  
             JOptionPane.showMessageDialog(null, "Usted a ordenado: "+comida);
         }else if(chbpostres.isSelected() /**/&& chbcomidas.isSelected()==false && chbbebidas.isSelected()==false){
-            Producto pedido = menuuser2.buscarProducto(postre);
+            Producto pedido = DBREDuser2.getMenuRED().buscarProducto(postre);
             String hora = SpinnerHora.getValue().toString();
             int horai = Integer.parseInt(hora);
             String minuto = SpinnerMinuto.getValue().toString();
@@ -459,10 +459,10 @@ public final class userFrame2 extends javax.swing.JFrame {
             if(minutoi<10){
                 minuto = "0"+minuto;
             }
-            registrouser2.meterOrden(cuenta2, pedido,hora,minuto);  
+            DBREDuser2.nuevaOrden(cuenta2, pedido,hora,minuto);  
             JOptionPane.showMessageDialog(null, "Usted a ordenado: "+postre);
         }else if(chbbebidas.isSelected() /**/&& chbpostres.isSelected()==false && chbcomidas.isSelected()==false){
-            Producto pedido = menuuser2.buscarProducto(bebida);
+            Producto pedido = DBREDuser2.getMenuRED().buscarProducto(bebida);
             String hora = SpinnerHora.getValue().toString();
             int horai = Integer.parseInt(hora);
             String minuto = SpinnerMinuto.getValue().toString();
@@ -473,7 +473,7 @@ public final class userFrame2 extends javax.swing.JFrame {
             if(minutoi<10){
                 minuto = "0"+minuto;
             }
-            registrouser2.meterOrden(cuenta2, pedido,hora,minuto);  
+            DBREDuser2.nuevaOrden(cuenta2, pedido,hora,minuto);  
             JOptionPane.showMessageDialog(null, "Usted a ordenado: "+bebida);
         }else{
             JOptionPane.showMessageDialog(null, "Elija al menos una opcion con los checkBoxes.");
@@ -486,8 +486,8 @@ public final class userFrame2 extends javax.swing.JFrame {
         ordenesFrame.jTextArea1.append("Sus ordenes son: ");
         int i = -1;
         Ordenes orden = new Ordenes();
-        for(int e = 0; e<registrouser2.getOrdenes().size();e++){
-            orden = registrouser2.getOrdenes().get(e);
+        for(int e = 0; e<DBREDuser2.getRegistroRED().getOrdenes().size();e++){
+            orden = DBREDuser2.getRegistroRED().getOrdenes().get(e);
             if(orden.getUsuario().getContrasena().equals(cuenta2.getContrasena())){
                 i = i+1;
                 //String alimento = orden.getProducto().getNombreProducto();double precio = orden.getProducto().getPrecio();                
@@ -512,8 +512,8 @@ public final class userFrame2 extends javax.swing.JFrame {
         userFrame user = new userFrame();
         user.setVisible(true);
         this.setVisible(false);
-        userFrame.registrouser = registrouser2;
-        userFrame.menuuser = menuuser2;
+        userFrame.DBREDuser = DBREDuser2;
+        userFrame.DBREDuser = DBREDuser2;
         userFrame.cuenta = cuenta2;
     }//GEN-LAST:event_botonregresoActionPerformed
 

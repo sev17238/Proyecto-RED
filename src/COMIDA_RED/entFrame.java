@@ -8,8 +8,9 @@ import javax.swing.JOptionPane;
  * @author SDiego
  */
 public final class entFrame extends javax.swing.JFrame {
-    public static Registro registroent; //La variable se declara "publica" y "de clase" para poder ser compartida
-    public static Menus menuent;        //entre los diferentes JFrames creados.
+    //public static Registro registroent; //La variable se declara "publica" y "de clase" para poder ser compartida
+    //public static Menus menuent;        //entre los diferentes JFrames creados.
+    public static BaseDatosRED DBRED;
     /**
      * Creates new form entFrame
      */
@@ -17,29 +18,30 @@ public final class entFrame extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null); //El frame de entrada se localiza justamente en el centro de la pantalla. 
         
-        registroent = new Registro();
-        menuent = new Menus();
-        
+        //registroent = new Registro();
+        //menuent = new Menus();
+        DBRED = new BaseDatosRED();
                 
-        menusIniciales();
-        
+        //menusIniciales();
+        DBRED.recuperarProductos();
+        DBRED.recuperarUsersOrdenes();
     }
     /**
      * Metodo que inicializa cuatro comidas en el menu del restaurante.
      */
     public void menusIniciales(){
-        menuent.agregarProductos("Comida","Porcion mediana de pizza", 12.00);
-        menuent.agregarProductos("Comida","Quesoburguesa", 11.00);
-        menuent.agregarProductos("Comida","Hut Dog", 8.00);
-        menuent.agregarProductos("Comida","Papas con queso y tocino", 15.00);
+        DBRED.getMenuRED().agregarProducto("Comida","Porcion mediana de pizza", 12.00);
+        DBRED.getMenuRED().agregarProducto("Comida","Quesoburguesa", 11.00);
+        DBRED.getMenuRED().agregarProducto("Comida","Hut Dog", 8.00);
+        DBRED.getMenuRED().agregarProducto("Comida","Papas con queso y tocino", 15.00);
         
-        menuent.agregarProductos("Bebida","Seven Up", 6.00);
-        menuent.agregarProductos("Bebida","Rosa de jamaica", 9.00);
-        menuent.agregarProductos("Bebida","Horchata con canela", 8.00);
-        menuent.agregarProductos("Bebida","Coca Cola", 7.00);  
+        DBRED.getMenuRED().agregarProducto("Bebida","Seven Up", 6.00);
+        DBRED.getMenuRED().agregarProducto("Bebida","Rosa de jamaica", 9.00);
+        DBRED.getMenuRED().agregarProducto("Bebida","Horchata con canela", 8.00);
+        DBRED.getMenuRED().agregarProducto("Bebida","Coca Cola", 7.00);  
         
-        menuent.agregarProductos("Postre","Dona de chocolate", 5.00);  
-        menuent.agregarProductos("Postre","Pie de queso", 7.50);  
+        DBRED.getMenuRED().agregarProducto("Postre","Dona de chocolate", 5.00);  
+        DBRED.getMenuRED().agregarProducto("Postre","Pie de queso", 7.50);  
         
     }
    
@@ -173,16 +175,13 @@ public final class entFrame extends javax.swing.JFrame {
                 userFrame user = new userFrame(); //Se crea un objeto tipo userFrame "frame del usuario" 
                 user.setVisible(true);            //y se vuelve visible.
                 this.setVisible(false);           //Se oculta el frame en el que estamos actualmente.
-                userFrame.registrouser = registroent; //Los objetos tipo Registro y Menus del frame del usuario se igualan 
-                userFrame.menuuser = menuent;         //a los objetos respectivos de este Frame para que no se pierdan 
-             //los datos al momento de pasar al otro frame. 
+                userFrame.DBREDuser = DBRED;
                 
             }else if(rbotonadmin.isSelected()){
                 adminFrame admin = new adminFrame();
                 admin.setVisible(true);
                 this.setVisible(false);               
-                adminFrame.registroadmin = registroent;
-                adminFrame.menuadmin = menuent;
+                adminFrame.DBREDadmin = DBRED;
                
             }
         }else{
@@ -192,6 +191,7 @@ public final class entFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        DBRED.cerrarDB();
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
